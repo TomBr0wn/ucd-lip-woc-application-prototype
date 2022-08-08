@@ -45,9 +45,14 @@ router.post("/had-help-with-fees", function (req, res) {
 	if (feeHelp == "no") {
 		// Send user to next page
 		res.redirect("has-defendant-paid-any");
+		
+	} if (feeHelp == "yes") {
+		// Send user to next page
+		res.redirect("help-with-fees-yes");
+		
 	} else {
 		// Send user to trade page
-		res.redirect("help-wth-fees");
+		res.redirect("#");
 	}
 });
 

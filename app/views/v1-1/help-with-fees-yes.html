@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "help-with-fees"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="<div class="govuk-grid-column-full">
+    
+    {{ govukPanel({
+      titleText: "How to apply for help with fees (EX160A)",
+      html: "Placeholder for https://www.gov.uk/government/publications/apply-for-help-with-court-and-tribunal-fees/how-to-apply-for-help-with-fees-ex160a",
+      classes: "color: govuk-colour('blue')"
+    }) }}
+  </div>
+</div>
+
+{% endblock %}
