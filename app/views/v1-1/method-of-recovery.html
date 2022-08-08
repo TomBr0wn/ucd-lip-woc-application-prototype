@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="recovery-method" method="post" class="form">
+      {{ govukRadios({
+
+        idPrefix: "recovery-method",
+        name: "recovery-method",
+        fieldset: {
+          legend: {
+            text: "How do you want to try to recover your money?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        items: [
+          {
+            value: "warrant of control",
+            text: "A warrant of control"
+          },
+          {
+            value: "writ of control",
+            text: "A writ of control"
+          },
+          {
+            value: "attachment earnings order",
+            text: "An attachment of earnings order"
+          },
+          {
+            value: "third party debt",
+            text: "A third-party debt order"
+          },
+          {
+            value: "charging order",
+            text: "A charging order"
+          }     
+        ]
+      }) }}
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

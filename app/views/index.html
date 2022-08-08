@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-top-6">
+      Apply for WoC Prototype
+    </h1>
+
+    <div class="moj-timeline">
+
+
+      <!-- Version 1.1 -->
+      <div class="moj-timeline__item">
+
+        <div class="moj-timeline__header">
+          <h2 class="moj-timeline__title">Version 1.1: </h2>
+
+          <p class="moj-timeline__byline">Sprint 1</p>
+
+        </div>
+
+        <p class="moj-timeline__date">
+          <time datetime="2019-06-14T14:01:00.000Z">3rd August - 17th August 2022</time>
+        </p>
+
+        <div class="moj-timeline__description">
+          <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+            <li>
+              Prototype illustrating application for WoC without help for Fees
+            </li>
+          </ul>
+          <a class="govuk-button govuk-button--primary" href="/v1-1/method-of-recovery">Launch Prototype</a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+{% endblock %}
