@@ -17,80 +17,52 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-xl">Has the defendant paid some of the amount owed?</h1>
+        <p class="govuk-body">The balance outstanding on the judgment is £XXXX. The defendant was ordered to pay instalments of £XXX every week.</p>
+        
     <form action="paid-any" method="post" class="form">
-      {% set emailHtml %}
-{{ govukInput({
-  id: "contact-by-email",
-  name: "contact-by-email",
-  type: "email",
-  autocomplete: "email",
-  spellcheck: false,
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Email address"
-  }
-}) }}
-{% endset -%}
 
-{% set phoneHtml %}
-{{ govukInput({
-  id: "contact-by-phone",
-  name: "contact-by-phone",
-  type: "tel",
-  autocomplete: "tel",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Phone number"
-  }
-}) }}
-{% endset -%}
+      {% set amountHtml %}
+      {{ govukInput({
+        id: "amount-paid-already",
+        name: "amount-paid-already",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Amount paid already"
+        }
+      }) }}
+      {% endset -%}
 
-{% set amountHtml %}
-{{ govukInput({
-  id: "amount-paid-already",
-  name: "amount-paid-already",
-  classes: "govuk-!-width-one-third",
-  label: {
-    text: "Amount paid already"
-  }
-}) }}
-{% endset -%}
+      {{ govukRadios({
+        idPrefix: "has paid",
+        name: "has paid",
 
-{{ govukRadios({
-  idPrefix: "has paid",
-  name: "has paid",
-  fieldset: {
-    legend: {
-      text: "Has the defendant paid some of the amount owed?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  hint: {
-    text: "Select one option."
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes",
-      conditional: {
-        html: amountHtml
-      }
-    },
-    {
-      value: "no",
-      text: "No"
-    }
-  ]
-}) }}
+        hint: {
+          text: "Select one option."
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: amountHtml
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
 
-      
+
       {{ govukButton({
         text: "Continue"
       }) }}
     </form>
-    
-    
+
+
   </div>
 </div>
 

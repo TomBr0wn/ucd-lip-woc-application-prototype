@@ -67,7 +67,7 @@ router.post("/paid-any", function (req, res) {
 		res.redirect("defendant-paid-no");
 	} else {
 		// Send user to trade page
-		res.redirect("has-defendant-paid-any");
+		res.redirect("how-much-do-you-want-to-recover");
 	}
 });
 
