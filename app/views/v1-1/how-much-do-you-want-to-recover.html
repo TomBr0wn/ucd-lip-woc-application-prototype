@@ -16,20 +16,20 @@
 }) }}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">How much do you want to try to recover?</h1>
-        <p class="govuk-body">The balance outstanding on the judgment is £XXXX. The defendant was ordered to pay instalments of £XXX every week.</p>
-        <ul class="govuk-list govuk-list--bullet">
-            <li>The minimum amount you can try to recover is £XXX (4 weekly instalments).</li>
-            <li>The maximum you can try to recover is £XXXX, plus any costs awarded to you or fees you've previously paid to recover your money.</li>
-        </ul>
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">How much do you want to try to recover?</h1>
+    <p class="govuk-body">The balance outstanding on the judgment is £XXXX. The defendant was ordered to pay instalments of £XXX every week.</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>The minimum amount you can try to recover is £XXX (4 weekly instalments).</li>
+      <li>The maximum you can try to recover is £XXXX, plus any costs awarded to you or fees you've previously paid to recover your money.</li>
+    </ul>
 
-        <details>
-            <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span></span>View amount breakdown</summary>
+    <details>
+      <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span></span>View amount breakdown</summary>
 
 
 
-            {{ govukTable({
+      {{ govukTable({
                     firstCellIsHeader: false,
                     classes: "govuk-!-margin-top-6",
                     head: [
@@ -77,11 +77,11 @@
                   }) }}
 
 
-        </details>
+    </details>
 
 
-        <form action="paid-any" method="post" class="form">
-            {{ govukTable({
+    <form action="#" method="post" class="form">
+      {{ govukTable({
                 firstCellIsHeader: false,
                 classes: "govuk-!-margin-top-6",
                 head: [
@@ -151,11 +151,23 @@
                 ]
               }) }}
 
-            {{ govukButton({ text: "Save and continue" }) }}
-        </form>
 
+    </form>
+    <div class="govuk-button-group">
+      {{ govukButton({
+            text: "Save and continue (goes to additioanl costs screen)",
+            href: "are-you-claiming-additional-costs"
+          }) }}
 
+      {{ govukButton({
+            text: "Save and continue (goes to correct address screen)",
+            href: "correct-address-of-defendant",
+            classes: "govuk-button--secondary"
+          }) }}
     </div>
+
+
+  </div>
 </div>
 
 {% endblock %}
