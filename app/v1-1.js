@@ -18,9 +18,9 @@ router.post("/recovery-method", function (req, res) {
 		// Send user to next page
 		res.redirect("charging-order");
 	}
-	if (recoveryMethod == "writ of control") {
+	if (recoveryMethod == "warrant or writ") {
 		// Send user to next page
-		res.redirect("writ-of-control");
+		res.redirect("choose-warrant-or-writ-of-control");
 	}
 	if (recoveryMethod == "attachment earnings order") {
 		// Send user to next page
