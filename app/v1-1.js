@@ -87,5 +87,21 @@ router.post("/check-address", function (req, res) {
 	}
 });
 
+// Run this code when a form is submitted to 'check-phone-number
+router.post("/check-phone-number", function (req, res) {
+	// Make a variable and give it the value from 'check-phone-number
+	var knowPhoneNum = req.session.data["defendant-phone"];
+	console.log(knowPhoneNum);
+	// Check whether feeHelp
+	if (knowPhoneNum == "no") {
+		// Send user to next page
+		res.redirect("defendant-phone-number-unknown");
+	} 
+	if (knowPhoneNum == "yes") {
+		// Send user to next page
+		res.redirect("defendant-phone-number-confirmed");
+	}
+});
+
 
 module.exports = router;
