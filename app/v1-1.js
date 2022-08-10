@@ -83,7 +83,7 @@ router.post("/check-address", function (req, res) {
 	} 
 	if (knowAddress == "yes") {
 		// Send user to next page
-		res.redirect("defendant-address-known");
+		res.redirect("defendant-address-confirmed");
 	}
 });
 

@@ -12,7 +12,7 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "how-much-do-you-want-to-recover"
+  href: "#"
 }) }}
 
 
@@ -20,14 +20,17 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Is this the correct address of [defendant name]?</h1>
-        <p class="govuk-body">The amount you are trying to recover is more than the judgement. Please provide additional information</p>
-        <p class="govuk-body">24 Acacia Drive <br>London<br>LXX XXX</p>
+        <h1 class="govuk-heading-xl">Is this right phone number to contact the defendant?</h1>
+        {{ govukInsetText({
+          html: "<p class='govuk-body-l govuk-!-text-align-left govuk-!-font-size-27 govuk-!-font-weight-bold'>0121 425 7365</p>"
+        }) }}
+        <p class="govuk-body">The court will try to phone [defendant name] to ask for payment</p>
+        
 
-        <form action="check-address" method="post" class="form">
+        <form action="check-phone-number" method="post" class="form">
           {{ govukRadios({
-            idPrefix: "defendant-address",
-            name: "defendant-address",
+            idPrefix: "defendant-phone",
+            name: "defendant-phone",
             
             items: [
               {
@@ -36,7 +39,7 @@
               },
               {
                 value: "no",
-                text: "No, use a different address"
+                text: "No, use a different phone number"
               }
             ]
           }) }}
@@ -45,6 +48,7 @@
           {{ govukButton({
             text: "Continue"
           }) }}
+          
         </form>
       </div>
     </div>
