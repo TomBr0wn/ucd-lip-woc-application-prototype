@@ -26,33 +26,34 @@
         
     <form action="paid-any" method="post" class="form">
 
-      {% set amountHtml %}
+      {% set addressHtml %}
       {{ govukInput({
-        id: "correct-defendant-name",
-        name: "correct-defendant-name",
+        id: "correct-defendant-address",
+        address: "correct-defendant-name",
         classes: "govuk-!-width-one-third",
         label: {
-          text: "Amount paid already"
-        }
+          text: "Correct address"
+        },
+        html: "<button class='govuk-button govuk-button--secondary' data-module='govuk-button'>Find address</button></div>"
       }) }}
       {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "has paid",
-        name: "has paid",
+        idPrefix: "is defendant address",
+        name: "is defendant address",
 
         
         items: [
           {
             value: "yes",
-            text: "Yes",
-            conditional: {
-              html: amountHtml
-            }
+            text: "Yes"
           },
           {
             value: "no",
-            text: "No"
+            text: "No, use a different address",
+            conditional: {
+              html: addressHtml
+            }
           }
         ]
       }) }}
