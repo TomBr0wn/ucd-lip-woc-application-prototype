@@ -71,5 +71,21 @@ router.post("/paid-any", function (req, res) {
 	}
 });
 
+// Run this code when a form is submitted to 'check-address
+router.post("/check-address", function (req, res) {
+	// Make a variable and give it the value from 'check-address
+	var knowAddress = req.session.data["defendant-address"];
+	console.log(knowAddress);
+	// Check whether feeHelp
+	if (knowAddress == "no") {
+		// Send user to next page
+		res.redirect("defendant-address-unknown");
+	} 
+	if (knowAddress == "yes") {
+		// Send user to next page
+		res.redirect("defendant-address-known");
+	}
+});
+
 
 module.exports = router;

@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
-    <h1 class="govuk-heading-xl">Has the defendant paid some of the amount owed?</h1>
+    <h1 class="govuk-heading-xl">Has [defendant name] already paid you any of the money they owe?</h1>
         <p class="govuk-body">The balance outstanding on the judgment is £XXXX. The defendant was ordered to pay instalments of £XXX every week.</p>
         
     <form action="paid-any" method="post" class="form">
@@ -29,7 +29,7 @@
         name: "amount-paid-already",
         classes: "govuk-!-width-one-third",
         label: {
-          text: "Amount paid already"
+          text: "Amount already paid"
         }
       }) }}
       {% endset -%}
@@ -37,10 +37,7 @@
       {{ govukRadios({
         idPrefix: "has paid",
         name: "has paid",
-
-        hint: {
-          text: "Select one option."
-        },
+        
         items: [
           {
             value: "yes",
@@ -58,9 +55,11 @@
 
 
       {{ govukButton({
-        text: "Continue"
+        text: "Save and continue"
       }) }}
     </form>
+    
+    {% include "includes/contact-for-help.html" %}
 
 
   </div>
