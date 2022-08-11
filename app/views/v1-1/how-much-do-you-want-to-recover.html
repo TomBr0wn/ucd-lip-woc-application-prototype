@@ -18,61 +18,57 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">How much do you want to try to recover?</h1>
-    <p class="govuk-body">The balance outstanding on the judgment is £XXXX. The defendant was ordered to pay instalments of £XXX every week.</p>
+    <p class="govuk-body">The outstanding balance on the judgment is [judgment amount minus money already paid].</p>
+
+    <p class="govuk-body">The maximum you can try to recover is:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>The minimum amount you can try to recover is £XXX (4 weekly instalments).</li>
-      <li>The maximum you can try to recover is £XXXX, plus any costs awarded to you or fees you've previously paid to recover your money.</li>
+      <li>the full outstanding balance on the judgment</li>
+      <li>any costs you’ve previously paid to try to recover your money</li>
     </ul>
 
     <details>
       <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span></span>View amount breakdown</summary>
 
       {{ govukTable({
-                    firstCellIsHeader: false,
-                    classes: "govuk-!-margin-top-6",
-                    head: [
-                      {
-                        text: "Amount breakdown"
-                      },
-                      {
-                        text: "Amount"
-                      }
-                    ],
-                    rows: [
-                      [
-                        {
-                          text: "Breakdown 1"
-                        },
-                        {
-                          text: "£000"
-                        }
-                      ],
-                      [
-                        {
-                          text: "Breakdown 2"
-                        },
-                        {
-                          text: "£000"
-                        }
-                      ],
-                      [
-                        {
-                          text: "Breakdown 3"
-                        },
-                        {
-                          text: "£000"
-                        }
-                      ],
-                      [
-                        {
-                          text: "Breakdown 4"
-                        },
-                        {
-                          text: "£000"
-                        }
-                      ]
-                    ]
-                  }) }}
+        firstCellIsHeader: false,
+        classes: "govuk-!-margin-top-6",
+        head: [
+          {
+            text: "Amount breakdown"
+          },
+          {
+            text: "Amount"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Judgment amount"
+            },
+            {
+              text: "£000"
+            }
+          ],
+          [
+            {
+              text: "Amount already paid"
+            },
+            {
+              text: "£000"
+            }
+          ],
+          [
+            {
+              text: "Outstanding balance",
+              classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+            },
+            {
+              text: "£000",
+              classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+            }
+          ]
+        ]
+      }) }}
 
 
     </details>
@@ -81,10 +77,12 @@
     <form action="#" method="post" class="form">
       {{ govukTable({
                 firstCellIsHeader: false,
+                caption: "Total amount to try to recover",
+                captionClasses: "govuk-table__caption--m",
                 classes: "govuk-!-margin-top-6",
                 head: [
                   {
-                    text: " "
+                    text: "Type of cost"
                   },
                   {
                     text: "Amount"
@@ -93,7 +91,7 @@
                 rows: [
                   [
                     {
-                      text: "Amount to try and recover"
+                      text: "Amount to try to recover"
                     },
                     {
                       html: "<div class='govuk-form-group'>
@@ -106,44 +104,20 @@
                   ],
                   [
                     {
-                      text: "Land registery cost"
+                      text: "Warrant of control fee"
                     },
                     {
-                      text: "£000"
-                    }
-                  ],
-                  [
-                    {
-                      text: "Warrant issue fee"
-                    },
-                    {
-                      text: "£000"
-                    }
-                  ],
-                  [
-                    {
-                      text: "HwF number"
-                    },
-                    {
-                      text: "£000"
-                    }
-                  ],
-                  [
-                    {
-                      text: "Signpost to HwF"
-                    },
-                    {
-                      text: "£000"
+                      text: "£83"
                     }
                   ],
                   [
                     {
                       text: "Total",
-                      classes: "govuk-!-font-weight-bold govuk-!-font-size-27"
+                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                     },
                     {
-                      text: "£000",
-                      classes: "govuk-!-font-weight-bold govuk-!-font-size-27"
+                      text: "£[amount to recover plus fee]",
+                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                     }
                   ]
                 ]
