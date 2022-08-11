@@ -18,50 +18,24 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
-    <h1 class="govuk-heading-xl">Are you claiming additional costs?</h1>
-        <p class="govuk-body">The amount you are trying to recover is more than the judgement. Please provide additional information</p>
+    <h1 class="govuk-heading-xl">What additional costs have you paid? </h1>
+        <p class="govuk-body">The court needs to know any additional costs you’ve paid to process the claim.</p>
+        <p class="govuk-body">Include what the cost was for and the amount you paid.</p>
         
     <form action="paid-any" method="post" class="form">
 
-      {% set amountHtml %}
-      {{ govukInput({
-        id: "claiming-additional-costs",
-        name: "claiming-additional-costs",
-        classes: "govuk-!-width-one-third",
-        label: {
-          text: "Amount paid already"
-        }
-      }) }}
-      {% endset -%}
-
-      {{ govukRadios({
-        idPrefix: "has paid",
-        name: "has paid",
-
-        hint: {
-          text: "Select one option."
-        },
-        items: [
-          {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: amountHtml
-            }
-          },
-          {
-            value: "no",
-            text: "No"
-          }
-        ]
+      {{ govukTextarea({
+        name: "any-costs",
+        id: "any-costs"
       }) }}
 
 
       {{ govukButton({
-        text: "Continue"
+        text: "Save and continue"
       }) }}
     </form>
-
+    
+    {% include "includes/contact-for-help.html" %}
 
   </div>
 </div>
