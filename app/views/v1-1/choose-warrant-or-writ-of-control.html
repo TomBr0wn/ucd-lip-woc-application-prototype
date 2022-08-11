@@ -26,14 +26,14 @@
     </ul>
     
     {{ govukDetails({
-      summaryText: "What’s the difference?",
-      html: "<p class='govuk-body'>A high court bailiff works for a private company and <a href='#' class='govuk-link'>charges extra fees (opens in a new window)</a> These fees are added to the money owed to you, but you must pay the fees if they cannot get your money back.</p>"    
+      summaryText: "Types of bailiff",
+      html: "<p class='govuk-body'>A county court bailiff works for the courts and charges no extra fees.<br>A high court bailiff works for a private company and <a href='#' class='govuk-link'>charges extra fees (opens in a new window)</a> These fees are added to the money owed to you, but you must pay the fees if they cannot get your money back.</p>"    
     }) }}
     
     <p class="govuk-body">You can apply for a:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>warrant of control – if the debt is less than £5,000, including the £83 court fee</li>
-      <li>writ of control – if the debt is £600 or more, including the £71 court fee</li>
+      <li>warrant of control – if the debt is less than £5,000, including the court fee</li>
+      <li>writ of control – if the debt is £600 or more, including the court fee</li>
     </ul>
     
     <form action="help-with-fees" method="post" class="form">
@@ -45,12 +45,12 @@
         items: [
           {
             value: "warrant of control",
-            text: "I want to apply for a warrant of control "
+            text: "I want to apply for a warrant of control for £83"
           },
           
           {
             value: "writ of control",
-            text: "I want to apply for a writ of control"
+            text: "I want to apply for a writ of control for £71"
           }
         ]
       }) }}
