@@ -5,10 +5,11 @@
     </h1>
     {{ govukInput({
       label: {
-        text: "Card details",
-        classes: "govuk-label--s",
+        text: "Card number",
+        classes: "govuk-!-width-one-half",
         isPageHeading: false
       },
+      classes: "govuk-input--width-20",
       id: "card-number",
       name: "card-number"
     }) }}
@@ -36,6 +37,7 @@
         classes: "govuk-label--s",
         isPageHeading: false
       },
+      classes: "govuk-input--width-20",
       id: "card-name",
       name: "card-name"
     }) }}
@@ -46,6 +48,7 @@
         classes: "govuk-label--s",
         isPageHeading: false
       },
+      classes: "govuk-input--width-10",
       hint: {
         text: "This is the 3 digit code at the back of your card"
       },
@@ -64,6 +67,7 @@
         classes: "govuk-label--s",
         isPageHeading: false
       },
+      classes: "govuk-input--width-20",
       id: "country-territory",
       name: "country-territory"
     }) }}
@@ -74,6 +78,7 @@
         classes: "govuk-label--s",
         isPageHeading: false
       },
+      classes: "govuk-input--width-20",
       id: "building-number",
       name: "building-number"
     }) }}
@@ -84,6 +89,7 @@
         classes: "govuk-label--s",
         isPageHeading: false
       },
+      classes: "govuk-input--width-10",
       id: "town-city",
       name: "town-city"
     }) }}
@@ -94,6 +100,7 @@
         classes: "govuk-label--s",
         isPageHeading: false
       },
+      classes: "govuk-input--width-5",
       id: "payment-postcode",
       name: "payment-postcode"
     }) }}
@@ -109,6 +116,7 @@
         classes: "govuk-label--s",
         isPageHeading: false
       },
+      classes: "govuk-input--width-20",
       id: "payment-email",
       name: "payment-email"
     }) }}
@@ -133,10 +141,9 @@
     
     <div class="govuk-!-margin-bottom-6">
       <div class="card-child">
-        <p class="card-child-smallest-text">Number of pests: 5</p>
-        <p class="card-child-smallest-text">Unmitigated score: 85</p>
-        <p class="card-child-smallest-text">Mitigated score: 69</p>
-        <p class="card-child-smallest-text">Format Risk: Very low</p>
+        <p class="card-child-smallest-text">Payment summary</p>
+        <p class="card-child-smallest-text">Amount to pay:</p>
+        <p class="card-child-smallest-text">£77.00</p>
       </div>
     </div>
     
