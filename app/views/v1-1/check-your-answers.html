@@ -118,27 +118,11 @@ Check your answers before sending your application – GOV.UK Prototype Kit
 
 
 
-    <h2 class="govuk-heading-m">Declaration</h2>
-    <div class="govuk-form-group">
-      {{ govukCheckboxes({
-      idPrefix: "checked-and-submit",
-      name: "checked-and-submit",
-         
-      items: [
-        {
-          value: "details-correct",
-          text: "I declare that whole or part of any
-          instalments due under the judgment have not been paid and the outstanding balance is correct."
-        }
-      ]
-      }) }}
-
-
-    </div>
+   
     
     {{ govukButton({
-      text: "Save and continue to payment",
-      href: "payment"
+      text: "Save and continue",
+      href: "statement-of-truth"
     }) }}
     
   </div>
