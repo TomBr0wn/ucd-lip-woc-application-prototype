@@ -19,12 +19,12 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">How do you want to recover your money?</h1>
     <p class="govuk-body">Select the option that is most likely to get your money, based on what you know about [defendant’s name]’s financial situation.</p>
-    
+
     {{ govukDetails({
       summaryText: "Apply to find out their financial situation",
       html: "<p class='govuk-body'>Ask the court to order [defendant name] to give evidence of their finances at a court hearing, for example bills and statements. The court fee is £110.</p> <p class='govuk-body'><a href='#' class='govuk-link'>Apply for an order for a debtor to attend court (opens in a new window)</a>.</p>"    
     }) }}
-    
+
     <form action="recovery-method" method="post" class="form">
       {{ govukRadios({
 
@@ -63,7 +63,7 @@
           }
         ]
       }) }}
-      
+
 
       {{ govukButton({
         text: "Save and continue"
@@ -71,7 +71,36 @@
     </form>
 
     {% include "includes/contact-for-help.html" %}
-    
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Subsection
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Related link
+            </a>
+          </li>
+          <li>
+            <a href="#" class="govuk-!-font-weight-bold">
+              More <span class="govuk-visually-hidden">in Subsection</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
   </div>
 </div>
 

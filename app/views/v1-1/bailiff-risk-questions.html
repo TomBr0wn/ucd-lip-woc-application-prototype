@@ -1,0 +1,237 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "defendant-phone-number"
+}) }}
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Bailiff risk Assessment</h1>
+        
+
+        
+        <form action="check-your-answers" method="post" class="form">
+          <div class="govuk-form-group">
+            <h2 class="govuk-heading-m">Has the defendant/respondent ever been violent?</h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q1",
+              name: "bailiff-q1",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+            <h2 class="govuk-heading-m">Has the defendant/respondent ever made verbal or written threats either generally or specifically in 
+              relation to this application?
+              </h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q2",
+              name: "bailiff-q2",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+            <h2 class="govuk-heading-m">Has the defendant/respondent ever been verbally abusive to your staff or representatives?
+              </h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q3",
+              name: "bailiff-q3",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+            <h2 class="govuk-heading-m">Has there been any police involvement with the defendant/respondent or other occupiers of the property?
+              </h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q4",
+              name: "bailiff-q4",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+            <h2 class="govuk-heading-m">Has there been any police involvement with the defendant/respondent or other occupiers of the property?
+              </h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q5",
+              name: "bailiff-q5",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+            <h2 class="govuk-heading-m">Are any dogs or other potentially dangerous animals kept at the property?
+              </h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q6",
+              name: "bailiff-q6",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+            <h2 class="govuk-heading-m">Is the property currently occupied?
+              </h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q7",
+              name: "bailiff-q7",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+            <h2 class="govuk-heading-m">Is the defendant/respondent known to have any mental health issues or known to use/abuse drugs or 
+              alcohol in any way that may affect their behaviour?
+              
+              </h2>
+            {{ govukRadios({
+              idPrefix: "bailiff-q8",
+              name: "bailiff-q8",
+              
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No"
+                },
+                {
+                  value: "not known",
+                  text: "Not known"
+                }
+              ]
+            }) }}
+            
+           
+    
+            <p class="govuk-body">If you have any other information which may help the bailiff or if you have reason to believe that the bailiff may encounter 
+              any difficulties you should write it below.</p>
+              
+              {{ govukTextarea({
+                name: "bailiff-info",
+                id: "bailiff-info",
+                label: {
+                  text: "Enter additional info"
+                }
+              }) }}
+            
+            <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Save and continue"
+              }) }}
+            
+              {{ govukButton({
+                text: "Advise content please",
+                classes: "govuk-button--secondary"
+              }) }}
+            </div>
+        </form>
+        
+        <!-- <p class="govuk-body"><a href="defendant-address-enter-manually" class="govuk-link">Enter address manually</a></p> -->
+      </div>
+    </div>
+
+
+
+{% endblock %}
