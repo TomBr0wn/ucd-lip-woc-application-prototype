@@ -131,16 +131,14 @@
 
   <div class="govuk-grid-column-one-third">
     
-    {% from "x-govuk/components/summary-card/macro.njk" import xGovukSummaryCard %}
+    <div class="govuk-!-margin-bottom-6">
+      <div class="card-child">
+        <p class="card-child-smallest-text">Number of pests: 5</p>
+        <p class="card-child-smallest-text">Unmitigated score: 85</p>
+        <p class="card-child-smallest-text">Mitigated score: 69</p>
+        <p class="card-child-smallest-text">Format Risk: Very low</p>
+      </div>
+    </div>
     
-    {{ xGovukSummaryCard({
-      classes: "govuk-!-margin-bottom-9",
-      titleText: "Payment summary",
-      rows: [{
-        key: {
-          text: "Address"
-        }
-      }]
-    }) }}
   </div>
 </div>

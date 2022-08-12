@@ -25,3 +25,12 @@ $govuk-assets-path: '/govuk/assets/';
 .card-img{
   width: 33.3333%;
 }
+
+.card-child {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: govuk-colour("light-grey");
+  color: #0b0c0c;
+  height: 100%;
+}
