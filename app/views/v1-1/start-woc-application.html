@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "/"
+}) }}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Ask the court to try to recover your money
+      </h1>
+
+      <p>You can ask the court to try and get your money back if [defendant name] has not paid you.</p>
+      <p>You cannot apply if they’ve entered breathing space.</p>
+      <p>You’ll need to pay a fee to apply – the court adds this fee to the money owed to you. The court cannot guarantee you’ll get your money back.</p>
+      
+      
+      <p>Find out:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your options for recovering your money </li>
+        <li>how to apply – online or by post</li>
+      </ul>
+
+      <p>Registering takes around 5 minutes.</p>
+
+      <a href="method-of-recovery" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
+        Start now
+        <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+        </svg>
+      </a>
+
+      <h2 class="govuk-heading-m">Before you start, you might want to:</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a class="govuk-link">read guidance on recovering your money (opens in new window)</a></li>
+        <li><a class="govuk-link">apply for help with your fees (opens in a new window)</a></li>
+      </ul>
+
+    </div>
+  </div>
+{% endblock %}

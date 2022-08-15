@@ -74,7 +74,7 @@
     </details>
 
 
-    <form action="#" method="post" class="form">
+    <form action="change-amount" method="post" class="form">
       {{ govukTable({
                 firstCellIsHeader: false,
                 caption: "Total amount to try to recover",
@@ -126,15 +126,9 @@
 
     </form>
     <div class="govuk-button-group">
-      {{ govukButton({
-            text: "Save and continue (goes to additioanl costs screen)",
-            href: "are-you-claiming-additional-costs"
-          }) }}
-
-      {{ govukButton({
-            text: "Save and continue (goes to correct address screen)",
-            href: "defendant-address",
-            classes: "govuk-button--secondary"
+          {{ govukButton({
+            text: "Update and continue",
+            href: "check-your-answers"
           }) }}
     </div>
 

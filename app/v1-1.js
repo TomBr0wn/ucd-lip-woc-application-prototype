@@ -59,7 +59,7 @@ router.post("/had-help-with-fees", function (req, res) {
 // Run this code when a form is submitted to 'help-with-fees'
 router.post("/paid-any", function (req, res) {
 	// Make a variable and give it the value from 'help-with-fees'
-	var feeHelp = req.session.data["has-defendant-paid"];
+	var feeHelp = req.session.data["defendant-paid-already"];
 	console.log(feeHelp);
 	// Check whether feeHelp
 	if (feeHelp == "No") {
@@ -102,6 +102,11 @@ router.post("/check-phone-number", function (req, res) {
 		res.redirect("defendant-phone-number-confirmed");
 	}
 });
+
+router.post("/change-amount", function (req, res) {
+	var newAmount = req.session.data["try-to-recover"];
+	console.log(newAmount);
+})
 
 
 module.exports = router;
