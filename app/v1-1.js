@@ -42,11 +42,11 @@ router.post("/had-help-with-fees", function (req, res) {
 	var feeHelp = req.session.data["help-with-fees"];
 	console.log(feeHelp);
 	// Check whether feeHelp
-	if (feeHelp == "no") {
+	if (feeHelp == "No") {
 		// Send user to next page
 		res.redirect("has-defendant-paid-any");
 		
-	} if (feeHelp == "yes") {
+	} if (feeHelp == "Yes") {
 		// Send user to next page
 		res.redirect("help-with-fees-yes");
 		
@@ -62,7 +62,7 @@ router.post("/paid-any", function (req, res) {
 	var feeHelp = req.session.data["has-defendant-paid"];
 	console.log(feeHelp);
 	// Check whether feeHelp
-	if (feeHelp == "no") {
+	if (feeHelp == "No") {
 		// Send user to next page
 		res.redirect("defendant-paid-no");
 	} else {
