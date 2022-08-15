@@ -16,31 +16,69 @@
 }) }}
 
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Bailiff risk Assessment</h1>
-        <p class="govuk-body">If you have any other information which may help the bailiff or if you have reason to believe that the bailiff may encounter 
-          any difficulties you should write it below.</p>
+    <h1 class="govuk-heading-xl">Potential risks to the bailiff (optional)</h1>
+    <p class="govuk-body">If the bailiff needs to visit [defendant name], it’s helpful for them to know about any potential risks before entering their property.</p>
 
+    <p>Risks about the property, or those living there, include any of the following:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>violent, threatening or verbally abusive behaviour</li>
+      <li>previous, or current, involvement with the police or social services</li>
+      <li>drug or alcohol abuse which may affect behaviour</li>
+      <li>potentially dangerous dogs or animals </li>
+    </ul>
+
+    <h2 class="govuk-heading-m">Do you know about any potential risks to the bailiff?</h2>
+
+    <form action="check-your-answers" method="post" class="form">
+      <div class="govuk-form-group">
         
-        <form action="check-your-answers" method="post" class="form">
-          <div class="govuk-form-group">
+            
+            
+            {% set amountHtml %}
             {{ govukTextarea({
               name: "bailiff-info",
               id: "bailiff-info",
               label: {
-                text: "Enter additional info"
+                text: "Can you provide more detail?"
               }
             }) }}
-          {{ govukButton({
-            text: "Save and continue"
-          }) }}
-        </form>
+            {% endset -%}
+      
+            {{ govukRadios({
+              idPrefix: "have more info",
+              name: "have more info",
+              
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes",
+                  conditional: {
+                    html: amountHtml
+                  }
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
         
-        <!-- <p class="govuk-body"><a href="defendant-address-enter-manually" class="govuk-link">Enter address manually</a></p> -->
-      </div>
-    </div>
+            
+            <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Save and continue"
+              }) }}
+            </div>
+    </form>
+    
+    {% include "includes/contact-for-help.html" %}
+    
+  </div>
+</div>
 
 
 
