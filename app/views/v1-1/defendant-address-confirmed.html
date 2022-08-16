@@ -1,42 +1,20 @@
-{% extends "layout.html" %}
-
-
-{% block content %}
-
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-}) }}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "defendant-address"
-}) }}
+{% extends "layout.html" %} {% block content %} {{ govukPhaseBanner({ tag: { text: "prototype" }, html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.' }) }} {{ govukBackLink({ text: "Back", href:
+"defendant-address" }) }}
 
 
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
 
-        {{ govukPanel({
-          titleText: data['defendant-name'] + " address has been updated",
-          classes: "govuk-!-text-align-left govuk-colour('white')",
-          text: data['pick-an-address']
-        }) }}
-        
-        {{ govukButton({
-          text: "Save and continue",
-          href: "defendant-phone-number"
-        }) }}
-      
+        {{ govukPanel({ titleText: data['defendant-name'] + " address has been updated", classes: "govuk-!-text-align-left govuk-colour('white')", text: data['pick-an-address'] }) }} {{ govukButton({ text: "Save and continue", href: "defendant-phone-number" })
+        }}
+
 
         <!-- <p class="govuk-body"><a href="#" class="govuk-link">I can't find the address in the list</a></p> -->
         {% include "includes/contact-for-help.html" %}
-      </div>
     </div>
+</div>
 
 
 {% endblock %}

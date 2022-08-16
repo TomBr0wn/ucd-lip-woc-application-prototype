@@ -19,8 +19,8 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">What is the phone number of [defendant name]?</h1>
-        <p class="govuk-body">Placeholder additional information</p>
+        <h1 class="govuk-heading-xl">Enter {{ data['defendant-name'] }} phone number (optional)</h1>
+        <p class="govuk-body">The court will try to call them to ask for payment</p>
 
         
         <form action="defendant-phone-number-confirmed" method="post" class="form">
@@ -32,11 +32,12 @@
           </div>
 
           {{ govukButton({
-            text: "Continue"
+            text: "Save and continue"
           }) }}
         </form>
         
         <!-- <p class="govuk-body"><a href="defendant-phone-enter-manually" class="govuk-link">Enter phone number manually</a></p> -->
+        {% include "includes/contact-for-help.html" %}
       </div>
     </div>
 

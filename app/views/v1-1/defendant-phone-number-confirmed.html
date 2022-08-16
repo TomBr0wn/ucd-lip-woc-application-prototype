@@ -21,13 +21,14 @@
 
 
         {{ govukPanel({
-          titleText: "Phone Number confirmed",
+          titleText: data['defendant-name'] + " phone number has been updated",
           classes: "govuk-!-text-align-left govuk-colour('white')",
-          html: "<p class='govuk-body-L govuk-!-text-align-left govuk-!-font-size-27 govuk-!-font-weight-bold' style='color: white;'>0121 425 6278</p>"
+          text: data['phones']
         }) }}
         
+        
         {{ govukButton({
-          text: "Continue",
+          text: "Save and continue",
           href: "bailiff-risk-questions"
         }) }}
       
