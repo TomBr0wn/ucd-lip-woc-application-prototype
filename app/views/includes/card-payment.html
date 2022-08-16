@@ -104,7 +104,7 @@
       id: "payment-postcode",
       name: "payment-postcode"
     }) }}
-    
+
     <hr class="govuk-section-break govuk-section-break--visible">
 
     <h2 class="govuk-heading-m govuk-!-margin-top-4">Contact details</h2>
@@ -120,26 +120,27 @@
       id: "payment-email",
       name: "payment-email"
     }) }}
+
     
-    <div class="govuk-button-group">
-      {{ govukButton({
+      <div class="govuk-button-group">
+        {{ govukButton({
         text: "Pay now",
-        href: "confirm-payment"
+        href: "payment-confirm"
       }) }}
-    
-      {{ govukButton({
+
+        {{ govukButton({
         text: "Cancel payment",
         classes: "govuk-button--secondary"
       }) }}
-    </div>
-    
+      </div>
+
     {% include "includes/contact-for-help.html" %}
 
-    
+
   </div>
 
   <div class="govuk-grid-column-one-third">
-    
+
     <div class="govuk-!-margin-bottom-6">
       <div class="card-child">
         <p class="card-child-smallest-text">Payment summary</p>
@@ -147,6 +148,6 @@
         <p class="card-child-smallest-text">£77.00</p>
       </div>
     </div>
-    
+
   </div>
 </div>

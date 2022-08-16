@@ -7,14 +7,40 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-        {{ govukPanel({ titleText: data['defendant-name'] + " address has been updated", classes: "govuk-!-text-align-left govuk-colour('white')", text: data['pick-an-address'] }) }} {{ govukButton({ text: "Save and continue", href: "defendant-phone-number" })
-        }}
+        {% if data["pick-an-address"] == ""  %}
+        {{ govukPanel({ 
+            titleText: data['defendant-name'] + " address has been updated", 
+            classes: "govuk-!-text-align-left govuk-colour('white')", 
+            text: data['defendant-correct-address'] 
+        }) }} 
+        
+        {{ govukButton({ 
+            text: "Save and continue", 
+            href: "defendant-phone-number" 
+        }) }}
+        {% endif %}
+        
+        {% if data["pick-an-address"] != ""  %}
+        {{ govukPanel({ 
+            titleText: data['defendant-name'] + " address has been updated", 
+            classes: "govuk-!-text-align-left govuk-colour('white')", 
+            text: data['pick-an-address'] 
+        }) }} 
+        
+        {{ govukButton({ 
+            text: "Save and continue", 
+            href: "defendant-phone-number" 
+        }) }}
+        {% endif %}
 
 
-        <!-- <p class="govuk-body"><a href="#" class="govuk-link">I can't find the address in the list</a></p> -->
         {% include "includes/contact-for-help.html" %}
     </div>
 </div>
 
 
 {% endblock %}
+
+24 Acacia Drive
+London
+SW1 9HA

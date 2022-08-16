@@ -127,5 +127,17 @@ router.post("/change-amount", function (req, res) {
 	console.log(newAmount);
 })
 
+router.post("/is-manual-check-needed", function (req, res) {
+	var judgementAmount = parseInt(req.session.data["judgement-amount"]);
+	var recoveryAmount = parseInt(req.session.data["recovery-amount"]);
+	console.log(judgementAmount);
+	console.log(recoveryAmount);
+	if (recoveryAmount <= judgementAmount) {
+		res.redirect("manual-check-no");
+	} else {
+		res.redirect("manual-check-yes");
+	}
+})
+
 
 module.exports = router;
