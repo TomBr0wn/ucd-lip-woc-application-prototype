@@ -20,7 +20,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">What is the address of [defendant name]?</h1>
+        <h1 class="govuk-heading-xl">Enter {{ data['defendant-name'] }}’s address</h1>
         <p class="govuk-body govuk-!-display-inline">Postcode you entered XXX XXX &nbsp; &nbsp;<a href="defendant-address-unknown" class="govuk-link">Change</a></p>
 
 
@@ -60,7 +60,10 @@
         </form>
 
         <p class="govuk-body"><a href="#" class="govuk-link">I can't find the address in the list</a></p>
+        
+        {% include "includes/contact-for-help.html" %}
       </div>
+      
     </div>
 
 
