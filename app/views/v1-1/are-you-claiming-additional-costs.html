@@ -19,14 +19,29 @@
   <div class="govuk-grid-column-two-thirds">
     
     <h1 class="govuk-heading-xl">What additional costs have you paid? </h1>
-        <p class="govuk-body">The court needs to know any additional costs you’ve paid to process the claim.</p>
-        <p class="govuk-body">Include what the cost was for and the amount you paid.</p>
+        <p class="govuk-body">The court needs to know any additional costs you’ve paid to process the claim. Include what the cost was for and the amount you paid.</p>
         
     <form action="defendant-address" method="post" class="form">
-
-      {{ govukTextarea({
-        name: "claiming-any-costs",
-        id: "claiming-any-costs"
+      
+      {{ govukInput({
+        label: {
+          text: "What the cost was for?"
+        },
+        id: "additional-cost-item",
+        name: "additional-cost-item"
+      }) }}
+      
+      {{ govukInput({
+        id: "additional-cost-amount",
+        name: "additional-cost-amount",
+        label: {
+          text: "What is the amount you paid?"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
       }) }}
 
 

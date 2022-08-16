@@ -75,6 +75,16 @@
 
 
     <form action="is-recovery-greater-than-judgement" method="post" class="form">
+      {% set recoverInput %}
+      <div class='govuk-form-group'>
+        <div class='govuk-input__wrapper'>
+          <div class='govuk-input__prefix' aria-hidden='true'>£</div>
+          <input class='govuk-input govuk-input--width-5' id='recovery-amount' name='recovery-amount' type='text' spellcheck='false'>
+        </div>
+      </div>
+      {% endset %}
+
+
       {{ govukTable({
         firstCellIsHeader: false,
         caption: "Total amount to try to recover",
@@ -94,12 +104,7 @@
               text: "Amount to try to recover"
             },
             {
-              html: "<div class='govuk-form-group'>
-                        <div class='govuk-input__wrapper'>
-                            <div class='govuk-input__prefix' aria-hidden='true'>£</div>
-                            <input class='govuk-input govuk-input--width-5' id='try-to-recover' name='try-to-recover' type='text' spellcheck='false'>
-                        </div>
-                    </div>"
+              html: recoverInput | safe
             }
           ],
           [

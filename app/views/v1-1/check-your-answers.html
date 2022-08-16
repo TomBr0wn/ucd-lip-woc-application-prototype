@@ -83,7 +83,7 @@
           Has [defendant name] already paid any of the money they owe?
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['defendant-paid-already'] }}
+          {{ data['paid-already-amount'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="change-has-defendant-paid-any">
@@ -96,7 +96,7 @@
           How much do you want to try to recover?
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['try-to-recover'] }}
+          {{ data['recovery-amount'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="change-recovery-amount">
@@ -109,7 +109,7 @@
           What additonal costs have you paid?
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['claiming-any-costs'] }}
+          {{ data['additional-cost-amount'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="change-are-you-claiming-additional-costs">
