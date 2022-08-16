@@ -17,7 +17,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    
+
     <h1 class="govuk-heading-xl">Do you need help paying the warrant of control fee?</h1>
     <p class="govuk-body">A warrant of control application costs £83. You may be able to get help paying the fee if one or more of the following apply:</p>
     <ul class="govuk-list govuk-list--bullet">
@@ -25,7 +25,7 @@
       <li>you have a little or no savings</li>
       <li>you have low income</li>
     </ul>
-    
+
     <form action="had-help-with-fees" method="post" class="form">
       {{ govukRadios({
 
@@ -43,14 +43,17 @@
           }
         ]
       }) }}
-      
-      
 
-      
+
+
+
       {{ govukButton({
         text: "Save and continue"
       }) }}
     </form>
+
+    {% include "includes/contact-for-help.html" %}
+
   </div>
 </div>
 

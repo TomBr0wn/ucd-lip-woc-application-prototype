@@ -18,25 +18,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">How do you want to apply to the court to collect your money?</h1>
-    <p class="govuk-body">The court will try to recover your money by giving [defendant’s name] a deadline for paying you. If they do not pay you in time, a bailiff will visit them to collect the money or items.</p>
+    <p class="govuk-body">The court will try to recover your money by giving {{ data['defendant-name'] }} a deadline for paying you. If they do not pay you in time, a bailiff will visit them to collect the money or items.</p>
     <p class="govuk-body">The bailiff will be:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>a county court bailiff if you apply for a warrant of control </li>
       <li>a high court bailiff if you apply for a writ of control</li>
     </ul>
-    
+
     {{ govukDetails({
       summaryText: "Types of bailiff",
       html: "<p class='govuk-body'>A county court bailiff works for the courts and charges no extra fees.</p>
       <p>A high court bailiff works for a private company and <a href='#' class='govuk-link'>charges extra fees (opens in a new window)</a> These fees are added to the money owed to you, but you must pay the fees if they cannot get your money back.</p>"    
     }) }}
-    
+
     <p class="govuk-body">You can apply for a:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>warrant of control – if the debt is less than £5,000, including the court fee</li>
       <li>writ of control – if the debt is £600 or more, including the court fee</li>
     </ul>
-    
+
     <form action="help-with-fees" method="post" class="form">
       {{ govukRadios({
 
@@ -55,7 +55,7 @@
           }
         ]
       }) }}
-      
+
 
       {{ govukButton({
         text: "Save and continue"
@@ -64,7 +64,7 @@
 
     {% include "includes/contact-for-help.html" %}
 
-    
+
   </div>
 </div>
 
