@@ -23,7 +23,8 @@ module.exports = {
   'defendant-name': 'Mary Richards',
   'defendant-correct-address': '24 Acacia Drive, London, SW1 H9A',
   'defendant-phone-number': '07824999612',
-  'try-to-recover': '1,643.20'
+  'try-to-recover': '0',
+  'judgement-amount': '1500'
   
 
 }

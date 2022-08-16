@@ -71,6 +71,25 @@ router.post("/paid-any", function (req, res) {
 	}
 });
 
+
+// Run this code when a form is submitted to 'help-with-fees'
+router.post("/is-recovery-greater-than-judgement", function (req, res) {
+	// Make a variable and give it the value from 'help-with-fees'
+	var judgementAmount = parseInt(req.session.data["judgement-amount"]);
+	var recoveryAmount = parseInt(req.session.data["recovery-amount"]);
+	console.log(judgementAmount);
+	console.log(recoveryAmount);
+	// Check whether feeHelp
+	if (recoveryAmount > judgementAmount) {
+		// Send user to next page
+		res.redirect("are-you-claiming-additional-costs");
+	} else {
+		// Send user to trade page
+		res.redirect("defendant-address");
+	}
+});
+
+
 // Run this code when a form is submitted to 'check-address
 router.post("/check-address", function (req, res) {
 	// Make a variable and give it the value from 'check-address

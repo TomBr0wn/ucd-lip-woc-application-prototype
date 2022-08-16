@@ -18,7 +18,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">How much do you want to try to recover?</h1>
-    <p class="govuk-body">The outstanding balance on the judgment is [judgment amount minus money already paid].</p>
+    <p class="govuk-body">The outstanding balance on the judgment is £{{ data['judgement-amount'] }}.</p>
 
     <p class="govuk-body">The maximum you can try to recover is:</p>
     <ul class="govuk-list govuk-list--bullet">
@@ -74,69 +74,61 @@
     </details>
 
 
-    <form action="#" method="post" class="form">
+    <form action="is-recovery-greater-than-judgement" method="post" class="form">
       {{ govukTable({
-                firstCellIsHeader: false,
-                caption: "Total amount to try to recover",
-                captionClasses: "govuk-table__caption--m",
-                classes: "govuk-!-margin-top-6",
-                head: [
-                  {
-                    text: "Type of cost"
-                  },
-                  {
-                    text: "Amount"
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      text: "Amount to try to recover"
-                    },
-                    {
-                      html: "<div class='govuk-form-group'>
-                                <div class='govuk-input__wrapper'>
-                                    <div class='govuk-input__prefix' aria-hidden='true'>£</div>
-                                    <input class='govuk-input govuk-input--width-5' id='try-to-recover' name='try-to-recover' type='text' spellcheck='false'>
-                                </div>
-                            </div>"
-                    }
-                  ],
-                  [
-                    {
-                      text: "Warrant of control fee"
-                    },
-                    {
-                      text: "£83"
-                    }
-                  ],
-                  [
-                    {
-                      text: "Total",
-                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-                    },
-                    {
-                      text: "£[amount to recover plus fee]",
-                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-                    }
-                  ]
-                ]
-              }) }}
+        firstCellIsHeader: false,
+        caption: "Total amount to try to recover",
+        captionClasses: "govuk-table__caption--m",
+        classes: "govuk-!-margin-top-6",
+        head: [
+          {
+            text: "Type of cost"
+          },
+          {
+            text: "Amount"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Amount to try to recover"
+            },
+            {
+              html: "<div class='govuk-form-group'>
+                        <div class='govuk-input__wrapper'>
+                            <div class='govuk-input__prefix' aria-hidden='true'>£</div>
+                            <input class='govuk-input govuk-input--width-5' id='try-to-recover' name='try-to-recover' type='text' spellcheck='false'>
+                        </div>
+                    </div>"
+            }
+          ],
+          [
+            {
+              text: "Warrant of control fee"
+            },
+            {
+              text: "£83"
+            }
+          ],
+          [
+            {
+              text: "Total",
+              classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+            },
+            {
+              text: "£[amount to recover plus fee]",
+              classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+            }
+          ]
+        ]
+      }) }}
 
-
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+      </div>
     </form>
-    <div class="govuk-button-group">
-      {{ govukButton({
-            text: "Save and continue (goes to additioanl costs screen)",
-            href: "are-you-claiming-additional-costs"
-          }) }}
-
-      {{ govukButton({
-            text: "Save and continue (goes to correct address screen)",
-            href: "defendant-address",
-            classes: "govuk-button--secondary"
-          }) }}
-    </div>
 
 
   </div>
