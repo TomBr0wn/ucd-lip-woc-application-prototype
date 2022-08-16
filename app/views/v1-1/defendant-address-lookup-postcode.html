@@ -17,54 +17,59 @@
 
 
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Enter {{ data['defendant-name'] }}’s address</h1>
-        <p class="govuk-body govuk-!-display-inline">Postcode you entered XXX XXX &nbsp; &nbsp;<a href="defendant-address-unknown" class="govuk-link">Change</a></p>
+    <h1 class="govuk-heading-xl">Enter {{ data['defendant-name'] }}’s address</h1>
+    <!-- <p class="govuk-body govuk-!-display-inline">Postcode you entered XXX XXX &nbsp; &nbsp;<a href="defendant-address-unknown" class="govuk-link">Change</a></p> -->
+    
+      <h2 class="govuk-heading-m">Postcode</h2>
+      <p class="govuk-!-display-inline"><span class="govuk-!-font-size-19">SW1 9HA</span> &nbsp; &nbsp;<a href="defendant-address-unknown" class="govuk-link">Change</a></p>
+    
 
 
-        <form action="defendant-address-confirmed" method="post" class="form">
-          <div class="govuk-form-group">
-            {{ govukSelect({
+    <form action="defendant-address-confirmed" method="post" class="form govuk-!-margin-top-6">
+      <div class="govuk-form-group">
+        {{ govukSelect({
               id: "pick-an-address",
               name: "pick-an-address",
               label: {
-                text: "Select the address"
+              text: "Select an address",
+              classes: "govuk-!-font-weight-bold"
               },
               items: [
                 {
-                  value: "address1",
-                  text: "12 Acacia Drive, London"
+                  value: "12 Acacia Drive, London, SW1 H8X",
+                  text: "12 Acacia Drive, London, SW1 H8X"
                 },
                 {
-                  value: "address2",
-                  text: "24 Acacia Drive, London",
+                  value: "24 Acacia Drive, London, SW1 H8X",
+                  text: "24 Acacia Drive, London, SW1 H8X",
                   selected: true
                 },
                 {
-                  value: "address3",
-                  text: "28 Acacia Drive, London"
+                  value: "28 Acacia Drive, London, SW1 H8X",
+                  text: "28 Acacia Drive, London, SW1 H8X"
                 },
                 {
-                  value: "address4",
-                  text: "30 Acacia Drive, London"
+                  value: "30 Acacia Drive, London, SW1 H8X",
+                  text: "30 Acacia Drive, London, SW1 H8X"
                 }
               ]
             }) }}
-          </div>
-
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        </form>
-
-        <p class="govuk-body"><a href="#" class="govuk-link">I can't find the address in the list</a></p>
-        
-        {% include "includes/contact-for-help.html" %}
       </div>
-      
-    </div>
+
+      {{ govukButton({
+            text: "Save and continue"
+          }) }}
+    </form>
+
+    <p class="govuk-body"><a href="#" class="govuk-link">I cannot find the address in the list</a></p>
+
+    {% include "includes/contact-for-help.html" %}
+  </div>
+
+</div>
 
 
 {% endblock %}

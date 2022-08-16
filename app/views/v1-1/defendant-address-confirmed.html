@@ -22,18 +22,19 @@
 
 
         {{ govukPanel({
-          titleText: "Address confirmed",
+          titleText: data['defendant-name'] + " address has been updated",
           classes: "govuk-!-text-align-left govuk-colour('white')",
-          html: "<p class='govuk-body-L govuk-!-text-align-left govuk-!-font-size-27 govuk-!-font-weight-bold' style='color: white;'>24 Acacia Drive <br>London<br>SW1 9HA</p>"
+          text: data['pick-an-address']
         }) }}
         
         {{ govukButton({
-          text: "Continue",
+          text: "Save and continue",
           href: "defendant-phone-number"
         }) }}
       
 
         <!-- <p class="govuk-body"><a href="#" class="govuk-link">I can't find the address in the list</a></p> -->
+        {% include "includes/contact-for-help.html" %}
       </div>
     </div>
 
