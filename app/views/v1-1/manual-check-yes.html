@@ -17,24 +17,28 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">
-      Manual check IS REQUIRED
-    </h1>
-
+    
+    {{ govukPanel({
+      titleText: "Application submitted",
+      html: "We have sent you a confirmation email."
+    }) }}
+    
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">Your application will be checked by court staff. You will receive an email, confirming whether it has been accepted.</p>
+    <p class="govuk-body">Once it is accepted, the court will call {{ data['defendant-name'] }} and ask them for payment.</p>
+    <p class="govuk-body">If they do not pay, a bailiff may visit them up to 3 times in one year to try to recover your money. Your warrant of control expires after 1 year.</p>
+    <p class="govuk-body">If you receive any payments from {{ data['defendant-name'] }}, you must tell the court immediately.</p>
     
     <form action="is-manual-check-needed" method="post" class="form">
       <div class="govuk-button-group">
         {{ govukButton({
-        text: "Action 1"
+        text: "Go to your account",
+        href: "claimant"
          }) }}
 
-        {{ govukButton({
-        text: "Action 2",
-        classes: "govuk-button--secondary"
-        }) }}
       </div>
     </form>
-    {% include "includes/contact-for-help.html" %}
+    {% include "includes/if-you-need-help.html" %}
 
 
   </div>
@@ -51,7 +55,7 @@
     
   </div> -->
 </div>
-<p class="govuk-body">{{ data['judgement-amount'] }}</p>
-<p class="govuk-body">{{ data['recovery-amount'] }}</p>
+<p class="govuk-body govuk-!-display-none" >{{ data['judgement-amount'] }}</p>
+<p class="govuk-body govuk-!-display-none">{{ data['recovery-amount'] }}</p>
 
 {% endblock %}
