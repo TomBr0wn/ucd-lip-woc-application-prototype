@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "how-much-do-you-want-to-recover"
+}) }}
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Is this the correct address for {{ data['claimant-name'] }}?</h1>
+        <p class="govuk-body">A county court bailiff will use this address if they need to visit them to recover your money.</p>
+        <!-- <p class="govuk-body">24 Acacia Drive <br>London<br>SW1 9HA</p> -->
+        <h2 class="govuk-heading-m">15 King Drive<br>London<br>W1 3HR</h2>
+        
+
+        <form action="check-claimant-address" method="post" class="form">
+          {{ govukRadios({
+            idPrefix: "claimant-address",
+            name: "claimant-address",
+            
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No, use a different address"
+              }
+            ]
+          }) }}
+
+
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+        </form>
+        
+        {% include "includes/contact-for-help.html" %}
+      </div>
+    </div>
+
+{% endblock %}

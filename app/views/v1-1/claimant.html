@@ -1,130 +1,99 @@
-{% extends "layout.html" %}
-
-
-{% block content %}
-
-{{ govukPhaseBanner({
-  tag: {
-    text: "prototype"
-  },
-  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-}) }}
-
-
-
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Home",
-      href: "#"
-    },
-    {
-      text: "All claims",
-      href: "#"
-    },
-    {
-      text: "Claim details",
-      href: "#"
-    }
-  ]
-}) }}
+{% extends "layout.html" %} {% block content %} {{ govukPhaseBanner({ tag: { text: "prototype" }, html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.' }) }} {{ govukBreadcrumbs({ items: [ { text:
+"Home", href: "#" }, { text: "All claims", href: "#" }, { text: "Claim details", href: "#" } ] }) }}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-full">
 
 
 
-  <h2 class="govuk-heading-m">Jan Clark v Mary Richards</h2>
-  <h2 class="govuk-heading-s" style="margin-top: -10px"> <span style="">Claim number: 352MC733</span></h2
-
-
-    <div class="govuk-tabs" data-module="govuk-tabs">
-  <h2 class="govuk-tabs__title">
-    Contents
-  </h2>
-  <ul class="govuk-tabs__list">
-    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#latest-update">
+        <h2 class="govuk-heading-m">Jan Clark v Mary Richards</h2>
+        <h2 class="govuk-heading-s" style="margin-top: -10px"> <span style="">Claim number: 352MC733</span></h2 <div class="govuk-tabs" data-module="govuk-tabs">
+        <h2 class="govuk-tabs__title">
+            Contents
+        </h2>
+        <ul class="govuk-tabs__list">
+            <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#latest-update">
         Latest update
       </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#documents">
+            </li>
+            <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#documents">
         Documents
       </a>
-    </li>
-  </ul>
+            </li>
+        </ul>
 
-  <div class="govuk-tabs__panel" id="latest-update">
-    <div class="tabs-content">
-
-
-      <div class="tabs-panel" id="next-steps" role="tabpanel">
-
-        <div class="tabs-panel-inner text" tabindex="0">
-
-          <div class="status-block single">
-            
-            {% include "includes/dashboard-content.html" %}
-            
-          </div>
-
-        </div>
-
-        <div class="column-two-thirds" style="margin-top: -10px">
-
-          <hr />
-
-          <!-- without discontinuance -->
-          <h2 class="govuk-heading-m">Tell us you've ended the claim</h2>
-          <p>If you've been paid or you've made another agreement with the defendant, you need to tell us.</p>
-          <p><a href="paid-in-full/claimant?endClaim=yes" class="govuk-button govuk-button--secondary">Tell us you've settled</a></p>
-          <br>
-        </div>
+        <div class="govuk-tabs__panel" id="latest-update">
+            <div class="tabs-content">
 
 
+                <div class="tabs-panel" id="next-steps" role="tabpanel">
 
-        <div class="column-two-thirds" style="margin-top: -10px">
+                    <div class="tabs-panel-inner text" tabindex="0">
 
-          <hr />
+                        <div class="status-block single">
 
-          <!-- without discontinuance -->
-          <h2 class="govuk-heading-m">Notify us about the debt respite scheme (breathing space)</h2>
-          <p>Do you need to notify us that the defendant has entered the debt respite scheme (breathing space)?</p>
-          <p>More information about the <a href="https://www.gov.uk/government/publications/debt-respite-scheme-breathing-space-guidance/debt-respite-scheme-breathing-space-guidance-for-creditors#end-of-a-breathing-space">debt respite scheme
+                            {% include "includes/dashboard-content.html" %}
+
+                        </div>
+
+                    </div>
+
+                    <div class="column-two-thirds" style="margin-top: -10px">
+
+                        <hr />
+
+                        <!-- without discontinuance -->
+                        <h2 class="govuk-heading-m">Tell us you've ended the claim</h2>
+                        <p>If you've been paid or you've made another agreement with the defendant, you need to tell us.</p>
+                        <p><a href="paid-in-full/claimant?endClaim=yes" class="govuk-button govuk-button--secondary">Tell us you've settled</a></p>
+                        <br>
+                    </div>
+
+
+
+                    <div class="column-two-thirds" style="margin-top: -10px">
+
+                        <hr/>
+
+                        <!-- without discontinuance -->
+                        <h2 class="govuk-heading-m">Notify us about the debt respite scheme (breathing space)</h2>
+                        <p>Do you need to notify us that the defendant has entered the debt respite scheme (breathing space)?</p>
+                        <p>More information about the <a href="https://www.gov.uk/government/publications/debt-respite-scheme-breathing-space-guidance/debt-respite-scheme-breathing-space-guidance-for-creditors#end-of-a-breathing-space">debt respite scheme
               (opens
               in new tab)</a></p>
-          <p><a href="respite" class="govuk-button govuk-button--secondary">Notify us about the debt respite scheme</a></p>
-          <br>
+                        <p><a href="respite" class="govuk-button govuk-button--secondary">Notify us about the debt respite scheme</a></p>
+                        <br>
+                    </div>
+
+
+                </div>
+
+
+                <!--  DOCUMENTS TAB -->
+
+
+            </div>
         </div>
 
-
-      </div>
-
-
-      <!--  DOCUMENTS TAB -->
+        <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="documents">
+            <h2 class="govuk-heading-m">Claim documents</h2>
+            <!--<p><a href="#">Download the court's order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 6 August 2022</span></p>-->
+            <p><a href="/public/images/judgment-order.pdf">Download the judgment order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 29 July 2022</span></p>
+            <p><a href="../defendant/correspondence/forms/hearing-notice">Download the hearing notice</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 18 July 2022</span></p>
+            <p><a href="/public/images/order-cancelled.pdf" download>Download the original order</a> (PDF), which is now cancelled.<br /><span style="color:grey; font-size: 15px">Created: 27 June 2022</span></p>
+            <p><a href="/public/images/order-new.pdf" download>Download the new order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 7 June 2022</span></p>
+            <p><a href="../defendant/correspondence/forms/order-review">Download the request to review the order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 29 May 2022</span></p>
+            <p><a href="../defendant/correspondence/forms/sanction-order?party=claimant">Download the court's follow-up order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 9 May 2022</span></p>
+            <p><a href="/public/images/order-new-complex.pdf" download>Download the court's order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 18 April 2022</span></p>
+            <p><a href="../defendant/correspondence/forms/agreement?check=1">Download the settlement agreement</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 29 March 2022</span></p>
+            <p><a href="../defendant/correspondence/forms/claim-form-defendant?check=2">Download the defendant's response</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 9 March 2022</span></p>
+            <p><a href="../claimant/correspondence/claim-form-claimant?check=2">Download claim</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 15 February 2022</span></p>
+        </div>
 
 
     </div>
-  </div>
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="documents">
-    <h2 class="govuk-heading-m">Claim documents</h2>
-    <!--<p><a href="#">Download the court's order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 6 August 2022</span></p>-->
-    <p><a href="/public/images/judgment-order.pdf">Download the judgment order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 29 July 2022</span></p>
-    <p><a href="../defendant/correspondence/forms/hearing-notice">Download the hearing notice</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 18 July 2022</span></p>
-    <p><a href="/public/images/order-cancelled.pdf" download>Download the original order</a> (PDF), which is now cancelled.<br /><span style="color:grey; font-size: 15px">Created: 27 June 2022</span></p>
-    <p><a href="/public/images/order-new.pdf" download>Download the new order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 7 June 2022</span></p>
-    <p><a href="../defendant/correspondence/forms/order-review">Download the request to review the order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 29 May 2022</span></p>
-    <p><a href="../defendant/correspondence/forms/sanction-order?party=claimant">Download the court's follow-up order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 9 May 2022</span></p>
-    <p><a href="/public/images/order-new-complex.pdf" download>Download the court's order</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 18 April 2022</span></p>
-    <p><a href="../defendant/correspondence/forms/agreement?check=1">Download the settlement agreement</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 29 March 2022</span></p>
-    <p><a href="../defendant/correspondence/forms/claim-form-defendant?check=2">Download the defendant's response</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 9 March 2022</span></p>
-    <p><a href="../claimant/correspondence/claim-form-claimant?check=2">Download claim</a> (PDF)<br /><span style="color:grey; font-size: 15px">Created: 15 February 2022</span></p>
-  </div>
-
-
-</div>
 </div>
 </div>
 

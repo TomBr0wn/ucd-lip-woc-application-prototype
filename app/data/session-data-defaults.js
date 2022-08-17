@@ -25,7 +25,9 @@ module.exports = {
   'defendant-correct-address': '24 Acacia Drive, London, SW1 H9A',
   'defendant-phone-number': '07824999612',
   'recovery-amount': '0',
-  'judgement-amount': '1500'
+  'judgement-amount': '1500',
+  
+  'claimant-name': 'Jan Clark',
   
 
 }
