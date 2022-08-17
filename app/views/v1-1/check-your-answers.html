@@ -80,10 +80,10 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-third">
-          Has [defendant name] already paid any of the money they owe?
+          Has {{ data['defendant-name'] }} already paid any of the money they owe?
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['paid-already-amount'] }}
+          {{ data['defendant-paid-already'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="change/change-has-defendant-paid-any">
@@ -211,8 +211,7 @@
 
 
     {{ govukButton({
-      text: "Save and continue",
-      href: "statement-of-truth"
+      text: "Save and continue"
     }) }}
 
     {% include "includes/contact-for-help.html" %}

@@ -12,7 +12,7 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "has-defendant-paid-any"
+  href: "../check-your-answers"
 }) }}
 
 <div class="govuk-grid-row">
@@ -74,63 +74,49 @@
     </details>
 
 
-    <form action="change-amount" method="post" class="form">
-      {{ govukTable({
-                firstCellIsHeader: false,
-                caption: "Total amount to try to recover",
-                captionClasses: "govuk-table__caption--m",
-                classes: "govuk-!-margin-top-6",
-                head: [
-                  {
-                    text: "Type of cost"
-                  },
-                  {
-                    text: "Amount"
-                  }
-                ],
-                rows: [
-                  [
-                    {
-                      text: "Amount to try to recover"
-                    },
-                    {
-                      html: "<div class='govuk-form-group'>
-                                <div class='govuk-input__wrapper'>
-                                    <div class='govuk-input__prefix' aria-hidden='true'>£</div>
-                                    <input class='govuk-input govuk-input--width-5' id='try-to-recover' name='try-to-recover' type='text' spellcheck='false'>
-                                </div>
-                            </div>"
-                    }
-                  ],
-                  [
-                    {
-                      text: "Warrant of control fee"
-                    },
-                    {
-                      text: "£83"
-                    }
-                  ],
-                  [
-                    {
+    <form action="../check-your-answers" method="post" class="form">
+      {% set recoverInput %}
+      <div class="govuk-form-group">
+          <div class="govuk-input__wrapper">
+              <div class="govuk-input__prefix" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-5" id="recovery-amount" name="recovery-amount" type="text" spellcheck="false" />
+          </div>
+      </div>
+      {% endset %}
+
+      {{ govukTable({ 
+          firstCellIsHeader: false, 
+          caption: "Total amount to try to recover", 
+          captionClasses: "govuk-table__caption--m", 
+          classes: "govuk-!-margin-top-6", 
+          head: [ 
+          { text: "Type of cost" }, 
+          { text: "Amount" } 
+          ], 
+          rows: [ 
+              [ 
+                  { text: "Amount to try to recover" }, 
+                  { html: recoverInput | safe } 
+              ], 
+              [ 
+                  { text: "Warrant of control fee" }, 
+                  { text: "£83" } 
+              ], 
+              [ 
+                  { 
                       text: "Total",
                       classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-                    },
-                    {
+                  },
+                  { 
                       text: "£[amount to recover plus fee]",
                       classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-                    }
-                  ]
-                ]
-              }) }}
+                  }
+              ] 
+          ] 
+      }) }}
 
-
-    </form>
-    <div class="govuk-button-group">
-          {{ govukButton({
-            text: "Update and continue",
-            href: "check-your-answers"
-          }) }}
-    </div>
+      <div class="govuk-button-group">{{ govukButton({ text: "Save and continue" }) }}</div>
+  </form>
 
 
   </div>
