@@ -17,25 +17,13 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-        {% if data["defendant-address"] == "yes"  %}
-        {{ govukPanel({ 
-            titleText: data['defendant-name'] + " address confirmed", 
-            classes: "govuk-!-text-align-left govuk-colour('white')", 
-            text: "24 Acacia Drive, London, SW1 9HA"
-        }) }}
-
-        {{ govukButton({ 
-            text: "Save and continue", 
-            href: "defendant-phone-number" 
-        }) }}
-        {% endif %}
-
         
-        {% if data["defendant-address"] == "no"  %}
+        
+        {% if data["manual-address"] != "" %}
         {{ govukPanel({ 
             titleText: data['defendant-name'] + " address has been updated", 
             classes: "govuk-!-text-align-left govuk-colour('white')", 
-            text: data['pick-an-address'] 
+            text: data['manual-address'] 
         }) }}
 
         {{ govukButton({ 
@@ -43,9 +31,6 @@
             href: "defendant-phone-number" 
         }) }}
         {% endif %}
-        
-        
-
 
 
         {% include "includes/contact-for-help.html" %}
