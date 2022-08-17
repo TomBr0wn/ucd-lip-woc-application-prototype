@@ -145,7 +145,7 @@
     <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key govuk-!-width-one-third">
-          Is this the correct address for [defendant name]?
+          Is this the correct address for {{ data['defendant-name'] }}?
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['defendant-correct-address'] }}
@@ -158,7 +158,7 @@
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          Is this the correct phone number for [defendant name]?
+          Is this the correct phone number for {{ data['defendant-name'] }}?
         </dt>
         </dt>
         <dd class="govuk-summary-list__value">
