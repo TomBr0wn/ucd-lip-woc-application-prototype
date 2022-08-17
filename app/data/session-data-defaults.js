@@ -21,6 +21,7 @@ module.exports = {
 
   // Insert values here
   'defendant-name': 'Mary Richards',
+  'defendant-address': '24 Acacia Drive, London, SW1 9HA',
   'defendant-correct-address': '24 Acacia Drive, London, SW1 H9A',
   'defendant-phone-number': '07824999612',
   'recovery-amount': '0',

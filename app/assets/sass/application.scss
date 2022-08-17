@@ -31,6 +31,9 @@ $govuk-assets-path: '/govuk/assets/';
   flex-direction: column;
   flex: 1;
   background-color: govuk-colour("light-grey");
+  border-bottom: 4px solid #0b0c0c;
   color: #0b0c0c;
   height: 100%;
+  padding: 1em;
 }
+
