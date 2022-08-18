@@ -12,7 +12,7 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "solicitor-name"
+  href: "claimant-address"
 }) }}
 
 
@@ -20,16 +20,17 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Is this the correct address for {{ data['claimant-name'] }}?</h1>
-        <p class="govuk-body">Placeholder copy Placeholder copy Placeholder copy</p>
-        <!-- <p class="govuk-body">24 Acacia Drive <br>London<br>SW1 9HA</p> -->
-        <h2 class="govuk-heading-m">15 King Drive<br>London<br>W1 3HR</h2>
+        <h1 class="govuk-heading-xl">Is this the correct phone number for {{ data['claimant-name'] }}? (optional)</h1>
+        {{ govukInsetText({
+          html: "<p class='govuk-body-l govuk-!-text-align-left govuk-!-font-size-27 govuk-!-font-weight-bold'>0121 425 7365</p>"
+        }) }}
+        <p class="govuk-body">The court will try to call them to ask for payment.</p>
         
 
-        <form action="check-claimant-address" method="post" class="form">
+        <form action="check-claimant-phone-number" method="post" class="form">
           {{ govukRadios({
-            idPrefix: "claimant-address",
-            name: "claimant-address",
+            idPrefix: "claimant-phone",
+            name: "claimant-phone",
             
             items: [
               {
@@ -38,7 +39,7 @@
               },
               {
                 value: "no",
-                text: "No, use a different address"
+                text: "No, use a different phone number"
               }
             ]
           }) }}
@@ -47,8 +48,8 @@
           {{ govukButton({
             text: "Save and continue"
           }) }}
+          
         </form>
-        
         {% include "includes/contact-for-help.html" %}
       </div>
     </div>

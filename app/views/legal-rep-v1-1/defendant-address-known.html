@@ -12,24 +12,24 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "solicitor-name"
+  href: "defendant-address"
 }) }}
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Is this the correct address for {{ data['claimant-name'] }}?</h1>
-        <p class="govuk-body">Placeholder copy Placeholder copy Placeholder copy</p>
-        <!-- <p class="govuk-body">24 Acacia Drive <br>London<br>SW1 9HA</p> -->
-        <h2 class="govuk-heading-m">15 King Drive<br>London<br>W1 3HR</h2>
-        
+        <h1 class="govuk-heading-xl">Is this the correct address of [defendant name]?</h1>
+        <p class="govuk-body">The amount you are trying to recover is more than the judgement. Please provide additional information</p>
+        <p class="govuk-body">24 Acacia Drive <br>London<br>SW1XXX</p>
 
-        <form action="check-claimant-address" method="post" class="form">
+        <form action="check-address" method="post" class="form">
           {{ govukRadios({
-            idPrefix: "claimant-address",
-            name: "claimant-address",
+            idPrefix: "defendant-address",
+            name: "defendant-address",
             
             items: [
               {
@@ -45,12 +45,14 @@
 
 
           {{ govukButton({
-            text: "Save and continue"
+            text: "Continue"
           }) }}
         </form>
-        
-        {% include "includes/contact-for-help.html" %}
       </div>
     </div>
+
+
+  </div>
+</div>
 
 {% endblock %}

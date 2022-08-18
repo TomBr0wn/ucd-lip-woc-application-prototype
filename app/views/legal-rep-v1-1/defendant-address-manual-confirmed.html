@@ -8,7 +8,7 @@
 
 {{ govukBackLink({ 
     text: "Back", 
-    href: "claimant-address" 
+    href: "defendant-address" 
 }) }}
 
 
@@ -21,14 +21,14 @@
         
         {% if data["manual-address"] != "" %}
         {{ govukPanel({ 
-            titleText: data['claimant-name'] + " address has been updated", 
+            titleText: data['defendant-name'] + " address has been updated", 
             classes: "govuk-!-text-align-left govuk-colour('white')", 
             text: data['manual-address'] 
         }) }}
 
         {{ govukButton({ 
             text: "Save and continue", 
-            href: "claimant-phone-number" 
+            href: "defendant-phone-number" 
         }) }}
         {% endif %}
 

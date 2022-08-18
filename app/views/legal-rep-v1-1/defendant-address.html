@@ -12,7 +12,7 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "solicitor-name"
+  href: "claimant-phone-number"
 }) }}
 
 
@@ -20,16 +20,16 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Is this the correct address for {{ data['claimant-name'] }}?</h1>
-        <p class="govuk-body">Placeholder copy Placeholder copy Placeholder copy</p>
+        <h1 class="govuk-heading-xl">Is this the correct address for {{ data['defendant-name'] }}?</h1>
+        <p class="govuk-body">A county court bailiff will use this address if they need to visit them to recover your money.</p>
         <!-- <p class="govuk-body">24 Acacia Drive <br>London<br>SW1 9HA</p> -->
-        <h2 class="govuk-heading-m">15 King Drive<br>London<br>W1 3HR</h2>
+        <h2 class="govuk-heading-m">24 Acacia Drive <br>London<br>SW1 9HA</h2>
         
 
-        <form action="check-claimant-address" method="post" class="form">
+        <form action="check-address" method="post" class="form">
           {{ govukRadios({
-            idPrefix: "claimant-address",
-            name: "claimant-address",
+            idPrefix: "defendant-address",
+            name: "defendant-address",
             
             items: [
               {

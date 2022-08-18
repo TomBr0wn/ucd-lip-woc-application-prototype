@@ -28,7 +28,7 @@ module.exports = {
   'recovery-amount': '0',
   'judgement-amount': '1500',
   
-  'claimant-name': 'Jan Clark',
+  'claimant-name': 'Jan Clark'
   
 
 }

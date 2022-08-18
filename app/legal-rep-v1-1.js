@@ -29,18 +29,39 @@ router.post("/check-claimant-address", function(req, res) {
 });
 
 
+//////////// CHECK CLAIMANT PHONE NUMBER /////////////////////
 
-// router.post("/is-manual-check-needed", function(req, res) {
-//     var judgementAmount = parseInt(req.session.data["judgement-amount"]);
-//     var recoveryAmount = parseInt(req.session.data["recovery-amount"]);
-//     console.log(judgementAmount);
-//     console.log(recoveryAmount);
-//     if (recoveryAmount <= judgementAmount) {
-//         res.redirect("manual-check-no");
-//     } else {
-//         res.redirect("manual-check-yes");
-//     }
-// })
+router.post("/check-claimant-phone-number", function(req, res) {
+    // Make a variable and give it the value from 'check-phone-number
+    var knowPhoneNum = req.session.data["claimant-phone"];
+    console.log(knowPhoneNum);
+    // Check whether feeHelp
+    if (knowPhoneNum == "no") {
+        // Send user to next page
+        res.redirect("claimant-phone-number-unknown");
+    }
+    if (knowPhoneNum == "yes") {
+        // Send user to next page
+        res.redirect("claimant-phone-number-confirmed");
+    }
+});
 
+
+//////////// CHECK DEFENDANT ADDRESS /////////////////////
+
+router.post("/check-address", function(req, res) {
+    // Make a variable and give it the value from 'check-address
+    var knowAddress = req.session.data["defendant-address"];
+    console.log(knowAddress);
+    // Check whether feeHelp
+    if (knowAddress == "no") {
+        // Send user to next page
+        res.redirect("defendant-address-unknown");
+    }
+    if (knowAddress == "yes") {
+        // Send user to next page
+        res.redirect("defendant-address-confirmed");
+    }
+});
 
 module.exports = router;
