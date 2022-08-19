@@ -65,3 +65,39 @@ router.post("/check-address", function(req, res) {
 });
 
 module.exports = router;
+
+
+//////////// CHECK DEFENDANT PHONE NUMBER  /////////////////////
+
+router.post("/check-phone-number", function(req, res) {
+    // Make a variable and give it the value from 'check-phone-number
+    var knowPhoneNum = req.session.data["defendant-phone"];
+    console.log(knowPhoneNum);
+    // Check whether feeHelp
+    if (knowPhoneNum == "no") {
+        // Send user to next page
+        res.redirect("defendant-phone-number-unknown");
+    }
+    if (knowPhoneNum == "yes") {
+        // Send user to next page
+        res.redirect("defendant-phone-number-confirmed");
+    }
+});
+
+
+
+//////////// HAS DEFENDANT PAID ANYTHING  /////////////////////
+
+router.post("/paid-any", function(req, res) {
+    // Make a variable and give it the value from 'help-with-fees'
+    var feeHelp = req.session.data["defendant-paid-already"];
+    console.log(feeHelp);
+    // Check whether feeHelp
+    if (feeHelp == "No") {
+        // Send user to next page
+        res.redirect("defendant-paid-no");
+    } else {
+        // Send user to trade page
+        res.redirect("how-much-do-you-want-to-recover");
+    }
+});
