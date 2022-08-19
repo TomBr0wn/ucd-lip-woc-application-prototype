@@ -101,3 +101,22 @@ router.post("/paid-any", function(req, res) {
         res.redirect("how-much-do-you-want-to-recover");
     }
 });
+
+
+//////////// IS RECOVERY > JUDGEMENT AMOUNT?  /////////////////////
+
+router.post("/is-recovery-greater-than-judgement", function(req, res) {
+    // Make a variable and give it the value from 'help-with-fees'
+    var judgementAmount = parseInt(req.session.data["judgement-amount"]);
+    var recoveryAmount = parseInt(req.session.data["recovery-amount"]);
+    console.log(judgementAmount);
+    console.log(recoveryAmount);
+    // Check whether feeHelp
+    if (recoveryAmount > judgementAmount) {
+        // Send user to next page
+        res.redirect("are-you-claiming-additional-costs");
+    } else {
+        // Send user to trade page
+        res.redirect("bailiff-risk-assessment");
+    }
+});
