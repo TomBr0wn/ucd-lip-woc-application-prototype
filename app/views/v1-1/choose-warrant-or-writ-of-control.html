@@ -35,9 +35,11 @@
 
     <p class="govuk-body">You can apply for a:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>warrant of control – if the debt is less than £5,000, including the court fee</li>
       <li>writ of control – if the debt is £600 or more, including the court fee</li>
+      <li>warrant of control – if the debt is less than £5,000, including the court fee</li>
     </ul>
+    
+    <p class="govuk-body">You cannot apply for a writ of control if your claim is against your credit card company (a Consumer Credit Act claim).</p>
 
     <form action="help-with-fees" method="post" class="form">
       {{ govukRadios({
@@ -47,13 +49,12 @@
         
         items: [
           {
-            value: "warrant of control",
-            text: "I want to apply for a warrant of control for £83"
-          },
-          
-          {
             value: "writ of control",
             text: "I want to apply for a writ of control for £71"
+          },
+          {
+            value: "warrant of control",
+            text: "I want to apply for a warrant of control for £83"
           }
         ]
       }) }}
