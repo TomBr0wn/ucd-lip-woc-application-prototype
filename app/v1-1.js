@@ -108,12 +108,12 @@ router.post("/is-recovery-greater-than-judgement", function (req, res) {
 	console.log(judgementAmount);
 	console.log(recoveryAmount);
 	// Check whether feeHelp
-	if (recoveryAmount > judgementAmount) {
+	if (recoveryAmount > 5000) {
 		// Send user to next page
-		res.redirect("are-you-claiming-additional-costs");
+		res.redirect("cannot-apply-for-warrant-of-control");
 	} else {
 		// Send user to trade page
-		res.redirect("defendant-address");
+		res.redirect("are-you-claiming-additional-costs");
 	}
 });
 
