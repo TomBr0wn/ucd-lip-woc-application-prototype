@@ -27,6 +27,7 @@ module.exports = {
   'defendant-phone-number': '07824999612',
   'recovery-amount': '0',
   'judgment-amount': '1500',
+  'legal-fee': '2.25',
   
   'claimant-name': 'Jan Clark'
   

@@ -72,7 +72,11 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "paying-installments" 
                     [ 
                         { text: "Warrant of control fee" }, 
                         { text: "£83" } 
-                    ], 
+                    ],
+                    [ 
+                        { text: "Legal fee" }, 
+                        { html:  '<p class="govuk-!-display-inline">£</p>' + data['legal-fee'] } 
+                    ],  
                     [ 
                         { 
                             text: "Total",
