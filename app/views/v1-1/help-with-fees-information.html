@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "help-with-fees"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">You need to apply for help with your warrant of control fee</h1>
+    <p class="govuk-body">You need to <a class="govuk-link" href="#">apply for help with your fees (opens in a new tab)</a> before you continue with this warrant of control application.</p>
+    
+    {{ govukInsetText({
+      html: " <p class='govuk-body'>Enter the court form number ‘N323’ when asked. This will be one of the first questions when you <a class='govuk-link' href='#'>apply for help with your fees (opens in a new tab)</a>.</p>"
+    }) }}
+    
+    <p class="govuk-body">After you have applied you will receive a Help with Fees reference number. You should enter the reference number when you return to this warrant of control application.</p>
+    <p class="govuk-body">If you have a Help with Fees number, you can <a class="govuk-link" href="#">enter it here</a>.</p>
+    
+    {{ govukButton({
+      text: "Save and come back later",
+      href: "method-of-recovery"
+    }) }}
+
+    {% include "includes/contact-for-help.html" %}
+  </div>
+</div>
+
+{% endblock %}

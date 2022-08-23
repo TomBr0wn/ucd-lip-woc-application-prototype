@@ -16,18 +16,55 @@
 }) }}
 
 <div class="govuk-grid-row">
-  <div class="<div class="govuk-grid-column-full">
-    
-    {{ govukPanel({
-      titleText: "How to apply for help with fees (EX160A)",
-      html: "Placeholder for https://www.gov.uk/government/publications/apply-for-help-with-court-and-tribunal-fees/how-to-apply-for-help-with-fees-ex160a",
-      classes: "color: govuk-colour('blue')"
-    }) }}
-    
-    {{ govukButton({
-      text: "Continue",
-      href: "has-defendant-paid-any"
-    }) }}
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Have you already applied for help with your warrant of control fee?</h1>
+
+    <form action="already-applied-for-hwf" method="post" class="form">
+      {% set helpWithFeesInputHtml %}
+      <div class='govuk-form-group'>
+        <div class='govuk-input__wrapper'>
+
+          {{ govukInput({
+            label: {
+              text: "Enter your Help with Fees reference number:",
+              classes: "govuk-label--s",
+              isPageHeading: false
+            },
+            hint: {
+              html: "<p class='govuk-body'>You received this when you applied for help with your fees.<br>For example, HWF-A1B-23C</p>"
+            },
+            id: "needs-help-with-fees",
+            name: "needs-help-with-fees"
+          }) }}
+        </div>
+      </div>
+      {% endset %}
+
+
+      {{ govukRadios({
+        idPrefix: "needs-fee-help",
+        name: "needs-fee-help",
+        
+        items: [
+          {
+            value: "Yes",
+            text: "Yes",
+            conditional: {
+              html: helpWithFeesInputHtml | safe
+            }
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+    {% include "includes/contact-for-help.html" %}
   </div>
 </div>
 

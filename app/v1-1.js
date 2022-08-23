@@ -54,6 +54,26 @@ router.post("/had-help-with-fees", function (req, res) {
 	}
 });
 
+
+//////// ALREADY HAD HELP WITH FEES ////////////////////////
+router.post("/already-applied-for-hwf", function (req, res) {
+	
+	var alreadyAppliedHWF = req.session.data["needs-fee-help"];
+	console.log(alreadyAppliedHWF);
+	// Check whether alreadyAppliedHWF
+	if (alreadyAppliedHWF == "No") {
+		// Send user to next page
+		res.redirect("help-with-fees-information");
+	}
+	if (alreadyAppliedHWF == "Yes") {
+		// Send user to next page
+		res.redirect("has-defendant-paid-any");
+	} else {
+		// Send user to trade page
+		res.redirect("#");
+	}
+});
+
 ////////// Outstanding balance ///////////////
 router.post("/paid-any", function (req, res) {
 	var feeHelp = req.session.data["paid-already-amount"];
