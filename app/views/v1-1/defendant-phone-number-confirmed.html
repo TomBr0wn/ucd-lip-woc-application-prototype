@@ -18,7 +18,7 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        
+        <!-- <p class="govuk-body">{{ data['no-defendant-phone'] }}</p> -->
         
         
         {% if data["defendant-phone"] == "yes"  %}
@@ -48,6 +48,20 @@
           href: "bailiff-risk-questions"
         }) }}
         {% endif %}
+        
+        {% if data["no-defendant-phone"] == "Yes"  %}
+        {{ govukPanel({ 
+            titleText: data['defendant-name'] + " phone number has been added", 
+            classes: "govuk-!-text-align-left govuk-colour('white')", 
+            text: data['phones']
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue",
+          href: "bailiff-risk-questions"
+        }) }}
+        {% endif %}
+        
       
 
         <!-- <p class="govuk-body"><a href="#" class="govuk-link">I can't find the address in the list</a></p> -->

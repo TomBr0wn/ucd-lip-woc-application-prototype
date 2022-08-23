@@ -149,6 +149,31 @@ router.post("/check-phone-number", function (req, res) {
 	}
 });
 
+
+
+
+// router.post("/defendant-phone-number-confirmed", function (req, res) {	
+// });
+
+
+
+////////////////// NO PHONE NUMBER IN SYSTEM /////////////////////
+router.post("/no-phone-number", function (req, res) {
+	var noPhoneNumber = req.session.data["no-defendant-phone"];
+	console.log(noPhoneNumber);
+	// Check whether feeHelp
+	if (noPhoneNumber == "No") {
+		// Send user to next page
+		res.redirect("bailiff-risk-questions");
+	}
+	if (noPhoneNumber == "Yes") {
+		// Send user to next page
+		res.redirect("defendant-phone-number-unknown");
+	}
+});
+
+
+
 router.post("/change-amount", function (req, res) {
 	var newAmount = req.session.data["try-to-recover"];
 	console.log(newAmount);
