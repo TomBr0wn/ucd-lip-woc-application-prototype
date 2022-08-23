@@ -21,10 +21,11 @@
       <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">Is this the correct phone number for {{ data['defendant-name'] }}? (optional)</h1>
+        <p class="govuk-body">The court will try to call them to ask for payment.</p>
         {{ govukInsetText({
           html: "<p class='govuk-body-l govuk-!-text-align-left govuk-!-font-size-27 govuk-!-font-weight-bold'>0121 425 7365</p>"
         }) }}
-        <p class="govuk-body">The court will try to call them to ask for payment.</p>
+       
         
 
         <form action="check-phone-number" method="post" class="form">
