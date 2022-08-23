@@ -21,9 +21,11 @@
       <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">Is this the correct address for {{ data['defendant-name'] }}?</h1>
-        <p class="govuk-body">A county court bailiff will use this address if they need to visit them to recover your money.</p>
-        <!-- <p class="govuk-body">24 Acacia Drive <br>London<br>SW1 9HA</p> -->
-        <h2 class="govuk-heading-m">24 Acacia Drive <br>London<br>SW1 9HA</h2>
+        <p class="govuk-body">A county court bailiff will use this address if they need to visit them to recover your money.</p>        
+        
+        {{ govukInsetText({
+          html: "<p class='govuk-body-l govuk-!-text-align-left govuk-!-font-size-27 govuk-!-font-weight-bold'>24 Acacia Drive <br>London<br>SW1 9HA</p>"
+        }) }}
         
 
         <form action="check-address" method="post" class="form">
