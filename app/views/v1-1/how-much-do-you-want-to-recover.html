@@ -1,5 +1,5 @@
 {% extends "layout.html" %} {% block content %} {{ govukPhaseBanner({ tag: { text: "prototype" }, html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to
-improve it.' }) }} {{ govukBackLink({ text: "Back", href: "has-defendant-paid-any" }) }}
+improve it.' }) }} {{ govukBackLink({ text: "Back", href: "paying-installments" }) }}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -25,11 +25,11 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "has-defendant-paid-an
                 [ 
                     [ 
                         { text: "Judgment amount" }, 
-                        { text: "£000" } 
+                        { text: data['judgment-amount'] } 
                     ], 
                     [ 
                         { text: "Amount already paid" }, 
-                        { text: "£000" } 
+                        { text: data['paid-already-amount'] } 
                     ], 
                     [ 
                         { 
@@ -37,7 +37,7 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "has-defendant-paid-an
                             classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                         }, 
                         { 
-                            text: "£000",
+                            text: data['outstandingBalance'],
                             classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                         } 
                     ] 

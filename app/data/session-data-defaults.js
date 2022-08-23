@@ -26,7 +26,7 @@ module.exports = {
   // 'new-postcode': 'SW1 H8X',
   'defendant-phone-number': '07824999612',
   'recovery-amount': '0',
-  'judgement-amount': '1500',
+  'judgment-amount': '1500',
   
   'claimant-name': 'Jan Clark'
   

@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds">
     
     <h1 class="govuk-heading-xl">Has {{ data['defendant-name'] }} already paid you any of the money they owe?</h1>
-        <p class="govuk-body">The outstanding balance on the judgment is £{{ data['judgement-amount'] }}.</p>
+        <p class="govuk-body">The outstanding balance on the judgment is £{{ data['judgment-amount'] }}.</p>
         
         
     <form action="paid-any" method="post" class="form">
@@ -34,8 +34,8 @@
       {% endset %}
 
       {{ govukRadios({
-        idPrefix: "has paid",
-        name: "has paid",
+        idPrefix: "has-paid",
+        name: "has-paid",
         
         items: [
           {
