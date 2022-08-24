@@ -17,8 +17,72 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Charging Order</h1>
-    <p class="govuk-body">You have to use a paper form for this service.</p>
+
+    <!----------------- PAGE HEADING ------------------------>
+    <h1 class="govuk-heading-xl">Apply to charge {{ data['defendant-name'] }}’s if they sell their land or property</h1>
+
+    <p class="govuk-body">You can ask the court to charge {{ data['defendant-name'] }}’s if they sell their land or property. This is called a 'charging order'.</p>
+    <p class="govuk-body">If there are already charges on the property when your charging order is received, for example a mortgage, then those charges will be paid first.</p>
+    <p class="govuk-body">The application costs £119. The court adds this fee to the total amount owed to you.</p>
+
+
+    <!------------------- HOW TO APPLY ------------------------>
+    <h2 class="govuk-heading-m">How to apply</h2>
+    
+    <p class="govuk-body">Fill in a <a href="https://www.gov.uk/government/publications/form-n379-application-for-charging-order-on-land-cpr-part-73" target="_blank">
+      charging order application form (opens in a new window)</a>.</p>
+    <p class="govuk-body">You can get help filling in the form at a Citizens Advice office.</p>
+    <p class="govuk-body">Send the form by post to:</p>
+    <p class="govuk-body">County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p>
+
+    <!------------------- HOW TO PAY ------------------------>
+    <h2 class="govuk-heading-m">How to pay</h2>
+
+    <p>You can either pay by:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>debit or credit card – HM Courts and Tribunals Service (HMCTS) will call or email you with details of how to pay</li>
+      <li>cheque or postal order – made payable to ‘HM courts and Tribunals Service’</li>
+    </ul>
+
+    <!----------- DETAILS COMPONENT ------------------>
+    {{ govukDetails({
+      summaryText: "Get help paying the fee",
+      html: "
+      
+      <p>You may be able to get help paying the fee if one or more of the following apply:</p>
+      <ul class='govuk-list govuk-list--bullet'>
+        <li>you’re on certain benefits</li>
+        <li>you have a little or no savings</li>
+        <li>you have low income</li>
+      </ul>
+      
+      <p>You can apply for this help online or by post.</p>
+      <p>If you apply for the help online, you’ll get a reference number. Include that reference number when you fill in the charging order form.</p>
+      <p>If you want to apply for the help by post, you’ll need to send the Help with Fees and the charging order application forms together.</p>
+      <p><a href='https://www.gov.uk/get-help-with-court-fees' class='govuk-link'>Find out more about applying for help with your fees</a>.</p>
+      "   
+    }) }}
+  </div>
+
+
+  <!-------------- SIDEBAR -------------------->
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Guidance
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://www.gov.uk/government/publications/third-party-debt-orders-and-charging-orders-ex325" target="_blank">
+              Find out more about asking for a charging order
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
   </div>
 </div>
 
