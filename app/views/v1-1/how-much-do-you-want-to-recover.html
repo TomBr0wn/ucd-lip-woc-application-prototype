@@ -14,6 +14,9 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "paying-installments" 
         
         <p class="govuk-body">You cannot try to recover more than £5,000.</p>
         
+        <!-- SEE LINE BELOW In Nunjucks 'set' is just how you set a variable -->
+        <!-- {% set outstandingBalance = data['judgment-amount'] - data['paid-already-amount'] %} -->
+        
         <details>
             <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span></span>View amount breakdown</summary>
             {{ govukTable({ 
@@ -38,8 +41,9 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "paying-installments" 
                             text: "Outstanding balance",
                             classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                         }, 
-                        { 
-                            text: outstandingBalance,
+                        {   
+                            <!-- text" "outstandingBalance", Nunjucks style -->
+                            text: data['outstandingBalance'],
                             classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                         } 
                     ] 

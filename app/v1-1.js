@@ -74,17 +74,18 @@ router.post("/already-applied-for-hwf", function(req, res) {
     }
 });
 
-////////// Outstanding balance ///////////////s
+////////// Outstanding balance ///////////////
 router.post("/paid-any", function(req, res) {
     var feeHelp = req.session.data["paid-already-amount"];
     var judgmentAmount = req.session.data["judgment-amount"];
     var outstandingBalance = parseInt(judgmentAmount) - parseInt(feeHelp);
     console.log(feeHelp);
     console.log(judgmentAmount);
-    console.log(outstandingBalance);
+    console.log(outstandingBalance, typeof outstandingBalance);
 
-    outstandingBalance = toString(outstandingBalance);
-
+    outstandingBalance = outstandingBalance.toString();
+    
+    req.session.data.outstandingBalance = outstandingBalance;
     // document.getElementById("balance").innerHTML = outstandingBalance;
 
     // Send user to..
