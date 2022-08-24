@@ -82,20 +82,16 @@ router.post("/paid-any", function (req, res) {
 	console.log(feeHelp);
 	console.log(judgmentAmount);
 	console.log(outstandingBalance);
-    req.session.data.outstandingBalance == outstandingBalance;
+	
+	outstandingBalance = toString(outstandingBalance);
+	
+	// document.getElementById("balance").innerHTML = outstandingBalance;
+  
 	// Send user to..
 	// res.redirect("how-much-do-you-want-to-recover");
 	res.redirect("paying-installments");
-
-	// var hasPaid = req.session.data["paid-any"];
-	// if (hasPaid == "Yes") {
-	// 	console.log(hasPaid);
-	// 	// Send user to next page
-	// 	res.redirect({outstandingBalance: req.session.data.outstandingBalance},"are-you-paying-installments");
-	// } else {
-	// 	// Send user to trade page
-	// 	res.redirect({outstandingBalance: req.session.data.outstandingBalance},"are-you-paying-installments");
-	// }
+	
+	
 });
 
 
