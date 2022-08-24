@@ -15,18 +15,23 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">You cannot apply to recover more than £5,000</h1>
+        <p class="govuk-body">You cannot apply for a warrant of control for more than £5,000.</p>
         
-        <h1 class="govuk-heading-xl">You cannot apply for a warrant of control</h1>
-        <p class="govuk-body">The amount you’re trying to recover is more than £5,000 so you cannot apply for a warrant of control.</p>
-        <p class="govuk-body">You’ll need to apply for a different enforcement option.</p>
-        
+        <p class="govuk-body">You’ll need to either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>enter an amount less than £5,000</li>
+            <li>apply for a different method to try to recover your money</li>
+        </ul>
+
         <div class="govuk-button-group">
             {{ govukButton({ 
-                text: "Go back to enforcement options",
+                text: "Apply for a different methods",
                 href: "method-of-recovery" 
             }) }}
         </div>
-        
+
         {% include "includes/contact-for-help.html" %}
     </div>
 </div>

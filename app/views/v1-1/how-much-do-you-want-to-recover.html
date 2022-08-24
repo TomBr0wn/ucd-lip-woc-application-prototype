@@ -6,12 +6,14 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "paying-installments" 
         <h1 class="govuk-heading-xl">How much do you want to try to recover?</h1>
         <p class="govuk-body">The outstanding balance on the judgment is £{{ data['judgment-amount'] }}.</p>
 
-        <p class="govuk-body">The maximum you can try to recover is:</p>
+        <p class="govuk-body">You can try to recover:</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>the full outstanding balance on the judgment</li>
             <li>any costs you’ve previously paid to try to recover your money</li>
         </ul>
-
+        
+        <p class="govuk-body">You cannot try to recover more than £5,000.</p>
+        
         <details>
             <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span></span>View amount breakdown</summary>
             {{ govukTable({ 
