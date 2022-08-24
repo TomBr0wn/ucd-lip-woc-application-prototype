@@ -5,7 +5,7 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">Ask the court to deduct money from {{ data['defendant-name'] }}’s wages</h1>
         <p class="govuk-body">You can ask the court to deduct money from {{ data['defendant-name'] }}’s wages, through their employer. This is called an 'attachment of earnings order'. </p>
-        <p class="govuk-body">{{ data['defendant-name'] }}’s must be in paid employment to apply. They cannot be unemployed or self-employed.</p>
+        <p class="govuk-body">{{ data['defendant-name'] }} must be in paid employment to apply. They cannot be unemployed or self-employed.</p>
         <p class="govuk-body">The application costs £119. The court adds this fee to the total amount owed to you.</p>
 
         <!------------------- HOW TO APPLY ------------------------>
@@ -14,7 +14,10 @@
         attachment of earnings order application form (opens in a new window)</a>.</p>
         <p class="govuk-body">You can get help filling in the form at a Citizens Advice office.</p>
         <p class="govuk-body">Send the form by post to:</p>
-        <p class="govuk-body">County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p>
+        <!-- <p class="govuk-body">County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p> -->
+        {{ govukInsetText({
+            html: "<p class='govuk-body govuk-!-text-align-left govuk-!-font-size-24 govuk-!-font-weight-bold'>County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p>"
+        }) }}
 
         <!------------------- HOW TO PAY ------------------------>
         <h2 class="govuk-heading-m">How to pay</h2>
