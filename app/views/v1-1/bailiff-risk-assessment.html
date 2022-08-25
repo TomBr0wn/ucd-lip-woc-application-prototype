@@ -19,8 +19,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Potential risks to the bailiff (optional)</h1>
-    <p class="govuk-body">If the bailiff needs to visit [defendant name], it’s helpful for them to know about any potential risks before entering their property.</p>
+    <h1 class="govuk-heading-xl">Do you know about any potential risks to the bailiff?</h1>
+    <!-- <h1 class="govuk-heading-xl">Potential risks to the bailiff (optional)</h1> -->
+    <p class="govuk-body">If the bailiff needs to visit {{ data['defendant-name'] }}'s, it’s helpful for them to know about any potential risks before entering their property.</p>
 
     <p>Risks about the property, or those living there, include any of the following:</p>
 
@@ -31,7 +32,7 @@
       <li>potentially dangerous dogs or animals </li>
     </ul>
 
-    <h2 class="govuk-heading-m">Do you know about any potential risks to the bailiff?</h2>
+    <!-- <h2 class="govuk-heading-m">Do you know about any potential risks to the bailiff?</h2> -->
 
     <form action="bailiff-help-information" method="post" class="form">
       <div class="govuk-form-group">

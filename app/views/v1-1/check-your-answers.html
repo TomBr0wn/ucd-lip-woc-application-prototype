@@ -139,7 +139,15 @@
     </dl>
 
     <!------------------ THEIR DETAILS  -------------------->
-
+    
+    {% set new_address = "" %}
+    
+    {% if data["pick-an-address"] != "" and data["defendant-address"] == "24 Acacia Drive, London, SW1 9HA"  %}
+      {% set new_address = data["pick-an-address"] %}
+    {% endif %}
+    
+    {{ data | log }}
+    
     <h2 class="govuk-heading-m">Their details</h2>
 
     <dl class="govuk-summary-list">
@@ -148,7 +156,7 @@
           Is this the correct address for {{ data['defendant-name'] }}?
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['defendant-correct-address'] }}
+          {{ data['pick-an-address'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -171,6 +179,8 @@
         </dd>
       </div>
     </dl>
+    
+    
     
     <!------------------ BAILIFF INFO  -------------------->
 
