@@ -8,7 +8,7 @@ const router = express.Router();
 //   res.render(folder + '/user-type');
 // });
 
-// Run this code when a form is submitted to 'user-type'
+///////////////////// RECOVERY METHOD  /////////////////////////////
 router.post("/recovery-method", function(req, res) {
     // Make a variable and give it the value from 'recovery-method'
     var recoveryMethod = req.session.data["recovery-method"];
@@ -29,6 +29,10 @@ router.post("/recovery-method", function(req, res) {
     if (recoveryMethod == "third party debt") {
         // Send user to next page
         res.redirect("third-party-debt-order");
+    }
+    if (recoveryMethod != "charging order" || "warrant or writ" || "attachment earnings order" || "third party debt") {
+        // Send user to next page
+        res.redirect("errors/error-method-of-recovery");
     } else {
         // Send user to trade page
         res.redirect("help-with-fees");
