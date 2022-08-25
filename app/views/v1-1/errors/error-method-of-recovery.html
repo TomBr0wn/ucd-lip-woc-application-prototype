@@ -17,6 +17,17 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Content to come...",
+          href: "#recovery-method"
+        }
+      ]
+    }) }}
+    
     <h1 class="govuk-heading-xl">How do you want to recover your money?</h1>
     <p class="govuk-body">Select the option that is most likely to get your money, based on what you know about {{ data['defendant-name'] }}’s financial situation.</p>
 
