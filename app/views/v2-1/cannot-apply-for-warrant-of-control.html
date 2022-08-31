@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{{ govukPhaseBanner({ 
+    tag: { text: "prototype" }, 
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.' 
+}) }}
+
+{{ govukBackLink({ 
+    text: "Back", 
+    href: "how-much-do-you-want-to-recover" 
+}) }}
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">You cannot apply to recover more than £5,000</h1>
+        <p class="govuk-body">You cannot apply for a warrant of control for more than £5,000.</p>
+        
+        <p class="govuk-body">You’ll need to either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>enter an amount less than £5,000</li>
+            <li>apply for a different method to try to recover your money</li>
+        </ul>
+
+        <div class="govuk-button-group">
+            {{ govukButton({ 
+                text: "Apply for a different methods",
+                href: "method-of-recovery" 
+            }) }}
+        </div>
+
+        {% include "includes/contact-for-help.html" %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+24 Acacia Drive
+London
+SW1 9HA
