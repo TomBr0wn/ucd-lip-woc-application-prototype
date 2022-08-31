@@ -1,0 +1,39 @@
+<h1 class="govuk-heading-xl">Apply to recover your money</h1>
+<p class="govuk-body">You can apply to the court to ‘enforce your judgment’. This is when the court tries to recover the money you’re owed from {{ data['defendant-name'] }}.</p>
+<p class="govuk-body">The court cannot guarantee you’ll get the money back.</p>
+
+<p class="govuk-body">Use this service to:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>find out your options for enforcing your judgment</li>
+  <li>apply to the court – depending on the option you choose, you might need to apply by post</li>
+</ul>
+
+<p class="govuk-body">You’ll need to pay a court fee to apply. The court will then try to recover this fee, and the money you’re owed, from {{ data['defendant-name'] }}.</p>
+
+{{ govukDetails({ summaryText: "Get help paying the fee", html: "
+
+  <p class='govuk-body'>If you have little or no savings and are on a low income or get certain benefits, you might be able to <a href='https://www.gov.uk/get-help-with-court-fees' class='govuk-link' target='_blank'>get help paying the fee (opens in a new window)</a>.</p>  
+
+" 
+}) }}
+
+<div class='govuk-inset-text'>
+  <p class='govuk-body'>You cannot apply to enforce your judgment if you’re told that ['defendant-name'] has got a ‘breathing space’ and is temporarily protected. <a href='https://www.gov.uk/guidance/debt-respite-breathing-space-scheme-creditors-responsibilities-to-the-court'
+    class='govuk-link' target='_blank'>Find out about your responsibilities during a breathing space (opens in a new window)</a>.</p>  
+</div>
+
+<a href="method-of-recovery" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-8" data-module="govuk-button">
+  Apply to recover your money
+</a>
+
+<!-- <h2 class="govuk-heading-m">Before you start</h2>
+<p class="govuk-body">You might want to:</p>
+
+<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
+  <li>
+    <a class="govuk-link" href="#">read guidance on recovering your money (opens in new window)</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">apply for help with your fees (opens in a new window)</a>
+  </li>
+</ul> -->
