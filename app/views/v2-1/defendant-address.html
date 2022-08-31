@@ -20,12 +20,12 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Is this the correct address for {{ data['defendant-name'] }}?</h1>
-        <p class="govuk-body">A county court bailiff will use this address if they need to visit them to recover your money.</p>        
+        <h1 class="govuk-heading-xl">Do you know {{ data['defendant-name'] }}’s address?</h1>
+        <p class="govuk-body">It’s helpful to provide their address if you know it, so the court can visit them to collect your money if they need to.</p>        
         
-        {{ govukInsetText({
+        <!-- {{ govukInsetText({
           html: "<p class='govuk-body-l govuk-!-text-align-left govuk-!-font-size-27 govuk-!-font-weight-bold'>24 Acacia Drive <br>London<br>SW1 9HA</p>"
-        }) }}
+        }) }} -->
         
 
         <form action="check-address" method="post" class="form">
@@ -40,7 +40,7 @@
               },
               {
                 value: "no",
-                text: "No, use a different address"
+                text: "No"
               }
             ]
           }) }}

@@ -142,7 +142,9 @@ router.post("/is-recovery-greater-than-judgement", function(req, res) {
     }
 });
 
-// Run this code when a form is submitted to 'check-address
+
+//////////////////////// CHECK ADDRESS //////////////////////////////////////
+
 router.post("/check-address", function(req, res) {
     // Make a variable and give it the value from 'check-address
     var knowAddress = req.session.data["defendant-address"];
@@ -154,11 +156,12 @@ router.post("/check-address", function(req, res) {
     }
     if (knowAddress == "yes") {
         // Send user to next page
-        res.redirect("defendant-address-confirmed");
+        res.redirect("defendant-phone-number-none");
     }
 });
 
-// Run this code when a form is submitted to 'check-phone-number
+//////////////////////// CHECK PHONE NUM //////////////////////////////////////
+
 router.post("/check-phone-number", function(req, res) {
     // Make a variable and give it the value from 'check-phone-number
     var knowPhoneNum = req.session.data["defendant-phone"];
@@ -170,7 +173,7 @@ router.post("/check-phone-number", function(req, res) {
     }
     if (knowPhoneNum == "yes") {
         // Send user to next page
-        res.redirect("defendant-phone-number-confirmed");
+        res.redirect("bailiff-risk-assessment");
     }
 });
 
@@ -189,11 +192,11 @@ router.post("/no-phone-number", function(req, res) {
     // Check whether feeHelp
     if (noPhoneNumber == "No") {
         // Send user to next page
-        res.redirect("bailiff-risk-assessment");
+        res.redirect("defendant-phone-number-unknown");
     }
     if (noPhoneNumber == "Yes") {
         // Send user to next page
-        res.redirect("defendant-phone-number-unknown");
+        res.redirect("bailiff-risk-assessment");
     }
 });
 
