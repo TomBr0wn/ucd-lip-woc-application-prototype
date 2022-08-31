@@ -62,11 +62,12 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "has-defendant-paid-an
                 </div>
             </div>
             {% endset %}
+            
+            <h3 class="govuk-heading-m govuk-!-margin-top-6">Total amount to try to recover</h3>
+            <div class="govuk-inset-text">The total amount to recover cannot be more than £5,000.</div>
 
             {{ govukTable({ 
                 firstCellIsHeader: false, 
-                caption: "Total amount to try to recover", 
-                captionClasses: "govuk-table__caption--m", 
                 classes: "govuk-!-margin-top-6", 
                 head: [ 
                 { text: "Type of cost" }, 
@@ -101,7 +102,7 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "has-defendant-paid-an
             <div class="govuk-button-group">{{ govukButton({ text: "Save and continue" }) }}</div>
         </form>
         
-        <div class="govuk-inset-text">The total amount to recover cannot be more than £5,000.</div>
+        <!-- <div class="govuk-inset-text">The total amount to recover cannot be more than £5,000.</div> -->
 
         {% include "includes/contact-for-help.html" %}
     </div>
