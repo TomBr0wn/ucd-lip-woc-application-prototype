@@ -20,7 +20,7 @@ router.post("/recovery-method", function(req, res) {
     }
     if (recoveryMethod == "warrant or writ") {
         // Send user to next page
-        res.redirect("choose-warrant-or-writ-of-control");
+        res.redirect("which-court-are-you-applying-to");
     }
     if (recoveryMethod == "attachment earnings order") {
         // Send user to next page
