@@ -18,8 +18,8 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     
-    <h1 class="govuk-heading-xl">The amount you want to recover is more than the judgment amount</h1>
-        <p class="govuk-body">You can only claim for court fees you paid to try to recover your money after the judgment. Include what each fee was for and total amount you paid.</p>
+    <h1 class="govuk-heading-xl">Which additional court fees are you claiming for?</h1>
+        <p class="govuk-body">You can claim for any additional court fees you’ve paid to try to enforce your judgment.</p>
         
     <form action="defendant-address" method="post" class="form">
       
@@ -27,11 +27,11 @@
         id: "additional-cost-item",
         name: "additional-cost-item",
         label: {
-          text: "List the additional court fees"
+          text: "Briefly explain what the court fees were for."
         }
       }) }}
       
-      {{ govukInput({
+      <!-- {{ govukInput({
         id: "additional-costs-total-amount",
         name: "additional-costs-total-amount",
         label: {
@@ -42,7 +42,7 @@
         },
         classes: "govuk-input--width-10",
         spellcheck: false
-      }) }}
+      }) }} -->
 
 
       {{ govukButton({
