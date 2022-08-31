@@ -93,8 +93,8 @@ router.post("/paid-any", function(req, res) {
     // document.getElementById("balance").innerHTML = outstandingBalance;
 
     // Send user to..
-    // res.redirect("how-much-do-you-want-to-recover");
-    res.redirect("paying-installments");
+    res.redirect("how-much-do-you-want-to-recover");
+    // res.redirect("paying-installments");
 
 
 });
@@ -111,7 +111,7 @@ router.post("/installments", function(req, res) {
         res.redirect("how-much-do-you-want-to-recover");
     }
     if (payInstallments == "Yes") {
-        // Send user to next page
+        // Send user to next pages
         res.redirect("paying-installments-manual-check");
     } else {
         // Send user to trade page
@@ -132,7 +132,11 @@ router.post("/is-recovery-greater-than-judgement", function(req, res) {
     if (recoveryAmount > 5000) {
         // Send user to next page
         res.redirect("cannot-apply-for-warrant-of-control");
-    } else {
+    }
+    if (recoveryAmount.toString == " ") {
+        // Send user to next page
+        res.redirect("errors/error-how-much-do-you-want-to-recover");
+    }  else {
         // Send user to trade page
         res.redirect("are-you-claiming-additional-costs");
     }

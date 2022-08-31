@@ -3,6 +3,17 @@ improve it.' }) }} {{ govukBackLink({ text: "Back", href: "has-defendant-paid-an
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+        
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+              {
+                text: "Enter the amount you are applying to recover",
+                href: "#recovery-method"
+              }
+            ]
+          }) }}
+        
         <h1 class="govuk-heading-xl">How much are you applying to recover?</h1>
         <p class="govuk-body">The outstanding balance on the judgment is £{{ data['judgment-amount'] }}.</p>
 
