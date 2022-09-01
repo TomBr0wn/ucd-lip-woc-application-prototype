@@ -20,8 +20,8 @@
     <h1 class="govuk-heading-xl">How do you want to try to recover your money?</h1>
     <p class="govuk-body">Select the option that is most likely to get your money, based on what you know about {{ data['defendant-name'] }}’s financial situation. You can apply for another enforcement option after you send your application.</p>
 
-
-    <form action="recovery-method" method="post" class="form">
+    
+    <form action="../recovery-method" method="post" class="form">
       {{ govukRadios({
 
         idPrefix: "recovery-method",
