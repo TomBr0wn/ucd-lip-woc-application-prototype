@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "claimant"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">How do you want to try to recover your money?</h1>
+    <p class="govuk-body">Select the option that is most likely to get your money, based on what you know about {{ data['defendant-name'] }}’s financial situation. You can apply for another enforcement option after you send your application.</p>
+
+
+    <form action="recovery-method" method="post" class="form">
+      {{ govukRadios({
+
+        idPrefix: "recovery-method",
+        name: "recovery-method",
+        
+        items: [
+          {
+            value: "warrant or writ",
+            text: "Ask the court to collect your money",
+            hint: {
+              text: "The court will contact them for payment. If they do not pay, a bailiff will visit them to try to collect the money or items to sell at auction. The court fee is either £71 or £83, depending on the court you need to apply to."
+            }
+          },
+          
+          {
+            value: "attachment earnings order",
+            text: "Get money deducted from their wages",
+            hint: {
+              text: "The court will order their employer to take money from their wages to send to the court. The court fee is £119."
+            }
+          },
+          {
+            value: "third party debt",
+            text: "Freeze money in their bank or building society account",
+            hint: {
+              text: "The court will decide if money from their account can be used for payment. The court fee is £119."
+            }
+          },
+          {
+            value: "charging order",
+            text: "Charge them if they sell their land or property",
+            hint: {
+              text: "The court will order them to pay the debt when they sell their land or property. The court fee is £119."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Get legal advice and further information",
+        
+        html: "
+        
+          <p>If you need more information before enforcing your judgment, you can ask the court to order them to give evidence of their finances at a court hearing. For example, bills and statements. The court fee is £110. <a href='https://ucd-lip-woc-apply-prototype.herokuapp.com/v1-1/method-of-recovery#' class='govuk-link' target='_blank'>Apply for an order for a debtor to attend court (opens in a new window)</a>.</p><br>
+          
+          <p class='govuk-body'>You might be able to get free legal advice through a local law centre or <a href='https://www.citizensadvice.org.uk/' class='govuk-link' target='_blank'>Citizens Advice (opens in a new window)</a>.
+            
+          <p class='govuk-body'>Court staff cannot tell you which option is more likely to get your money.</p>
+          "
+              
+      }) }}
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+
+    {% include "includes/contact-for-help.html" %}
+
+  </div>
+
+  <!-- <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Guidance
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://www.gov.uk/government/publications/what-to-do-if-a-defendant-doesnt-pay-money-after-judgment-ex321/what-to-do-if-you-have-a-judgement-but-the-defendant-has-not-paid-ex321" target="_blank">
+              Find out more about recovering your money (opens in new window)
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div> -->
+</div>
+
+{% endblock %}
