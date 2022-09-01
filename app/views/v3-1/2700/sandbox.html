@@ -1,0 +1,39 @@
+{{ govukTable({
+  caption: "Submission details",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+      {
+        text: "Month you apply"
+      },
+      {
+        text: "Rate for vehicles"
+      }
+    ],
+  rows: [
+    [
+      {
+        text: "Warrant of control number"
+      },
+      {
+        text: "xxx-xxx-xxx-xxx"
+      }
+    ],
+    [
+      {
+        text: "Application submitted"
+      },
+      {
+        text: "4 September 2022"
+      }
+    ],
+    [
+      {
+        text: "Download your application"
+      },
+      {
+        html: "<a class='govuk-link' href='#'>Save a copy of your application</a>"
+      }
+    ]
+  ]
+}) }}

@@ -26,7 +26,9 @@ module.exports = {
   // 'new-postcode': 'SW1 H8X',
   'defendant-phone-number': '07824999612',
   'recovery-amount': '0',
-  'judgment-amount': '1500',
+  'county-judgment-amount': '510',
+  'high-judgment-amount': '2700',
+  'mega-judgment-amount': '600',
   'legal-fee': '2.25',
   
   'claimant-name': 'Jan Clark'

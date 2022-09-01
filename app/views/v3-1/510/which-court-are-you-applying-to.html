@@ -17,96 +17,25 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Which court are you applying to?</h1>
-    <p class="govuk-body">The court will try to recover your money by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a high court or county court bailiff will visit to try to collect the money or items to sell
+    <h1 class="govuk-heading-xl">Apply to the county court to collect your money</h1>
+
+    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['county-judgment-amount'] }}.</p>
+    <p class="govuk-body">You can apply to the county court to collect your money. This is called a ‘warrant of control’ application.</p>
+    <p class="govuk-body">The county court will try to recover your money by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a county court bailiff will visit to try to collect the money or items to sell
       at auction.</p>
 
-    <p class="govuk-body">The court you need to apply to depends on the total amount of money you’re owed. This includes the court fee of either:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>£71 if you apply to the high court</li>
-      <li>£83 if you apply to the county court </li>
-    </ul>
 
-    {{ govukAccordion({
-      id: "if-youre-owed",
-      items: [
-        {
-          heading: {
-            text: "If you’re owed less than £600"
-          },
-          content: {
-            html: "<p class='govuk-body'>You need to apply to the county court for a warrant of control.</p>"
-          }
-        },
-        {
-          heading: {
-            text: "If you’re owed between £600 and £5,000"
-          },
-          content: {
-            html: "
-            <p class='govuk-body'>You can apply to either:</p>
-            <ul class='govuk-list govuk-list--bullet'>
-              <li>the high court for a writ of control</li>
-              <li>the county court for a warrant of control</li>
-            </ul>
-            <p class='govuk-body'>High court bailiffs work for private companies.
-              <a href='#' class='govuk-link'>They charge extra fees (opens in a new window)</a>. These fees are added to the total amount of money data " + data['defendant-name'] + " owes you. If the bailiff cannot get your money back, you’ll need to pay the fees.</p>
-            <p class='govuk-body'>County court bailiffs work for the courts and charge no extra fees.</p>
-            <div class='govuk-inset-text'>
-              <p class='govuk-body'>Court staff cannot tell you which option is more likely to get your money. You might be able to get legal support through some Citizens Advice offices or a law centre.</p>
-            </div>
 
-            "
-          }
-        },
-          {
-          heading: {
-            text: "If you’re owed more than £5,000"
-          },
-          content: {
-            html: "
-            <p class='govuk-body'>You need to apply to the high court for a writ of control.</p>
-            <div class='govuk-inset-text'>
-              <p class='govuk-body'>You cannot apply to the high court for a writ of control if you have a Consumer Credit Act claim.</p>
-            </div>
-            "
-          }
-        }
-      ]
-    }) }}
+
 
     <form action='help-with-fees' method='post' class='form'>
-              
       <div class='govuk-form-group'>
-        <fieldset class='govuk-fieldset' aria-describedby='contact-hint'>
-         
-          <div id='court-hint' class='govuk-hint'>
-            Select the court you’re applying to.
-          </div>
-          <div class='govuk-radios' data-module='govuk-radios'>
-            <div class='govuk-radios__item'>
-              <input class='govuk-radios__input' id='contact' name='contact' type='radio' value='email'>
-              <label class='govuk-label govuk-radios__label' for='contact'>
-                I’m applying to the high court for a writ of control
-              </label>
-            </div>
-         
-            <div class='govuk-radios__item'>
-              <input class='govuk-radios__input' id='contact-2' name='contact' type='radio' value='phone'>
-              <label class='govuk-label govuk-radios__label' for='contact-2'>
-                I’m applying to the county court for a warrant of control
-              </label>
-            </div>
-         
-          </div>
-      
-        </fieldset>
+        <button class='govuk-button' data-module='govuk-button'>
+          Save and continue
+        </button>
       </div>
-      <button class='govuk-button' data-module='govuk-button'>
-        Save and continue
-      </button>
     </form>
-    
+
     {% include "includes/contact-for-help.html" %}
 
   </div>

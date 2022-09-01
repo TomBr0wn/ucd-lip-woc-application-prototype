@@ -17,28 +17,31 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Apply to the high court to collect your money</h1>
 
-    <!----------------- PAGE HEADING ------------------------>
-    <h1 class="govuk-heading-xl">Apply to charge {{ data['defendant-name'] }} if they sell their land or property</h1>
+    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['high-judgment-amount'] }}.</p>
+    <p class="govuk-body">You can apply to the high court to collect your money. This is called a 'writ of control' application. The application costs £71.</p>
+    <p class="govuk-body">The high court will try to recover your money, including the £71 court fee, by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a high court bailiff will visit them to try to collect the money or items to sell at auction.</p>
 
-    <p class="govuk-body">You can ask the court to charge {{ data['defendant-name'] }}’s if they sell their land or property. This is called a 'charging order'.</p>
-    <p class="govuk-body">If there are already charges on the property when your charging order is received, for example a mortgage, then those charges will be paid first.</p>
-    <p class="govuk-body">The application costs £119. The court adds this fee to the total amount owed to you.</p>
     
-    <p><a href='https://www.gov.uk/government/publications/third-party-debt-orders-and-charging-orders-ex325' class='govuk-link' target='_blank'>Find out more about asking for a charging order (opens in a new window).</a></p>
-
-
+    {{ govukInsetText({
+      html: "<p class='govuk-body govuk-!-text-align-left'>
+            If you have a Consumer Credit Act claim, you cannot apply to the high court. You'll need to 
+            <a class='govuk-link' href='method-of-recovery'>select a different enforcement option</a>.</p>"
+    }) }}
+    
+    
     <!------------------- HOW TO APPLY ------------------------>
     <h2 class="govuk-heading-m">How to apply</h2>
-    
-    <p class="govuk-body">Fill in a <a href="https://www.gov.uk/government/publications/form-n379-application-for-charging-order-on-land-cpr-part-73" target="_blank">
-      charging order application form (opens in a new window)</a>.</p>
+    <p class="govuk-body">Fill in a <a href="https://www.gov.uk/government/publications/form-no53-writ-of-control" target="_blank">
+        writ of control application form (opens in a new window)</a>.</p>
     <p class="govuk-body">You can get help filling in the form at a Citizens Advice office.</p>
     <p class="govuk-body">Send the form by post to:</p>
     {{ govukInsetText({
       html: "<p class='govuk-body govuk-!-text-align-left'>County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p>"
     }) }}
-
+    
+    
     <!------------------- HOW TO PAY ------------------------>
     <h2 class="govuk-heading-m">How to pay</h2>
 
@@ -47,7 +50,8 @@
       <li>debit or credit card – HM Courts and Tribunals Service (HMCTS) will call or email you with details of how to pay</li>
       <li>cheque or postal order – made payable to ‘HM courts and Tribunals Service’</li>
     </ul>
-
+    
+    
     <!----------- DETAILS COMPONENT ------------------>
     {{ govukDetails({
       summaryText: "Get help paying the fee",
@@ -61,15 +65,26 @@
       </ul>
       
       <p>You can apply for this help online or by post.</p>
-      <p>If you apply for the help online, you’ll get a reference number. Include that reference number when you fill in the charging order form.</p>
-      <p>If you want to apply for the help by post, you’ll need to send the Help with Fees and the charging order application forms together.</p>
+      <p>If you apply for the help online, you’ll get a reference number. Include that reference number when you fill in the third-party debt order form.</p>
+      <p>If you want to apply for the help by post, you’ll need to send the Help with Fees and the third-party debt order application forms together.</p>
       <p><a href='https://www.gov.uk/get-help-with-court-fees' class='govuk-link'>Find out more about applying for help with your fees</a>.</p>
       "   
     }) }}
+
+
+
+    <form action='help-with-fees' method='post' class='form'>
+      <div class='govuk-form-group'>
+        <button class='govuk-button' data-module='govuk-button'>
+          Save and continue
+        </button>
+      </div>
+    </form>
+
+    {% include "includes/contact-for-help.html" %}
+
   </div>
 
-
-  <!-------------- SIDEBAR -------------------->
   <!-- <div class="govuk-grid-column-one-third">
 
     <aside class="app-related-items" role="complementary">
@@ -79,8 +94,8 @@
       <nav role="navigation" aria-labelledby="subsection-title">
         <ul class="govuk-list govuk-!-font-size-16">
           <li>
-            <a href="https://www.gov.uk/government/publications/third-party-debt-orders-and-charging-orders-ex325" target="_blank">
-              Find out more about asking for a charging order
+            <a href="https://www.gov.uk/government/publications/what-to-do-if-a-defendant-doesnt-pay-money-after-judgment-ex321/what-to-do-if-you-have-a-judgement-but-the-defendant-has-not-paid-ex321" target="_blank">
+              Find out more about recovering your money (opens in new window)
             </a>
           </li>
         </ul>
