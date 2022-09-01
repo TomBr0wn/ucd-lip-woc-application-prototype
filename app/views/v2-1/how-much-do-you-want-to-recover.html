@@ -55,7 +55,7 @@
             }) }}
         </details>
 
-        <p class="govuk-body govuk-!-margin-top-6">You must apply to recover £{{ data['judgment-amount'] }}, unless you’re applying for a missed instalment.</p>
+        <!-- <p class="govuk-body govuk-!-margin-top-6">You must apply to recover £{{ data['judgment-amount'] }}, unless you’re applying for a missed instalment.</p> -->
         <!-- <ul class="govuk-list govuk-list--bullet">
             <li>You must apply to recover [outstanding balance], unless you’re applying for a missed instalment. </li>
             <li>claiming for the outstanding balance, plus any additional court fees you’ve paid to try to enforce your judgment</li>
@@ -74,7 +74,7 @@
             {% endset %}
 
             <h3 class="govuk-heading-m govuk-!-margin-top-6">Total amount to try to recover</h3>
-            <div class="govuk-inset-text">The total amount to recover cannot be more than £5,000.</div>
+            <div class="govuk-inset-text">You must apply to recover £{{ data['judgment-amount'] }}, unless you’re applying for a missed instalment..</div>
 
             {{ govukTable({ 
                 firstCellIsHeader: false, 
