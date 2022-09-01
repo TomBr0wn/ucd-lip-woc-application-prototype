@@ -8,6 +8,12 @@
   <li>apply to the court – depending on the option you choose, you might need to apply by post</li>
 </ul>
 
+<div class='govuk-inset-text'>
+  <p class='govuk-body'>You cannot apply to enforce your judgment if you’re told that {{ data['defendant-name'] }} has got a ‘breathing space’ and is temporarily protected. <a
+      href='https://www.gov.uk/guidance/debt-respite-breathing-space-scheme-creditors-responsibilities-to-the-court'
+      class='govuk-link' target='_blank'>Find out about your responsibilities during a breathing space (opens in a new window)</a>.</p>
+</div>
+
 <p class="govuk-body">You’ll need to pay a court fee to apply. The court will then try to recover this fee, and the money you’re owed, from {{ data['defendant-name'] }}.</p>
 
 {{ govukDetails({ summaryText: "Get help paying the fee", html: "
@@ -17,12 +23,9 @@
 " 
 }) }}
 
-<div class='govuk-inset-text'>
-  <p class='govuk-body'>You cannot apply to enforce your judgment if you’re told that {{ data['defendant-name'] }} has got a ‘breathing space’ and is temporarily protected. <a href='https://www.gov.uk/guidance/debt-respite-breathing-space-scheme-creditors-responsibilities-to-the-court'
-    class='govuk-link' target='_blank'>Find out about your responsibilities during a breathing space (opens in a new window)</a>.</p>  
-</div>
 
-<p class="govuk-body">You will be able to review your online application before you submit it.</p>
+
+<p class="govuk-body">You do not have to complete your application in one go. You can save and return to it at any time before you submit it.</p>
 
 
 <a href="method-of-recovery" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-8" data-module="govuk-button">
