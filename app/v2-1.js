@@ -54,7 +54,7 @@ router.post("/had-help-with-fees", function(req, res) {
         res.redirect("help-with-fees-yes");
     } else {
         // Send user to trade page
-        res.redirect("#");
+        res.redirect("has-defendant-paid-any");
     }
 });
 
