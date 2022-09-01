@@ -47,11 +47,11 @@ router.post("/had-help-with-fees", function(req, res) {
     // Check whether feeHelp
     if (feeHelp == "No") {
         // Send user to next page
-        res.redirect("has-defendant-paid-any");
+        res.redirect("510/has-defendant-paid-any");
     }
     if (feeHelp == "Yes") {
         // Send user to next page
-        res.redirect("help-with-fees-yes");
+        res.redirect("510/help-with-fees-yes");
     } else {
         // Send user to trade page
         res.redirect("#");
@@ -67,11 +67,11 @@ router.post("/already-applied-for-hwf", function(req, res) {
     // Check whether alreadyAppliedHWF
     if (alreadyAppliedHWF == "No") {
         // Send user to next page
-        res.redirect("help-with-fees-information");
+        res.redirect("510/help-with-fees-information");
     }
     if (alreadyAppliedHWF == "Yes") {
         // Send user to next page
-        res.redirect("has-defendant-paid-any");
+        res.redirect("510/has-defendant-paid-any");
     } else {
         // Send user to trade page
         res.redirect("#");
@@ -93,7 +93,7 @@ router.post("/paid-any", function(req, res) {
     // document.getElementById("balance").innerHTML = outstandingBalance;
 
     // Send user to..
-    res.redirect("how-much-do-you-want-to-recover");
+    res.redirect("510/how-much-do-you-want-to-recover");
     // res.redirect("paying-installments");
 
 
@@ -108,11 +108,11 @@ router.post("/installments", function(req, res) {
     // Check whether installments
     if (payInstallments == "No") {
         // Send user to next page
-        res.redirect("how-much-do-you-want-to-recover");
+        res.redirect("510/how-much-do-you-want-to-recover");
     }
     if (payInstallments == "Yes") {
         // Send user to next pages
-        res.redirect("paying-installments-manual-check");
+        res.redirect("510/paying-installments-manual-check");
     } else {
         // Send user to trade page
         res.redirect("#");
@@ -131,14 +131,14 @@ router.post("/is-recovery-greater-than-judgement", function(req, res) {
     // Check whether feeHelp
     if (recoveryAmount > 5000) {
         // Send user to next page
-        res.redirect("cannot-apply-for-warrant-of-control");
+        res.redirect("510/cannot-apply-for-warrant-of-control");
     }
     if (recoveryAmount.toString == " ") {
         // Send user to next page
-        res.redirect("errors/error-how-much-do-you-want-to-recover");
+        res.redirect("510/errors/error-how-much-do-you-want-to-recover");
     }  else {
         // Send user to trade page
-        res.redirect("are-you-claiming-additional-costs");
+        res.redirect("510/are-you-claiming-additional-costs");
     }
 });
 
@@ -152,11 +152,11 @@ router.post("/check-address", function(req, res) {
     // Check whether feeHelp
     if (knowAddress == "no") {
         // Send user to next page
-        res.redirect("defendant-address-unknown");
+        res.redirect("510/defendant-phone-number-none");
     }
     if (knowAddress == "yes") {
         // Send user to next page
-        res.redirect("defendant-phone-number-none");
+        res.redirect("510/defendant-address-unknown");
     }
 });
 
@@ -169,11 +169,11 @@ router.post("/check-phone-number", function(req, res) {
     // Check whether feeHelp
     if (knowPhoneNum == "no") {
         // Send user to next page
-        res.redirect("defendant-phone-number-unknown");
+        res.redirect("510/defendant-phone-number-unknown");
     }
     if (knowPhoneNum == "yes") {
         // Send user to next page
-        res.redirect("bailiff-risk-assessment");
+        res.redirect("510/bailiff-risk-assessment");
     }
 });
 
@@ -192,11 +192,12 @@ router.post("/no-phone-number", function(req, res) {
     // Check whether feeHelp
     if (noPhoneNumber == "No") {
         // Send user to next page
-        res.redirect("defendant-phone-number-unknown");
+        res.redirect("510/bailiff-risk-assessment");
     }
     if (noPhoneNumber == "Yes") {
         // Send user to next page
-        res.redirect("bailiff-risk-assessment");
+        
+        res.redirect("510/defendant-phone-number-unknown");
     }
 });
 
@@ -213,9 +214,9 @@ router.post("/is-manual-check-needed", function(req, res) {
     console.log(judgementAmount);
     console.log(recoveryAmount);
     if (recoveryAmount <= judgementAmount) {
-        res.redirect("manual-check-no");
+        res.redirect("510/manual-check-no");
     } else {
-        res.redirect("manual-check-yes");
+        res.redirect("510/manual-check-yes");
     }
 });
 
