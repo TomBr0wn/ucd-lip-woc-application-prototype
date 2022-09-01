@@ -1,53 +1,39 @@
-{% set amountHtml %}
-{{ govukInput({
-  id: "paid already",
-  name: "paid already",
-  label: {
-    text: "Amount already paid",
-    classes: "govuk-label--l"
-  },
-  prefix: {
-    text: "£"
-  },
-  classes: "govuk-input--width-5",
-  spellcheck: false
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  idPrefix: "has-defendant-paid",
-        name: "has-defendant-paid",
-        fieldset: {
-          legend: {
-            text: "Has the defendant paid some of the amount owed?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
-          }
-        },
-  hint: {
-    text: "Select one option."
-  },
-  items: [
-    {
-      value: "email",
-      text: "Email",
-      conditional: {
-        html: emailHtml
+{{ govukTable({
+  caption: "Submission details",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+      {
+        text: "Month you apply"
+      },
+      {
+        text: "Rate for vehicles"
       }
-    },
-    {
-      value: "phone",
-      text: "Phone",
-      conditional: {
-        html: phoneHtml
+    ],
+  rows: [
+    [
+      {
+        text: "Warrant of control number"
+      },
+      {
+        text: "xxx-xxx-xxx-xxx"
       }
-    },
-    {
-      value: "text",
-      text: "Text message",
-      conditional: {
-        html: textHtml
+    ],
+    [
+      {
+        text: "Application submitted"
+      },
+      {
+        text: "4 September 2022"
       }
-    }
+    ],
+    [
+      {
+        text: "Download your application"
+      },
+      {
+        html: "<a class='govuk-link' href='#'>Save a copy of your application</a>"
+      }
+    ]
   ]
 }) }}

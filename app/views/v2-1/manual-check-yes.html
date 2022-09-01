@@ -17,18 +17,64 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    
+
     {{ govukPanel({
       titleText: "Application submitted",
-      html: "We have sent you a confirmation email."
+      html: "We have sent you a confirmation email with receipt of payment."
     }) }}
-    
+
     <h2 class="govuk-heading-m">What happens next</h2>
-    <p class="govuk-body">Your application will be checked by court staff. You will receive an email, confirming whether it has been accepted.</p>
-    <p class="govuk-body">Once it is accepted, the court will call {{ data['defendant-name'] }} and ask them for payment.</p>
-    <p class="govuk-body">If they do not pay, a bailiff may visit them up to 3 times in one year to try to recover your money. Your warrant of control expires after 1 year.</p>
-    <p class="govuk-body">If you receive any payments from {{ data['defendant-name'] }}, you must tell the court immediately.</p>
-    
+    <p class="govuk-body">We’ll check your application and may contact you if we have any questions.</p>
+
+    <p class="govuk-body">We’ll email you once your application is accepted. The court will then contact {{ data['defendant-name'] }} to try to recover the money by either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>asking them to pay in full</li>
+      <li>agreeing a 3-month payment plan</li>
+    </ul>
+
+    <p class="govuk-body">The court will send you the money once they receive it. For example, at the end of the 3-month payment plan.</p>
+    <p class="govuk-body">If {{ data['defendant-name'] }} does not pay, a bailiff will visit them to ask for payment or collect any items to sell at auction for the same value. A warrant of control is valid for one year. A bailiff may make up to 3
+      visits over this time.</p>
+
+
+      {{ govukTable({
+        caption: "Submission details",
+        captionClasses: "govuk-table__caption--m",
+        firstCellIsHeader: true,
+        
+        rows: [
+          [
+            {
+              text: "Warrant of control number"
+            },
+            {
+              text: "xxx-xxx-xxx-xxx"
+            }
+          ],
+          [
+            {
+              text: "Application submitted"
+            },
+            {
+              text: "4 September 2022"
+            }
+          ],
+          [
+            {
+              text: "Download your application"
+            },
+            {
+              html: "<a class='govuk-link' href='#'>Save a copy of your application</a>"
+            }
+          ]
+        ]
+      }) }}
+      
+      <p class="govuk-body">You will not be able to download a copy of 
+        your application after you leave this page.
+        </p>
+
+
     <form action="is-manual-check-needed" method="post" class="form">
       <div class="govuk-button-group">
         {{ govukButton({
@@ -43,19 +89,9 @@
 
   </div>
 
-  <!-- <div class="govuk-grid-column-one-third">
-    
-    <div class="govuk-!-margin-bottom-6">
-      <div class="card-child">
-        <p class="card-child-smallest-text">Payment summary</p>
-        <p class="card-child-smallest-text">Amount to pay:</p>
-        <p class="card-child-smallest-text">£77.00</p>
-      </div>
-    </div>
-    
-  </div> -->
+
 </div>
-<p class="govuk-body govuk-!-display-none" >{{ data['judgement-amount'] }}</p>
+<p class="govuk-body govuk-!-display-none">{{ data['judgement-amount'] }}</p>
 <p class="govuk-body govuk-!-display-none">{{ data['recovery-amount'] }}</p>
 
 {% endblock %}
