@@ -23,10 +23,10 @@
     <!-- <p class="govuk-body">If the bailiff needs to visit {{ data['defendant-name'] }}, it’s helpful for them to know about any potential risks before entering their property.</p> -->
 
     <p>It’s helpful for the bailiff to know about:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>any valuable items they own that could be sold at auction, like a vehicle</li>
-      <li>{{ data['defendant-name'] }}’s working hours</li>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+      <li>any valuable items at the property that could be sold at auction, like jewellery or a vehicle</li>
       <li>any difficulties accessing the property</li>
+      <li>when {{ data['defendant-name'] }} is usually at their property</li>
     </ul>
 
     <form action="check-your-answers" method="post" class="form">
@@ -37,16 +37,19 @@
             {% set amountHtml %}
             {{ govukTextarea({
               name: "bailiff-info",
-              id: "bailiff-info",
-              label: {
-                text: "Can you provide more detail?"
-              }
+              id: "bailiff-info"
             }) }}
             {% endset -%}
       
             {{ govukTextarea({
               name: "more-detail",
-              id: "more-detail"
+              id: "more-detail",
+              label: {
+                html: "
+                <p>Provide details about any information that might help the bailiff.
+                Include details of any valuable items. For example the make, model and colour of a vehicle and where it’s usually parked.</p>
+                "
+              }
             }) }}
         
             
