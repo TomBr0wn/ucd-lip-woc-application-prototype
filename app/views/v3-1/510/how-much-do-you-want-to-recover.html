@@ -14,7 +14,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">How much are you applying to recover?</h1>
-        <p class="govuk-body">The outstanding balance on the judgment is £{{ data['judgment-amount'] }}.</p>
+        <p class="govuk-body">The outstanding balance on the judgment is £{{ data['county-judgment-amount'] }}.</p>
 
 
 
@@ -55,7 +55,7 @@
             }) }}
         </details>
 
-        <p class="govuk-body govuk-!-margin-top-6">You must apply to recover £{{ data['judgment-amount'] }}, unless you’re applying for a missed instalment.</p>
+        <p class="govuk-body govuk-!-margin-top-6">You must apply to recover £{{ data['county-judgment-amount'] }}, unless you’re applying for a missed instalment.</p>
         <!-- <ul class="govuk-list govuk-list--bullet">
             <li>You must apply to recover [outstanding balance], unless you’re applying for a missed instalment. </li>
             <li>claiming for the outstanding balance, plus any additional court fees you’ve paid to try to enforce your judgment</li>
@@ -90,7 +90,7 @@
                     ], 
                     [ 
                         { text: "Warrant of control fee" }, 
-                        { text: "£83" } 
+                        { html:  '<p class="govuk-!-display-inline">£</p>' + data['woc-fee'] }  
                     ],
                     [ 
                         { text: "Legal fee" }, 

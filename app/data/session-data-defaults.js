@@ -30,6 +30,7 @@ module.exports = {
   'high-judgment-amount': '2700',
   'mega-judgment-amount': '6000',
   'legal-fee': '2.25',
+  'woc-fee': '83.00',
   
   'claimant-name': 'Jan Clark'
   
