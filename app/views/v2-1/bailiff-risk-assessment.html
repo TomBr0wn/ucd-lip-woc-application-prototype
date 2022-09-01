@@ -21,13 +21,13 @@
 
     <h1 class="govuk-heading-xl">Do you know about any potential risks to the bailiff?</h1>
     <!-- <h1 class="govuk-heading-xl">Potential risks to the bailiff (optional)</h1> -->
-    <p class="govuk-body">If the bailiff needs to visit {{ data['defendant-name'] }}'s, it’s helpful for them to know about any potential risks before entering their property.</p>
+    <p class="govuk-body">If the bailiff needs to visit {{ data['defendant-name'] }}, it’s helpful for them to know about any potential risks before entering their property.</p>
 
     <p>Risks about the property, or those living there, include any of the following:</p>
 
     <ul class="govuk-list govuk-list--bullet">
       <li>violent, threatening or verbally abusive behaviour</li>
-      <li>previous, or current, involvement with the police or social services</li>
+      <!-- <li>previous, or current, involvement with the police or social services</li> -->
       <li>drug or alcohol abuse which may affect behaviour</li>
       <li>potentially dangerous dogs or animals </li>
     </ul>
@@ -44,7 +44,7 @@
               name: "bailiff-info",
               id: "bailiff-info",
               label: {
-                text: "Can you provide more detail?"
+                text: "Can you provide more detail? (Optional)"
               }
             }) }}
             {% endset -%}

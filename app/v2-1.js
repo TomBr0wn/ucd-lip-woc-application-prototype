@@ -152,11 +152,11 @@ router.post("/check-address", function(req, res) {
     // Check whether feeHelp
     if (knowAddress == "no") {
         // Send user to next page
-        res.redirect("defendant-address-unknown");
+        res.redirect("defendant-phone-number-none");
     }
     if (knowAddress == "yes") {
         // Send user to next page
-        res.redirect("defendant-phone-number-none");
+        res.redirect("defendant-address-unknown");
     }
 });
 
@@ -169,11 +169,11 @@ router.post("/check-phone-number", function(req, res) {
     // Check whether feeHelp
     if (knowPhoneNum == "no") {
         // Send user to next page
-        res.redirect("defendant-phone-number-unknown");
+        res.redirect("bailiff-risk-assessment");
     }
     if (knowPhoneNum == "yes") {
         // Send user to next page
-        res.redirect("bailiff-risk-assessment");
+        res.redirect("defendant-phone-number-unknown");
     }
 });
 
@@ -192,11 +192,11 @@ router.post("/no-phone-number", function(req, res) {
     // Check whether feeHelp
     if (noPhoneNumber == "No") {
         // Send user to next page
-        res.redirect("defendant-phone-number-unknown");
+        res.redirect("bailiff-risk-assessment");
     }
     if (noPhoneNumber == "Yes") {
         // Send user to next page
-        res.redirect("bailiff-risk-assessment");
+        res.redirect("defendant-phone-number-unknown");
     }
 });
 
