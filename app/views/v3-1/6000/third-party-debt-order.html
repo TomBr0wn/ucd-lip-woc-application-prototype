@@ -17,35 +17,26 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Which court do you want to apply to?</h1>
 
-    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['high-judgment-amount'] }}.</p>
-    
-    <p class="govuk-body">You can try to recover your money by applying to either:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>the high court – this is called a ‘writ of control’ application</li>
-      <li>the county court – this is called a ‘warrant of control’ application</li>
-    </ul>
+    <!----------------- PAGE HEADING ------------------------>
+    <h1 class="govuk-heading-xl">Apply to freeze money in {{ data['defendant-name'] }}’s bank or building society account</h1>
 
+    <p class="govuk-body">You can ask the court to freeze money in {{ data['defendant-name'] }}’s bank or building society account.This is called a 'third-party debt order'. </p>
+    <p class="govuk-body">If the account is overdrawn on the day the bank or building society receives your order, you cannot be paid from the account.</p>
+    <p class="govuk-body">The application costs £119. The court adds this fee to the total amount owed to you.</p>
     
-    {{ govukInsetText({
-      html: "<p class='govuk-body govuk-!-text-align-left'>
-            If you have a Consumer Credit Act claim, you cannot apply to the high court. You'll need to 
-            <a class='govuk-link' href='method-of-recovery'>select a different enforcement option</a>.</p>"
-    }) }}
-    
-    
+    <p><a href='https://www.gov.uk/government/publications/third-party-debt-orders-and-charging-orders-ex325' class='govuk-link' target='_blank'>Find out more about asking for a third-party debt order (opens in a new window).</a></p>
+
     <!------------------- HOW TO APPLY ------------------------>
     <h2 class="govuk-heading-m">How to apply</h2>
-    <p class="govuk-body">Fill in a <a href="https://www.gov.uk/government/publications/form-no53-writ-of-control" target="_blank">
-        writ of control application form (opens in a new window)</a>.</p>
+    <p class="govuk-body">Fill in a <a href="https://www.gov.uk/government/publications/form-n349-application-for-third-party-debt-order" target="_blank">
+        third-party debt order application form (opens in a new window)</a>.</p>
     <p class="govuk-body">You can get help filling in the form at a Citizens Advice office.</p>
     <p class="govuk-body">Send the form by post to:</p>
     {{ govukInsetText({
       html: "<p class='govuk-body govuk-!-text-align-left'>County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p>"
     }) }}
-    
-    
+
     <!------------------- HOW TO PAY ------------------------>
     <h2 class="govuk-heading-m">How to pay</h2>
 
@@ -54,8 +45,7 @@
       <li>debit or credit card – HM Courts and Tribunals Service (HMCTS) will call or email you with details of how to pay</li>
       <li>cheque or postal order – made payable to ‘HM courts and Tribunals Service’</li>
     </ul>
-    
-    
+
     <!----------- DETAILS COMPONENT ------------------>
     {{ govukDetails({
       summaryText: "Get help paying the fee",
@@ -74,21 +64,10 @@
       <p><a href='https://www.gov.uk/get-help-with-court-fees' class='govuk-link'>Find out more about applying for help with your fees</a>.</p>
       "   
     }) }}
-
-
-
-    <form action='help-with-fees' method='post' class='form'>
-      <div class='govuk-form-group'>
-        <button class='govuk-button' data-module='govuk-button'>
-          Save and continue
-        </button>
-      </div>
-    </form>
-
-    {% include "includes/contact-for-help.html" %}
-
   </div>
 
+
+  <!-------------- SIDEBAR -------------------->
   <!-- <div class="govuk-grid-column-one-third">
 
     <aside class="app-related-items" role="complementary">
@@ -98,8 +77,8 @@
       <nav role="navigation" aria-labelledby="subsection-title">
         <ul class="govuk-list govuk-!-font-size-16">
           <li>
-            <a href="https://www.gov.uk/government/publications/what-to-do-if-a-defendant-doesnt-pay-money-after-judgment-ex321/what-to-do-if-you-have-a-judgement-but-the-defendant-has-not-paid-ex321" target="_blank">
-              Find out more about recovering your money (opens in new window)
+            <a href="https://www.gov.uk/government/publications/third-party-debt-orders-and-charging-orders-ex325" target="_blank">
+              Find out more about asking for a third-party debt order
             </a>
           </li>
         </ul>

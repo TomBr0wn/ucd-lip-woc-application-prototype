@@ -17,15 +17,11 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Which court do you want to apply to?</h1>
+    <h1 class="govuk-heading-xl">Apply to the high court to collect your money</h1>
 
-    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['high-judgment-amount'] }}.</p>
-    
-    <p class="govuk-body">You can try to recover your money by applying to either:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>the high court – this is called a ‘writ of control’ application</li>
-      <li>the county court – this is called a ‘warrant of control’ application</li>
-    </ul>
+    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['mega-judgment-amount'] }}.</p>
+    <p class="govuk-body">You can apply to the high court to collect your money. This is called a 'writ of control' application. The application costs £71.</p>
+    <p class="govuk-body">The high court will try to recover your money, including the £71 court fee, by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a high court bailiff will visit them to try to collect the money or items to sell at auction.</p>
 
     
     {{ govukInsetText({

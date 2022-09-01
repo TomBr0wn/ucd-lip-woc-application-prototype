@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Home",
+  href: "claimant"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    {{ govukPanel({
+      titleText: "Application accepted
+      Your warrant of control number is:
+                          XXXXX",
+      html: "We have sent you a confirmation email."
+    }) }}
+    
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p class="govuk-body">The court will call {{ data['defendant-name'] }} and ask them for payment.</p>
+    <p class="govuk-body">If they do not pay, a bailiff may visit them up to 3 times in one year to try to recover your money. Your warrant of control expires after 1 year.</p>
+    <p class="govuk-body">If you receive any payments from {{ data['defendant-name'] }}, you must tell the court immediately.</p>
+    
+    <form action="is-manual-check-needed" method="post" class="form">
+      <div class="govuk-button-group">
+        {{ govukButton({
+        text: "Go to your account",
+        href: "claimant"
+         }) }}
+
+      </div>
+    </form>
+    {% include "includes/if-you-need-help.html" %}
+
+
+  </div>
+
+  <!-- <div class="govuk-grid-column-one-third">
+    
+    <div class="govuk-!-margin-bottom-6">
+      <div class="card-child">
+        <p class="card-child-smallest-text">Payment summary</p>
+        <p class="card-child-smallest-text">Amount to pay:</p>
+        <p class="card-child-smallest-text">£77.00</p>
+      </div>
+    </div>
+    
+  </div> -->
+</div>
+<p class="govuk-body govuk-!-display-none" >{{ data['judgement-amount'] }}</p>
+<p class="govuk-body govuk-!-display-none">{{ data['recovery-amount'] }}</p>
+
+{% endblock %}

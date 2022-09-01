@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "check-your-answers"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Statement of truth</h1>
+
+    <div class="govuk-form-group">
+      {{ govukCheckboxes({
+      idPrefix: "checked-and-submit",
+      name: "checked-and-submit",
+         
+      items: [
+        {
+          value: "details-correct",
+          html: "<p>I believe that the facts stated in this application are true.<br><br>
+            By submitting this application you’re confirming that, to the best of your knowledge, the information you’re providing is correct.
+          </p>"
+        }
+      ]
+      }) }}
+
+
+    </div>
+
+    {{ govukWarningText({
+      text: "Proceedings for contempt of court may be brought against anyone who makes, or causes to be made, a false statement verified by a statement of truth without an honest belief in its truth.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    {{ govukButton({
+      text: "Submit and continue",
+      href: "https://hmcts-pcq-ce-prototype.herokuapp.com/introduction"
+    }) }}
+
+    {% include "includes/contact-for-help.html" %}
+  </div>
+
+
+</div>
+
+{% endblock %}

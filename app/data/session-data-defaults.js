@@ -28,7 +28,7 @@ module.exports = {
   'recovery-amount': '0',
   'county-judgment-amount': '510',
   'high-judgment-amount': '2700',
-  'mega-judgment-amount': '600',
+  'mega-judgment-amount': '6000',
   'legal-fee': '2.25',
   
   'claimant-name': 'Jan Clark'

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "help-with-fees"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Judgment amount</h1>
+    <p class="govuk-body">The judgment will order the defendant to pay £1,200, including the claim fee and interest if applicable, as shown in this table:</p>
+    
+    {{ govukTable({
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Month you apply"
+        },
+        {
+          text: "Rate for vehicles"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "January"
+          },
+          {
+            text: "£95"
+          }
+        ],
+        [
+          {
+            text: "February"
+          },
+          {
+            text: "£55"
+          }
+        ],
+        [
+          {
+            text: "March"
+          },
+          {
+            text: "£125"
+          }
+        ]
+      ]
+    }) }}
+    
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    
+   
+    <ul class="govuk-list">
+      <li>
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Contact us for help</a>
+      </li>
+    </ul>
+    
+  </div>
+</div>
+
+{% endblock %}

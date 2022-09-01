@@ -4,6 +4,11 @@ const router = express.Router()
 // Routes files for URLs/folders
 router.use('/v1-1', require('./v1-1'))
 router.use('/v2-1', require('./v2-1'))
-router.use('/v3-1', require('./v3-1-1'))
+// 510
+router.use('/v3-1', require('./v3-1'))
+// 2700
+router.use('/v4-1', require('./v4-1'))
+// 6000
+router.use('/v5-1', require('./v5-1'))
 
 module.exports = router
