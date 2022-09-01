@@ -138,7 +138,7 @@ router.post("/is-recovery-greater-than-judgement", function(req, res) {
         res.redirect("errors/error-how-much-do-you-want-to-recover");
     }  else {
         // Send user to trade page
-        res.redirect("are-you-claiming-additional-costs");
+        res.redirect("defendant-address");
     }
 });
 
