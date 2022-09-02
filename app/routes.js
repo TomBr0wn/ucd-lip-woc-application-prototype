@@ -12,6 +12,7 @@ router.use('/v-510X', require('./v3-1X'))
 
 // 2700
 router.use('/v-2700', require('./v4-1'))
+router.use('/v-2700X', require('./v4-1X'))
 
 
 // 6000

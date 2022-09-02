@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block content %} {{ govukPhaseBanner({ tag: { text: "prototype" }, html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.' }) }} {{ govukBackLink({ text: "Back", href:
+"has-defendant-paid-any" }) }}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Does the judgment tell {{data['defendant-name'] }} to pay you back in instalments?</h1>
+        <p class="govuk-body">Check the judgment to see if they need to pay you back in installments, instead of in full. {{ outstandingBalance }}</p>
+        <p class="govuk-body">{{ outstandingBalance }}</p>
+        <!-- <ul class="govuk-list govuk-list--bullet">
+      <li>you’re on certain benefits</li>
+      <li>you have a little or no savings</li>
+      <li>you have low income</li>
+    </ul> -->
+
+        <form action="installments" method="post" class="form">
+            {{ govukRadios({ idPrefix: "pay-by-installments", name: "pay-by-installments", items: [ { value: "Yes", text: "Yes" }, { value: "No", text: "No" } ] }) }} {{ govukButton({ text: "Save and continue" }) }}
+        </form>
+
+        {% include "includes/contact-for-help.html" %}
+
+    </div>
+</div>
+
+{% endblock %}

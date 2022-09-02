@@ -20,6 +20,7 @@ router.post("/recovery-method", function(req, res) {
     }
     if (recoveryMethod == "warrant or writ") {
         // Send user to next page
+        // res.redirect("which-court-are-you-applying-to");
         res.redirect("has-defendant-paid-any");
     }
     if (recoveryMethod == "attachment earnings order") {
@@ -60,6 +61,26 @@ router.post("/paid-any", function(req, res) {
     // res.redirect("paying-installments");
 
 
+});
+
+///////////////////////////// WHICH COURT  ///////////////////////////////////
+
+router.post("/which-court", function(req, res) {
+    
+    var whichCourt = req.session.data["county-or-high-court"];
+    console.log(whichCourt);
+    // Check court
+    if (whichCourt == "writ of control") {
+        // Send user to next page
+        res.redirect("writ-of-control");
+    }
+    if (whichCourt == "warrant of control") {
+        // Send user to next page
+        res.redirect("help-with-fees");
+    } else {
+        // Send user to trade page
+        res.redirect("#");
+    }
 });
 
 
@@ -163,6 +184,7 @@ router.post("/check-address", function(req, res) {
     }
     if (knowAddress == "yes") {
         // Send user to next page
+        
         res.redirect("defendant-address-unknown");
     }
 });
@@ -203,7 +225,6 @@ router.post("/no-phone-number", function(req, res) {
     }
     if (noPhoneNumber == "Yes") {
         // Send user to next page
-        
         res.redirect("defendant-phone-number-unknown");
     }
 });
