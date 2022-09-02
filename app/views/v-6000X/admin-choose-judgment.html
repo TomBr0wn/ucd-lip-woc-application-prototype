@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{{ govukPhaseBanner({ 
+    tag: { text: "prototype" }, 
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.' 
+}) }}
+
+{{ govukBackLink({ 
+    text: "Back", 
+    href: "/" 
+}) }}
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Select Judgment journey amount</h1>
+        <!-- <p class="govuk-body"></p> -->
+
+        <p class="govuk-body">Pick one of the options below:</p>
+        <ul class="govuk-list govuk-!-margin-bottom-6">
+            <li>
+                <p class="govuk-body"><a class="govuk-link" href="../v3-1/510/apply-to-recover-your-money">Less than £600 in total - or up to £516 minus fees</a> (Hardcoded amount £510)</p>
+            </li>
+            
+            <li>
+                <p class="govuk-body"><a class="govuk-link" href="../v3-1/2700/apply-to-recover-your-money">Between £600 and £5,000 in total</a> (Hardcoded amount £2,700)</p>
+            </li>
+            <li>
+                <p class="govuk-body"><a class="govuk-link" href="../v3-1/6000/apply-to-recover-your-money">Greater than £5,000 in total</a> (Hardcoded amount £6,000)</p>
+            </li>
+        </ul>
+
+    </div>
+</div>
+
+
+{% endblock %}

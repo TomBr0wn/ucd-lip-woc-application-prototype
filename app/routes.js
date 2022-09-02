@@ -17,5 +17,6 @@ router.use('/v-2700X', require('./v4-1X'))
 
 // 6000
 router.use('/v-6000', require('./v5-1'))
+router.use('/v-6000X', require('./v5-1X'))
 
 module.exports = router
