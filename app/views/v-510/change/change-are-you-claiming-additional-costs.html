@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "../check-your-answers"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-xl">What additional costs have you paid? </h1>
+        <p class="govuk-body">The court needs to know any additional costs you’ve paid to process the claim. Include what the cost was for and the amount you paid.</p>
+        
+    <form action="../510/check-your-answers" method="post" class="form">
+      
+      {{ govukInput({
+        label: {
+          text: "What the cost was for?"
+        },
+        id: "additional-cost-item",
+        name: "additional-cost-item"
+      }) }}
+      
+      {{ govukInput({
+        id: "additional-cost-amount",
+        name: "additional-cost-amount",
+        label: {
+          text: "What is the amount you paid?"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+    </form>
+    
+    {% include "includes/contact-for-help.html" %}
+
+  </div>
+</div>
+
+{% endblock %}

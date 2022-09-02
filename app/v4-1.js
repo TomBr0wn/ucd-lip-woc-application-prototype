@@ -16,26 +16,26 @@ router.post("/recovery-method", function(req, res) {
     // Check whether recoveryMethod
     if (recoveryMethod == "charging order") {
         // Send user to next page
-        res.redirect("2700/charging-order");
+        res.redirect("charging-order");
     }
     if (recoveryMethod == "warrant or writ") {
         // Send user to next page
-        res.redirect("2700/which-court-are-you-applying-to");
+        res.redirect("which-court-are-you-applying-to");
     }
     if (recoveryMethod == "attachment earnings order") {
         // Send user to next page
-        res.redirect("2700/attachment-of-earnings-order");
+        res.redirect("attachment-of-earnings-order");
     }
     if (recoveryMethod == "third party debt") {
         // Send user to next page
-        res.redirect("2700/third-party-debt-order");
+        res.redirect("third-party-debt-order");
     }
     if (recoveryMethod != "charging order" || "warrant or writ" || "attachment earnings order" || "third party debt") {
         // Send user to next page
-        res.redirect("2700/errors/error-method-of-recovery");
+        res.redirect("errors/error-method-of-recovery");
     } else {
         // Send user to trade page
-        res.redirect("2700/help-with-fees");
+        res.redirect("help-with-fees");
     }
 });
 

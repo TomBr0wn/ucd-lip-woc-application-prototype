@@ -16,26 +16,26 @@ router.post("/recovery-method", function(req, res) {
     // Check whether recoveryMethod
     if (recoveryMethod == "charging order") {
         // Send user to next page
-        res.redirect("510/charging-order");
+        res.redirect("charging-order");
     }
     if (recoveryMethod == "warrant or writ") {
         // Send user to next page
-        res.redirect("510/which-court-are-you-applying-to");
+        res.redirect("which-court-are-you-applying-to");
     }
     if (recoveryMethod == "attachment earnings order") {
         // Send user to next page
-        res.redirect("510/attachment-of-earnings-order");
+        res.redirect("attachment-of-earnings-order");
     }
     if (recoveryMethod == "third party debt") {
         // Send user to next page
-        res.redirect("510/third-party-debt-order");
+        res.redirect("third-party-debt-order");
     }
     if (recoveryMethod != "charging order" || "warrant or writ" || "attachment earnings order" || "third party debt") {
         // Send user to next page
-        res.redirect("510/errors/error-method-of-recovery");
+        res.redirect("errors/error-method-of-recovery");
     } else {
         // Send user to trade page
-        res.redirect("510/help-with-fees");
+        res.redirect("help-with-fees");
     }
 });
 
@@ -47,11 +47,11 @@ router.post("/had-help-with-fees", function(req, res) {
     // Check whether feeHelp
     if (feeHelp == "No") {
         // Send user to next page
-        res.redirect("510/has-defendant-paid-any");
+        res.redirect("has-defendant-paid-any");
     }
     if (feeHelp == "Yes") {
         // Send user to next page
-        res.redirect("510/help-with-fees-yes");
+        res.redirect("help-with-fees-yes");
     } else {
         // Send user to trade page
         res.redirect("#");
@@ -67,11 +67,11 @@ router.post("/already-applied-for-hwf", function(req, res) {
     // Check whether alreadyAppliedHWF
     if (alreadyAppliedHWF == "No") {
         // Send user to next page
-        res.redirect("510/help-with-fees-information");
+        res.redirect("help-with-fees-information");
     }
     if (alreadyAppliedHWF == "Yes") {
         // Send user to next page
-        res.redirect("510/has-defendant-paid-any");
+        res.redirect("has-defendant-paid-any");
     } else {
         // Send user to trade page
         res.redirect("#");
@@ -93,7 +93,7 @@ router.post("/paid-any", function(req, res) {
     // document.getElementById("balance").innerHTML = outstandingBalance;
 
     // Send user to..
-    res.redirect("510/how-much-do-you-want-to-recover");
+    res.redirect("how-much-do-you-want-to-recover");
     // res.redirect("paying-installments");
 
 
@@ -108,11 +108,11 @@ router.post("/installments", function(req, res) {
     // Check whether installments
     if (payInstallments == "No") {
         // Send user to next page
-        res.redirect("510/how-much-do-you-want-to-recover");
+        res.redirect("how-much-do-you-want-to-recover");
     }
     if (payInstallments == "Yes") {
         // Send user to next pages
-        res.redirect("510/paying-installments-manual-check");
+        res.redirect("paying-installments-manual-check");
     } else {
         // Send user to trade page
         res.redirect("#");
@@ -131,14 +131,14 @@ router.post("/is-recovery-greater-than-judgement", function(req, res) {
     // Check whether feeHelp
     if (recoveryAmount > 5000) {
         // Send user to next page
-        res.redirect("510/cannot-apply-for-warrant-of-control");
+        res.redirect("cannot-apply-for-warrant-of-control");
     }
     if (recoveryAmount.toString == " ") {
         // Send user to next page
-        res.redirect("510/errors/error-how-much-do-you-want-to-recover");
+        res.redirect("errors/error-how-much-do-you-want-to-recover");
     }  else {
         // Send user to trade page
-        res.redirect("510/are-you-claiming-additional-costs");
+        res.redirect("are-you-claiming-additional-costs");
     }
 });
 
@@ -152,11 +152,11 @@ router.post("/check-address", function(req, res) {
     // Check whether feeHelp
     if (knowAddress == "no") {
         // Send user to next page
-        res.redirect("510/defendant-phone-number-none");
+        res.redirect("defendant-phone-number-none");
     }
     if (knowAddress == "yes") {
         // Send user to next page
-        res.redirect("510/defendant-address-unknown");
+        res.redirect("defendant-address-unknown");
     }
 });
 
@@ -169,11 +169,11 @@ router.post("/check-phone-number", function(req, res) {
     // Check whether feeHelp
     if (knowPhoneNum == "no") {
         // Send user to next page
-        res.redirect("510/defendant-phone-number-unknown");
+        res.redirect("defendant-phone-number-unknown");
     }
     if (knowPhoneNum == "yes") {
         // Send user to next page
-        res.redirect("510/bailiff-risk-assessment");
+        res.redirect("bailiff-risk-assessment");
     }
 });
 
@@ -192,12 +192,12 @@ router.post("/no-phone-number", function(req, res) {
     // Check whether feeHelp
     if (noPhoneNumber == "No") {
         // Send user to next page
-        res.redirect("510/bailiff-risk-assessment");
+        res.redirect("bailiff-risk-assessment");
     }
     if (noPhoneNumber == "Yes") {
         // Send user to next page
         
-        res.redirect("510/defendant-phone-number-unknown");
+        res.redirect("defendant-phone-number-unknown");
     }
 });
 
@@ -214,9 +214,9 @@ router.post("/is-manual-check-needed", function(req, res) {
     console.log(judgementAmount);
     console.log(recoveryAmount);
     if (recoveryAmount <= judgementAmount) {
-        res.redirect("510/manual-check-no");
+        res.redirect("manual-check-no");
     } else {
-        res.redirect("510/manual-check-yes");
+        res.redirect("manual-check-yes");
     }
 });
 

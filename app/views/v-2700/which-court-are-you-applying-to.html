@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "method-of-recovery"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Which court do you want to apply to?</h1>
+
+    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['high-judgment-amount'] }}.</p>
+    
+    <p class="govuk-body">You can try to recover your money by applying to either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the high court – this is called a ‘writ of control’ application</li>
+      <li>the county court – this is called a ‘warrant of control’ application</li>
+    </ul>
+
+    
+    <!---------------- APPLY TO HIGH COURT --------------->
+    <h2 class="govuk-heading-m">Applying to the high court</h2>
+    <p class="govuk-body">A writ of control application costs £71.</p>
+    
+    <p class="govuk-body">The high court will try to recover your money, including the £71 court fee, by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a high court bailiff will visit them to try to collect the money or items to sell at auction.</p>
+    
+    <p class="govuk-body">High court bailiffs work for private companies. <a class='govuk-link' href="https://ucd-lip-woc-apply-prototype.herokuapp.com/v1-1/choose-warrant-or-writ-of-control" target="_blank">They charge extra fees (opens in a new window)</a>. These fees are added to the total amount of money {{ data['defendant-name'] }} owes you. If the bailiff cannot get your money back, you’ll need to pay the fees.</p>
+    
+    <p class="govuk-body">A writ of control application costs £71.</p>
+    
+    {{ govukInsetText({
+      html: "
+        <p class='govuk-body govuk-!-text-align-left'>If you have a Consumer Credit Act claim, you cannot apply to the high court.</p>
+      "
+    }) }}
+    
+    <!---------------- APPLY TO COUNTY COURT --------------->
+    <h2 class="govuk-heading-m">Which court do you want to apply to?</h2>
+    <p class="govuk-body">A warrant of control application costs £83.</p>
+    
+    <p class="govuk-body">The county court will try to recover your money, including the £83 court fee, by giving  {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a county court bailiff will visit them to try to collect the money or items to sell at auction.</p>
+    
+    <p class="govuk-body">County court bailiffs work for the courts and charge no extra fees.</p>
+    
+    <p class="govuk-body govuk-!-margin-bottom-6">Court staff cannot tell you which option is more likely to get your money. You might be able to get free legal advice through a local law centre or <a class='govuk-link' href="https://www.citizensadvice.org.uk/" target="_blank">Citizens Advice (opens in a new window).</a>.</p>
+    
+    
+    
+    
+    <!------------------- HOW TO APPLY ------------------------>
+    <!-- <h2 class="govuk-heading-m">How to apply</h2>
+    <p class="govuk-body">Fill in a <a href="https://www.gov.uk/government/publications/form-no53-writ-of-control" target="_blank">
+        writ of control application form (opens in a new window)</a>.</p>
+    <p class="govuk-body">You can get help filling in the form at a Citizens Advice office.</p>
+    <p class="govuk-body">Send the form by post to:</p>
+    {{ govukInsetText({
+      html: "<p class='govuk-body govuk-!-text-align-left'>County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p>"
+    }) }} -->
+    
+    
+    <!------------------- HOW TO PAY ------------------------>
+    <!-- <h2 class="govuk-heading-m">How to pay</h2>
+
+    <p>You can either pay by:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>debit or credit card – HM Courts and Tribunals Service (HMCTS) will call or email you with details of how to pay</li>
+      <li>cheque or postal order – made payable to ‘HM courts and Tribunals Service’</li>
+    </ul> -->
+    
+    
+    <!----------- DETAILS COMPONENT ------------------>
+    <!-- {{ govukDetails({
+      summaryText: "Get help paying the fee",
+      html: "
+      
+      <p>You may be able to get help paying the fee if one or more of the following apply:</p>
+      <ul class='govuk-list govuk-list--bullet'>
+        <li>you’re on certain benefits</li>
+        <li>you have a little or no savings</li>
+        <li>you have low income</li>
+      </ul>
+      
+      <p>You can apply for this help online or by post.</p>
+      <p>If you apply for the help online, you’ll get a reference number. Include that reference number when you fill in the third-party debt order form.</p>
+      <p>If you want to apply for the help by post, you’ll need to send the Help with Fees and the third-party debt order application forms together.</p>
+      <p><a href='https://www.gov.uk/get-help-with-court-fees' class='govuk-link'>Find out more about applying for help with your fees</a>.</p>
+      "   
+    }) }} -->
+
+
+
+    <form action='help-with-fees' method='post' class='form'>
+      <p class="govuk-body">Select the court you’re applying to.</p>
+      <div class='govuk-form-group'>
+        {{ govukRadios({
+
+          idPrefix: "writ-or-warrant",
+          name: "writ-or-warrant",
+          
+          items: [
+            {
+              value: "writ of control",
+              text: "I want to apply for a writ of control for £71"
+            },
+            {
+              value: "warrant of control",
+              text: "I want to apply for a warrant of control for £83"
+            }
+          ]
+        }) }}
+  
+        <button class='govuk-button govuk-!-margin-top-6' data-module='govuk-button'>
+          Save and continue
+        </button>
+      </div>
+    </form>
+
+    {% include "includes/contact-for-help.html" %}
+
+  </div>
+
+  <!-- <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Guidance
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://www.gov.uk/government/publications/what-to-do-if-a-defendant-doesnt-pay-money-after-judgment-ex321/what-to-do-if-you-have-a-judgement-but-the-defendant-has-not-paid-ex321" target="_blank">
+              Find out more about recovering your money (opens in new window)
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div> -->
+</div>
+
+{% endblock %}
