@@ -1,0 +1,233 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "bailiff-risk-questions"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+
+    <!------------------ HELP WITH FEES  -------------------->
+
+    <h2 class="govuk-heading-m">Help with fees</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Do you need help paying the warrant of control fee?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['help-with-fees'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change/change-help-with-fees.html">
+            Change <span class="govuk-visually-hidden">Change</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Help with fees number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['help-with-fees-ref'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change <span class="govuk-visually-hidden">help with fees number</span>
+          </a>
+        </dd>
+      </div>
+      <!-- <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Vehicle features
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="govuk-list govuk-list--bullet">
+            {% for feature in data['vehicle-features'] %}
+            <li>{{ feature }}</li>
+            {% else %}
+            <li>No features selected</li>
+            {% endfor %}
+          </ul>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
+            Change <span class="govuk-visually-hidden">vehicle features</span>
+          </a>
+        </dd>
+      </div> -->
+    </dl>
+
+    <!------------------ ABOUT YOUR CLAIM  -------------------->
+
+    <h2 class="govuk-heading-m">About your claim</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Has {{ data['defendant-name'] }} already paid any of the money they owe?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['paid-already-amount'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change/change-has-defendant-paid-any">
+            Change <span class="govuk-visually-hidden">has defendant paid any</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How much do you want to try to recover?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['recovery-amount'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change/change-recovery-amount">
+            Change <span class="govuk-visually-hidden">How much do you want to try to recover</span>
+          </a>
+        </dd>
+      </div>
+      <!-- <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What additonal costs have you paid?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['additional-cost-amount'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change/change-are-you-claiming-additional-costs">
+            Change <span class="govuk-visually-hidden">What additonal costs have you paid?</span>
+          </a>
+        </dd>
+      </div> -->
+      <!-- <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Vehicle features
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <ul class="govuk-list govuk-list--bullet">
+            {% for feature in data['vehicle-features'] %}
+            <li>{{ feature }}</li>
+            {% else %}
+            <li>No features selected</li>
+            {% endfor %}
+          </ul>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
+            Change <span class="govuk-visually-hidden">vehicle features</span>
+          </a>
+        </dd>
+      </div> -->
+    </dl>
+
+    <!------------------ THEIR DETAILS  -------------------->
+    
+    {% set new_address = "" %}
+    
+    {% if data["pick-an-address"] != "" and data["defendant-address"] == "24 Acacia Drive, London, SW1 9HA"  %}
+      {% set new_address = data["pick-an-address"] %}
+    {% endif %}
+    
+    {{ data | log }}
+    
+    <h2 class="govuk-heading-m">Their details</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Is this the correct address for {{ data['defendant-name'] }}?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['pick-an-address'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change <span class="govuk-visually-hidden">is this the correct address for defendant</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Is this the correct phone number for {{ data['defendant-name'] }}?
+        </dt>
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['defendant-phone-number'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change <span class="govuk-visually-hidden">Is this the correct phone number for defendant</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+    
+    
+    
+    <!------------------ BAILIFF INFO  -------------------->
+
+    <h2 class="govuk-heading-m">Information for the bailiff</h2>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Potential risks to the bailiff
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['risks-to-bailiff'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change <span class="govuk-visually-hidden"> Potential risks to the bailiff</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key govuk-!-width-one-third">
+          Tell us any other information that might help the bailiff
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['bailiff-info'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="change/change-bailiff-risk-assessment">
+            Change <span class="govuk-visually-hidden">Tell us any other information that might help the bailiff</span>
+          </a>
+        </dd>
+      </div>
+    </dl>
+
+
+
+
+
+
+    {{ govukButton({
+      text: "Save and continue",
+      href: "statement-of-truth"
+    }) }}
+
+    {% include "includes/contact-for-help.html" %}
+  </div>
+
+</div>
+
+{% endblock %}

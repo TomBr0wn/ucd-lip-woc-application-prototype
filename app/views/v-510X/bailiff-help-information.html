@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "defendant-phone-number"
+}) }}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Tell us any other information that might help the bailiff (optional)</h1>
+    <!-- <p class="govuk-body">If the bailiff needs to visit {{ data['defendant-name'] }}, it’s helpful for them to know about any potential risks before entering their property.</p> -->
+
+    <p>It’s helpful for the bailiff to know about:</p>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-6">
+      <li>any valuable items at the property that could be sold at auction, like jewellery or a vehicle</li>
+      <li>any difficulties accessing the property</li>
+      <li>when {{ data['defendant-name'] }} is usually at their property</li>
+    </ul>
+
+    <form action="check-your-answers" method="post" class="form">
+      <div class="govuk-form-group">
+        
+            
+            
+            {% set amountHtml %}
+            {{ govukTextarea({
+              name: "bailiff-info",
+              id: "bailiff-info"
+            }) }}
+            {% endset -%}
+      
+            {{ govukTextarea({
+              name: "more-detail",
+              id: "more-detail",
+              label: {
+                html: "
+                <p>Provide details about any information that might help the bailiff.
+                Include details of any valuable items. For example the make, model and colour of a vehicle and where it’s usually parked.</p>
+                "
+              }
+            }) }}
+        
+            
+            <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Save and continue"
+              }) }}
+            </div>
+    </form>
+    
+    {% include "includes/contact-for-help.html" %}
+    
+  </div>
+</div>
+
+
+
+{% endblock %}

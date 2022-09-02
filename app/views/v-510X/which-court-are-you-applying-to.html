@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "method-of-recovery"
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Apply to the county court for a warrant of control</h1>
+
+    <p class="govuk-body">You can apply to the county court to collect your money. This is called a 'warrant of control' application.</p>
+
+
+    <p class="govuk-body">The court fee is £83 to apply. The court will try to recover the money you're owed, including the fee, by giving {{ data['defendant-name'] }} a deadline for payment.</p>
+
+    <p class="govuk-body">If they do not pay in time, a county court bailiff will visit them to try to collect either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>payment for the money you're owed</li>
+      <li>items of the same value to sell at auction</li>
+    </ul>
+
+
+
+
+
+    <form action='help-with-fees' method='post' class='form'>
+      <div class='govuk-form-group'>
+        <button class='govuk-button' data-module='govuk-button'>
+          Save and continue
+        </button>
+      </div>
+    </form>
+
+    {% include "includes/contact-for-help.html" %}
+
+  </div>
+
+  <!-- <div class="govuk-grid-column-one-third">
+
+    <aside class="app-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Guidance
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16">
+          <li>
+            <a href="https://www.gov.uk/government/publications/what-to-do-if-a-defendant-doesnt-pay-money-after-judgment-ex321/what-to-do-if-you-have-a-judgement-but-the-defendant-has-not-paid-ex321" target="_blank">
+              Find out more about recovering your money (opens in new window)
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div> -->
+</div>
+
+{% endblock %}

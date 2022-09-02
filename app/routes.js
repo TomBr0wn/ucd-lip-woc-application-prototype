@@ -8,6 +8,7 @@ router.use('/v2-1', require('./v2-1'))
 
 // 510
 router.use('/v-510', require('./v3-1'))
+router.use('/v-510X', require('./v3-1X'))
 
 // 2700
 router.use('/v-2700', require('./v4-1'))

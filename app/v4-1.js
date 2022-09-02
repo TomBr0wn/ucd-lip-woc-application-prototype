@@ -62,7 +62,7 @@ router.post("/had-help-with-fees", function(req, res) {
 //////// ALREADY HAD HELP WITH FEES ////////////////////////
 router.post("/already-applied-for-hwf", function(req, res) {
 
-    var alreadyAppliedHWF = req.session.data["needs-fee-help"];
+    var alreadyAppliedHWF = req.session.data["help-with-fees"];
     console.log(alreadyAppliedHWF);
     // Check whether alreadyAppliedHWF
     if (alreadyAppliedHWF == "No") {

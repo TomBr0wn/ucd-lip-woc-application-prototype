@@ -20,7 +20,7 @@ router.post("/recovery-method", function(req, res) {
     }
     if (recoveryMethod == "warrant or writ") {
         // Send user to next page
-        res.redirect("which-court-are-you-applying-to");
+        res.redirect("has-defendant-paid-any");
     }
     if (recoveryMethod == "attachment earnings order") {
         // Send user to next page
@@ -39,6 +39,30 @@ router.post("/recovery-method", function(req, res) {
     }
 });
 
+
+////////// HAS DEFENDANT PAID ANY ////////////////////////////////
+
+router.post("/paid-any", function(req, res) {
+    var feeHelp = req.session.data["paid-already-amount"];
+    var judgmentAmount = req.session.data["judgment-amount"];
+    var outstandingBalance = parseInt(judgmentAmount) - parseInt(feeHelp);
+    console.log(feeHelp);
+    console.log(judgmentAmount);
+    console.log(outstandingBalance, typeof outstandingBalance);
+
+    outstandingBalance = outstandingBalance.toString();
+    
+    req.session.data.outstandingBalance = outstandingBalance;
+    // document.getElementById("balance").innerHTML = outstandingBalance;
+
+    // Send user to..
+    res.redirect("which-court-are-you-applying-to");
+    // res.redirect("paying-installments");
+
+
+});
+
+
 // Run this code when a form is submitted to 'help-with-fees'
 router.post("/had-help-with-fees", function(req, res) {
     // Make a variable and give it the value from 'help-with-fees'
@@ -47,7 +71,7 @@ router.post("/had-help-with-fees", function(req, res) {
     // Check whether feeHelp
     if (feeHelp == "No") {
         // Send user to next page
-        res.redirect("has-defendant-paid-any");
+        res.redirect("how-much-do-you-want-to-recover");
     }
     if (feeHelp == "Yes") {
         // Send user to next page
@@ -71,33 +95,14 @@ router.post("/already-applied-for-hwf", function(req, res) {
     }
     if (alreadyAppliedHWF == "Yes") {
         // Send user to next page
-        res.redirect("has-defendant-paid-any");
+        res.redirect("how-much-do-you-want-to-recover");
     } else {
         // Send user to trade page
         res.redirect("#");
     }
 });
 
-////////// Outstanding balance ///////////////
-router.post("/paid-any", function(req, res) {
-    var feeHelp = req.session.data["paid-already-amount"];
-    var judgmentAmount = req.session.data["judgment-amount"];
-    var outstandingBalance = parseInt(judgmentAmount) - parseInt(feeHelp);
-    console.log(feeHelp);
-    console.log(judgmentAmount);
-    console.log(outstandingBalance, typeof outstandingBalance);
 
-    outstandingBalance = outstandingBalance.toString();
-    
-    req.session.data.outstandingBalance = outstandingBalance;
-    // document.getElementById("balance").innerHTML = outstandingBalance;
-
-    // Send user to..
-    res.redirect("how-much-do-you-want-to-recover");
-    // res.redirect("paying-installments");
-
-
-});
 
 
 ////////// CHECK IF TO PAY BY INSTALLMENTS ///////////////////
@@ -138,7 +143,7 @@ router.post("/is-recovery-greater-than-judgement", function(req, res) {
         res.redirect("errors/error-how-much-do-you-want-to-recover");
     }  else {
         // Send user to trade page
-        res.redirect("are-you-claiming-additional-costs");
+        res.redirect("defendant-address");
     }
 });
 
@@ -152,11 +157,11 @@ router.post("/check-address", function(req, res) {
     // Check whether feeHelp
     if (knowAddress == "no") {
         // Send user to next page
-        res.redirect("defendant-address-unknown");
+        res.redirect("defendant-phone-number-none");
     }
     if (knowAddress == "yes") {
         // Send user to next page
-        res.redirect("defendant-phone-number-none");
+        res.redirect("defendant-address-unknown");
     }
 });
 
@@ -196,6 +201,7 @@ router.post("/no-phone-number", function(req, res) {
     }
     if (noPhoneNumber == "Yes") {
         // Send user to next page
+        
         res.redirect("defendant-phone-number-unknown");
     }
 });

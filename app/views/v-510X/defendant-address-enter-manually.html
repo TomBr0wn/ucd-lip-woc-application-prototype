@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "defendant-address-unknown"
+}) }}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Enter {{ data['defendant-name'] }}’s address</h1>
+    <p class="govuk-body">It’s helpful to provide their address if you know it, so the court can check they have the correct address if a bailiff needs to visit them.</p>
+
+
+    <form action="defendant-address-manual-confirmed" method="post" class="form">
+      <div class="govuk-form-group">
+
+
+
+        {{ govukInput({
+              label: {
+                text: 'Address line 1'
+              },
+              id: "address-line-1",
+              name: "address-line-1",
+              autocomplete: "address-line1"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: 'Address line 2 (optional)'
+              },
+              id: "address-line-2",
+              name: "address-line-2",
+              autocomplete: "address-line2"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Town or city"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "address-town",
+              name: "address-town",
+              autocomplete: "address-level2"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "County (optional)"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "address-county",
+              name: "address-county"
+            }) }}
+
+        {{ govukInput({
+              label: {
+                text: "Postcode"
+              },
+              classes: "govuk-input--width-10",
+              id: "address-postcode",
+              name: "address-postcode",
+              autocomplete: "postal-code"
+            }) }}
+
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+        </div>
+    </form>
+
+    <!-- <p class="govuk-body"><a href="defendant-address-enter-manually" class="govuk-link">Enter address manually</a></p> -->
+  </div>
+</div>
+
+
+
+{% endblock %}

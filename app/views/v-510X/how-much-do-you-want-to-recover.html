@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{{ govukPhaseBanner({ 
+    tag: { text: "prototype" }, 
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.' 
+}) }}
+
+{{ govukBackLink({ 
+    text: "Back", 
+    href: "help-with-fees" 
+}) }}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">How much money are you applying to recover?</h1>
+        <p class="govuk-body">The outstanding balance on the judgment is £{{ data['county-judgment-amount'] }}.</p>
+
+
+
+        <!-- SEE LINE BELOW In Nunjucks 'set' is just how you set a variable -->
+        <!-- {% set outstandingBalance = data['judgment-amount'] - data['paid-already-amount'] %} -->
+
+        <details>
+            <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span>View balance breakdown</span></summary>
+            {{ govukTable({ 
+                firstCellIsHeader: false, 
+                classes: "govuk-!-margin-top-6", 
+                head: [ 
+                    { text: "Amount breakdown" }, 
+                    { text: "Amount" } 
+                ], 
+                rows: 
+                [ 
+                    [ 
+                        { text: "Judgment amount" }, 
+                        { text: data['judgment-amount'] } 
+                    ], 
+                    [ 
+                        { text: "Amount already paid" }, 
+                        { text: data['paid-already-amount'] } 
+                    ], 
+                    [ 
+                        { 
+                            text: "Outstanding balance",
+                            classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                        }, 
+                        {   
+                            
+                            text: data['outstandingBalance'],
+                            classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                        } 
+                    ] 
+                ] 
+            }) }}
+        </details>
+
+        <p class="govuk-body govuk-!-margin-top-6">You must apply to recover £{{ data['county-judgment-amount'] }}, unless you’re applying for a missed instalment.</p>
+        <!-- <ul class="govuk-list govuk-list--bullet">
+            <li>You must apply to recover [outstanding balance], unless you’re applying for a missed instalment. </li>
+            <li>claiming for the outstanding balance, plus any additional court fees you’ve paid to try to enforce your judgment</li>
+        </ul> -->
+
+        <!-- <p class="govuk-body">If you’re claiming for a land registry fee you’ll need to apply to recover the fee cost by filling in ___ (opens in a new window).</p> -->
+
+        <form action="is-recovery-greater-than-judgement" method="post" class="form">
+            {% set recoverInput %}
+            <div class="govuk-form-group">
+                <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="recovery-amount" name="recovery-amount" type="text" spellcheck="false" />
+                </div>
+            </div>
+            {% endset %}
+            
+            {% set landregInput %}
+            <div class="govuk-form-group">
+                <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-5" id="landreg-amount" name="landreg-amount" type="text" spellcheck="false" />
+                </div>
+            </div>
+            {% endset %}
+
+            <h3 class="govuk-heading-m govuk-!-margin-top-6">Total amount to try to recover</h3>
+            <div class="govuk-inset-text">The total amount to recover cannot be more than £5,000.</div>
+
+            {{ govukTable({ 
+                firstCellIsHeader: false, 
+                classes: "govuk-!-margin-top-6", 
+                head: [ 
+                { text: "Type of cost" }, 
+                { text: "Amount" } 
+                ], 
+                rows: [ 
+                    [ 
+                        { text: "Amount you're applying to recover" }, 
+                        { html: recoverInput | safe } 
+                    ],
+                    [ 
+                        { html:  '<p class="govuk-!-display-inline">Land regitry fee (optional).<br>Include a fee if Mary Richards is a farmer and you paid for an official search to find out about any agricultural charges against them.</p>' }, 
+                        { html: landregInput | safe } 
+                    ],  
+                    [ 
+                        { text: "Warrant of control fee" }, 
+                        { html:  '<p class="govuk-!-display-inline">£</p>' + data['woc-fee'] }  
+                    ],
+                    [ 
+                        { text: "Legal fee" }, 
+                        { html:  '<p class="govuk-!-display-inline">£</p>' + data['legal-fee'] } 
+                    ],  
+                    [ 
+                        { 
+                            text: "Total",
+                            classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                        },
+                        { 
+                            text: "£[amount to recover plus fee]",
+                            classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                        }
+                    ] 
+                ] 
+            }) }}
+
+            <div class="govuk-button-group">{{ govukButton({ text: "Save and continue" }) }}</div>
+        </form>
+
+        <!-- <div class="govuk-inset-text">The total amount to recover cannot be more than £5,000.</div> -->
+
+        {% include "includes/contact-for-help.html" %}
+    </div>
+</div>
+
+{% endblock %}
