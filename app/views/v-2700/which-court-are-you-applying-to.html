@@ -19,7 +19,7 @@
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Which court do you want to apply to?</h1>
 
-    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['high-judgment-amount'] }}.</p>
+    <!-- <p class="govuk-body">The outstanding balance on your judgment is £{{ data['high-judgment-amount'] }}.</p> -->
     
     <p class="govuk-body">You can try to recover your money by applying to either:</p>
     <ul class="govuk-list govuk-list--bullet">
@@ -32,27 +32,39 @@
     <h2 class="govuk-heading-m">Applying to the high court</h2>
     <p class="govuk-body">A writ of control application costs £71.</p>
     
-    <p class="govuk-body">The high court will try to recover your money, including the £71 court fee, by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a high court bailiff will visit them to try to collect the money or items to sell at auction.</p>
+    
+    <p class="govuk-body">The court will try to recover the money you're owed, including the fee,  by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a high court bailiff will visit them to try to collect either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>payment for the money you're owed</li>
+      <li>items of the same value to sell at auction</li>
+    </ul>
+    
     
     <p class="govuk-body">High court bailiffs work for private companies. <a class='govuk-link' href="https://ucd-lip-woc-apply-prototype.herokuapp.com/v1-1/choose-warrant-or-writ-of-control" target="_blank">They charge extra fees (opens in a new window)</a>. These fees are added to the total amount of money {{ data['defendant-name'] }} owes you. If the bailiff cannot get your money back, you’ll need to pay the fees.</p>
     
-    <p class="govuk-body">A writ of control application costs £71.</p>
     
-    {{ govukInsetText({
+    <!-- {{ govukInsetText({
       html: "
         <p class='govuk-body govuk-!-text-align-left'>If you have a Consumer Credit Act claim, you cannot apply to the high court.</p>
       "
-    }) }}
+    }) }} -->
     
     <!---------------- APPLY TO COUNTY COURT --------------->
-    <h2 class="govuk-heading-m">Which court do you want to apply to?</h2>
+    <h2 class="govuk-heading-m">Applying to the county court</h2>
     <p class="govuk-body">A warrant of control application costs £83.</p>
     
-    <p class="govuk-body">The county court will try to recover your money, including the £83 court fee, by giving  {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a county court bailiff will visit them to try to collect the money or items to sell at auction.</p>
+    <p class="govuk-body">The county court will try to recover the money you're owed, including the fee, by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a county court bailiff will visit them to try to collect either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>payment for the money you're owed</li>
+      <li>items of the same value to sell at auction</li>
+    </ul>
     
     <p class="govuk-body">County court bailiffs work for the courts and charge no extra fees.</p>
     
-    <p class="govuk-body govuk-!-margin-bottom-6">Court staff cannot tell you which option is more likely to get your money. You might be able to get free legal advice through a local law centre or <a class='govuk-link' href="https://www.citizensadvice.org.uk/" target="_blank">Citizens Advice (opens in a new window).</a>.</p>
+    <div class="govuk-inset-text">
+      <p class="govuk-body govuk-!-margin-bottom-6">Court staff cannot tell you which option is more likely to get your money. You might be able to get free legal advice through a local law centre or <a class='govuk-link' href="https://www.citizensadvice.org.uk/" target="_blank">Citizens Advice (opens in a new window).</a>.</p>
+    </div>
+    
     
     
     
@@ -110,11 +122,11 @@
           items: [
             {
               value: "writ of control",
-              text: "I want to apply for a writ of control for £71"
+              text: "I want to apply to the high court for a writ of control"
             },
             {
               value: "warrant of control",
-              text: "I want to apply for a warrant of control for £83"
+              text: "I want to apply to the county court for a warrant of control"
             }
           ]
         }) }}

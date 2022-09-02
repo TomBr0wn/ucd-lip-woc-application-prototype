@@ -17,20 +17,27 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Apply to the high court to collect your money</h1>
+    <h1 class="govuk-heading-xl">Apply to the high court for a writ of control</h1>
 
-    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['mega-judgment-amount'] }}.</p>
-    <p class="govuk-body">You can apply to the high court to collect your money. This is called a 'writ of control' application. The application costs £71.</p>
-    <p class="govuk-body">The high court will try to recover your money, including the £71 court fee, by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a high court bailiff will visit them to try to collect the money or items to sell at auction.</p>
+    <p class="govuk-body">You can apply to the high court to collect your money. This is called a 'writ of control' application.</p>
 
-    
-    {{ govukInsetText({
+
+    <p class="govuk-body">The court fee is £71 to apply. The court will try to recover the money you're owed, including the fee, by giving {{ data['defendant-name'] }} a deadline for payment.</p>
+
+    <p class="govuk-body">If they do not pay in time, a high court bailiff will visit them to try to collect either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>payment for the money you're owed</li>
+      <li>items of the same value to sell at auction</li>
+    </ul>
+
+
+    <!-- {{ govukInsetText({
       html: "<p class='govuk-body govuk-!-text-align-left'>
             If you have a Consumer Credit Act claim, you cannot apply to the high court. You'll need to 
             <a class='govuk-link' href='method-of-recovery'>select a different enforcement option</a>.</p>"
-    }) }}
-    
-    
+    }) }} -->
+
+
     <!------------------- HOW TO APPLY ------------------------>
     <h2 class="govuk-heading-m">How to apply</h2>
     <p class="govuk-body">Fill in a <a href="https://www.gov.uk/government/publications/form-no53-writ-of-control" target="_blank">
@@ -40,8 +47,8 @@
     {{ govukInsetText({
       html: "<p class='govuk-body govuk-!-text-align-left'>County Court Money Claims Centre<br>PO Box 527<br>Salford<br>M5 0BY</p>"
     }) }}
-    
-    
+
+
     <!------------------- HOW TO PAY ------------------------>
     <h2 class="govuk-heading-m">How to pay</h2>
 
@@ -50,8 +57,8 @@
       <li>debit or credit card – HM Courts and Tribunals Service (HMCTS) will call or email you with details of how to pay</li>
       <li>cheque or postal order – made payable to ‘HM courts and Tribunals Service’</li>
     </ul>
-    
-    
+
+
     <!----------- DETAILS COMPONENT ------------------>
     {{ govukDetails({
       summaryText: "Get help paying the fee",

@@ -192,11 +192,11 @@ router.post("/no-phone-number", function(req, res) {
     // Check whether feeHelp
     if (noPhoneNumber == "No") {
         // Send user to next page
-        res.redirect("defendant-phone-number-unknown");
+        res.redirect("bailiff-risk-assessment");
     }
     if (noPhoneNumber == "Yes") {
         // Send user to next page
-        res.redirect("bailiff-risk-assessment");
+        res.redirect("defendant-phone-number-unknown");
     }
 });
 

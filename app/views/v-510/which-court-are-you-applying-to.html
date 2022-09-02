@@ -17,12 +17,18 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Apply to the county court to collect your money</h1>
+    <h1 class="govuk-heading-xl">Apply to the county court for a warrant of control</h1>
 
-    <p class="govuk-body">The outstanding balance on your judgment is £{{ data['county-judgment-amount'] }}.</p>
-    <p class="govuk-body">You can apply to the county court to collect your money. This is called a ‘warrant of control’ application.</p>
-    <p class="govuk-body">The county court will try to recover your money by giving {{ data['defendant-name'] }} a deadline for payment. If they do not pay in time, a county court bailiff will visit to try to collect the money or items to sell
-      at auction.</p>
+    <p class="govuk-body">You can apply to the county court to collect your money. This is called a 'warrant of control' application.</p>
+
+
+    <p class="govuk-body">The court fee is £83 to apply. The court will try to recover the money you're owed, including the fee, by giving {{ data['defendant-name'] }} a deadline for payment.</p>
+
+    <p class="govuk-body">If they do not pay in time, a county court bailiff will visit them to try to collect either:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>payment for the money you're owed</li>
+      <li>items of the same value to sell at auction</li>
+    </ul>
 
 
 
