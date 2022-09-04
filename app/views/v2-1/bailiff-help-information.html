@@ -12,14 +12,14 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "defendant-phone-number"
+  href: "defendant-phone-number-none"
 }) }}
 
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Tell us any other information that might help the bailiff (optional)</h1>
+    <h1 class="govuk-heading-xl">Do you know any other information that might help the bailiff? (optional)</h1>
     <!-- <p class="govuk-body">If the bailiff needs to visit {{ data['defendant-name'] }}, it’s helpful for them to know about any potential risks before entering their property.</p> -->
 
     <p>It’s helpful for the bailiff to know about:</p>
@@ -29,6 +29,8 @@
       <li>when {{ data['defendant-name'] }} is usually at their property</li>
     </ul>
 
+    <p>Provide details about any information that might help the bailiff.</p>
+    
     <form action="check-your-answers" method="post" class="form">
       <div class="govuk-form-group">
         
@@ -44,11 +46,8 @@
             {{ govukTextarea({
               name: "more-detail",
               id: "more-detail",
-              label: {
-                html: "
-                <p>Provide details about any information that might help the bailiff.
-                Include details of any valuable items. For example the make, model and colour of a vehicle and where it’s usually parked.</p>
-                "
+              hint: {
+                text: "Include details of any valuable items. For example the make, model and colour of a vehicle and where it’s usually parked. "
               }
             }) }}
         

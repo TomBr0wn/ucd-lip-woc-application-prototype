@@ -8,7 +8,7 @@
 
 {{ govukBackLink({ 
     text: "Back", 
-    href: "help-with-fees" 
+    href: "has-defendant-paid-any" 
 }) }}
 
 <div class="govuk-grid-row">
@@ -55,13 +55,11 @@
             }) }}
         </details>
 
-        <p class="govuk-body govuk-!-margin-top-6">You must apply to recover £{{ data['county-judgment-amount'] }}, unless you’re applying for a missed instalment.</p>
-        <!-- <ul class="govuk-list govuk-list--bullet">
-            <li>You must apply to recover [outstanding balance], unless you’re applying for a missed instalment. </li>
-            <li>claiming for the outstanding balance, plus any additional court fees you’ve paid to try to enforce your judgment</li>
-        </ul> -->
+        <!-- <p class="govuk-body govuk-!-margin-top-6">You cannot apply to recover less than £{{ data['county-judgment-amount'] }}, unless you’re trying to recover a missed instalment.</p> -->
+        <h3 class="govuk-heading-m govuk-!-margin-top-6">Total amount to try to recover</h3>
+        <div class="govuk-inset-text">You cannot apply to recover less than £{{ data['county-judgment-amount'] }}, unless you’re trying to recover a missed instalment.</div>
 
-        <!-- <p class="govuk-body">If you’re claiming for a land registry fee you’ll need to apply to recover the fee cost by filling in ___ (opens in a new window).</p> -->
+       
 
         <form action="is-recovery-greater-than-judgement" method="post" class="form">
             {% set recoverInput %}
@@ -82,9 +80,8 @@
             </div>
             {% endset %}
 
-            <h3 class="govuk-heading-m govuk-!-margin-top-6">Total amount to try to recover</h3>
-            <div class="govuk-inset-text">The total amount to recover cannot be more than £5,000.</div>
-
+            
+            
             {{ govukTable({ 
                 firstCellIsHeader: false, 
                 classes: "govuk-!-margin-top-6", 
@@ -97,9 +94,14 @@
                         { text: "Amount you're applying to recover" }, 
                         { html: recoverInput | safe } 
                     ],
-                    [ 
-                        { html:  '<p class="govuk-!-display-inline">Land regitry fee (optional).<br>Include a fee if Mary Richards is a farmer and you paid for an official search to find out about any agricultural charges against them.</p>' }, 
-                        { html: landregInput | safe } 
+                    [   
+                        { html: "<p>Land registry fee (optional)</p><br>
+                            <div id='event-name-hint' class='govuk-hint'>
+                            Include a fee if Mary Richards is a farmer and you paid for an official search to find out about any agricultural charges against them.
+                            </div>   
+                        " 
+                        },
+                        { html: landregInput | safe }
                     ],  
                     [ 
                         { text: "Warrant of control fee" }, 
