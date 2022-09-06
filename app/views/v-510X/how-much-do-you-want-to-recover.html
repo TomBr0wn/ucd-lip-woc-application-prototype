@@ -34,7 +34,7 @@
                 [ 
                     [ 
                         { text: "Judgment amount" }, 
-                        { text: data['judgment-amount'] } 
+                        { text: data['county-judgment-amount'] } 
                     ], 
                     [ 
                         { text: "Amount already paid" }, 
@@ -47,7 +47,7 @@
                         }, 
                         {   
                             
-                            text: data['outstandingBalance'],
+                            text: (data['county-judgment-amount'] - data['paid-already-amount']),
                             classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                         } 
                     ] 
@@ -117,8 +117,10 @@
                             classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
                         },
                         { 
-                            text: "£[amount to recover plus fee]",
-                            classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                            { 
+                                text: data['total'],
+                                classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                            }
                         }
                     ] 
                 ] 

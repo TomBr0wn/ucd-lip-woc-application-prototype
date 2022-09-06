@@ -1,1 +1,86 @@
-v
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "prototype"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "defendant-phone-number-none"
+}) }}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Do you know about any potential risks to the bailiff?</h1>
+    <!-- <h1 class="govuk-heading-xl">Potential risks to the bailiff (optional)</h1> -->
+    <p class="govuk-body">If the bailiff needs to visit {{ data['defendant-name'] }}, it’s helpful for them to know about any potential risks before entering their property.</p>
+
+    <p>Risks about the property, or those living there, include any of the following:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>violent, threatening or verbally abusive behaviour</li>
+      <!-- <li>previous, or current, involvement with the police or social services</li> -->
+      <li>drug or alcohol abuse which may affect behaviour</li>
+      <li>potentially dangerous dogs or animals </li>
+    </ul>
+
+    <!-- <h2 class="govuk-heading-m">Do you know about any potential risks to the bailiff?</h2> -->
+
+    <form action="bailiff-help-information" method="post" class="form">
+      <div class="govuk-form-group">
+        
+            
+            
+            {% set amountHtml %}
+            {{ govukTextarea({
+              name: "bailiff-assess",
+              id: "bailiff-assess",
+              label: {
+                text: "Can you provide more detail? (Optional)"
+              }
+            }) }}
+            {% endset -%}
+      
+            {{ govukRadios({
+              idPrefix: "have more info",
+              name: "have more info",
+              
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes",
+                  conditional: {
+                    html: amountHtml
+                  }
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
+        
+            
+            <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Save and continue"
+              }) }}
+            </div>
+    </form>
+    
+    {% include "includes/contact-for-help.html" %}
+    
+  </div>
+</div>
+
+
+
+{% endblock %}

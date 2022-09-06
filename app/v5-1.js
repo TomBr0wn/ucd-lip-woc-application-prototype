@@ -81,21 +81,29 @@ router.post("/already-applied-for-hwf", function(req, res) {
 ////////// Outstanding balance ///////////////
 router.post("/paid-any", function(req, res) {
     var feeHelp = req.session.data["paid-already-amount"];
-    var judgmentAmount = req.session.data["judgment-amount"];
+    var judgmentAmount = req.session.data["mega-judgment-amount"];
     var outstandingBalance = parseInt(judgmentAmount) - parseInt(feeHelp);
     console.log(feeHelp);
     console.log(judgmentAmount);
     console.log(outstandingBalance, typeof outstandingBalance);
 
-    outstandingBalance = outstandingBalance.toString();
-    
-    req.session.data.outstandingBalance = outstandingBalance;
-    // document.getElementById("balance").innerHTML = outstandingBalance;
 
+    var warrantFee = 83;
+    var legalFee = 2.25;
+
+    // outstandingBalance = outstandingBalance.toString();
+    
+    req.session.data.outstandingBalance = parseInt(outstandingBalance);
+    req.session.data.warrantFee = warrantFee;
+    req.session.data.legalFee = legalFee;
+    req.session.data.feeHelp = feeHelp;
+    
+    var total = outstandingBalance + warrantFee + legalFee;
+    
+    req.session.data.total = total;
+    
     // Send user to..
     res.redirect("how-much-do-you-want-to-recover");
-    // res.redirect("paying-installments");
-
 
 });
 

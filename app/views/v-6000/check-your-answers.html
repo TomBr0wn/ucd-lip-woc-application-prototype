@@ -12,7 +12,7 @@
 
 {{ govukBackLink({
   text: "Back",
-  href: "bailiff-risk-questions"
+  href: "bailiff-help-information"
 }) }}
 
 <div class="govuk-grid-row">
@@ -52,25 +52,7 @@
           </a>
         </dd>
       </div>
-      <!-- <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Vehicle features
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <ul class="govuk-list govuk-list--bullet">
-            {% for feature in data['vehicle-features'] %}
-            <li>{{ feature }}</li>
-            {% else %}
-            <li>No features selected</li>
-            {% endfor %}
-          </ul>
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
-            Change <span class="govuk-visually-hidden">vehicle features</span>
-          </a>
-        </dd>
-      </div> -->
+      
     </dl>
 
     <!------------------ ABOUT YOUR CLAIM  -------------------->
@@ -104,38 +86,7 @@
           </a>
         </dd>
       </div>
-      <!-- <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          What additonal costs have you paid?
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['additional-cost-amount'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="change/change-are-you-claiming-additional-costs">
-            Change <span class="govuk-visually-hidden">What additonal costs have you paid?</span>
-          </a>
-        </dd>
-      </div> -->
-      <!-- <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Vehicle features
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <ul class="govuk-list govuk-list--bullet">
-            {% for feature in data['vehicle-features'] %}
-            <li>{{ feature }}</li>
-            {% else %}
-            <li>No features selected</li>
-            {% endfor %}
-          </ul>
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="/docs/examples/pass-data/vehicle-features">
-            Change <span class="govuk-visually-hidden">vehicle features</span>
-          </a>
-        </dd>
-      </div> -->
+      
     </dl>
 
     <!------------------ THEIR DETAILS  -------------------->
@@ -156,7 +107,7 @@
           Is this the correct address for {{ data['defendant-name'] }}?
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['defendant-address'] }}
+          {{ data['pick-an-address'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -192,7 +143,7 @@
           Potential risks to the bailiff
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['risks-to-bailiff'] }}
+          {{ data['bailiff-assess'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -205,7 +156,7 @@
           Tell us any other information that might help the bailiff
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['bailiff-info'] }}
+          {{ data['more-detail'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
