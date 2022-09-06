@@ -67,7 +67,7 @@ router.post("/paid-any", function(req, res) {
     req.session.data.total = total;
     
     // Send user to..
-    res.redirect("how-much-do-you-want-to-recover");
+    res.redirect("which-court-are-you-applying-to");
 
 });
 
