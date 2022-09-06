@@ -27,51 +27,38 @@
     </ul>
 
     <details>
-      <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span></span>View amount breakdown</summary>
-
-      {{ govukTable({
-        firstCellIsHeader: false,
-        classes: "govuk-!-margin-top-6",
-        head: [
-          {
-            text: "Amount breakdown"
-          },
-          {
-            text: "Amount"
-          }
-        ],
-        rows: [
-          [
-            {
-              text: "Judgment amount"
-            },
-            {
-              text: "£000"
-            }
-          ],
-          [
-            {
-              text: "Amount already paid"
-            },
-            {
-              text: "£000"
-            }
-          ],
-          [
-            {
-              text: "Outstanding balance",
-              classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-            },
-            {
-              text: "£000",
-              classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-            }
-          ]
-        ]
+      <summary class="govuk-!-margin-top-4 govuk-!-padding-bottom-2 govuk-!-font-size-19 govuk-link"><span>View balance breakdown</span></summary>
+      {{ govukTable({ 
+          firstCellIsHeader: false, 
+          classes: "govuk-!-margin-top-6", 
+          head: [ 
+              { text: "Amount breakdown" }, 
+              { text: "Amount" } 
+          ], 
+          rows: 
+          [ 
+              [ 
+                  { text: "Judgment amount" }, 
+                  { text: data['high-judgment-amount'] } 
+              ], 
+              [ 
+                  { text: "Amount already paid" }, 
+                  { text: data['paid-already-amount'] } 
+              ], 
+              [ 
+                  { 
+                      text: "Outstanding balance",
+                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                  }, 
+                  {   
+                      
+                      text: (data['high-judgment-amount'] - data['paid-already-amount']),
+                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                  } 
+              ] 
+          ] 
       }) }}
-
-
-    </details>
+  </details>
 
 
     <form action="../check-your-answers" method="post" class="form">
@@ -85,35 +72,46 @@
       {% endset %}
 
       {{ govukTable({ 
-          firstCellIsHeader: false, 
-          caption: "Total amount to try to recover", 
-          captionClasses: "govuk-table__caption--m", 
-          classes: "govuk-!-margin-top-6", 
-          head: [ 
-          { text: "Type of cost" }, 
-          { text: "Amount" } 
-          ], 
-          rows: [ 
-              [ 
-                  { text: "Amount to try to recover" }, 
-                  { html: recoverInput | safe } 
-              ], 
-              [ 
-                  { text: "Warrant of control fee" }, 
-                  { text: "£83" } 
-              ], 
-              [ 
-                  { 
-                      text: "Total",
-                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-                  },
-                  { 
-                      text: "£[amount to recover plus fee]",
-                      classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
-                  }
-              ] 
-          ] 
-      }) }}
+        firstCellIsHeader: false, 
+        classes: "govuk-!-margin-top-6", 
+        head: [ 
+        { text: "Type of cost" }, 
+        { text: "Amount" } 
+        ], 
+        rows: [ 
+            [ 
+                { text: "Amount you're applying to recover" }, 
+                { html: recoverInput | safe } 
+            ],
+            [   
+                { html: "<p>Land registry fee (optional)</p><br>
+                    <div id='event-name-hint' class='govuk-hint'>
+                    Include a fee if Mary Richards is a farmer and you paid for an official search to find out about any agricultural charges against them.
+                    </div>   
+                " 
+                },
+                { html: landregInput | safe }
+            ],  
+            [ 
+                { text: "Warrant of control fee" }, 
+                { html:  '<p class="govuk-!-display-inline">£</p>' + data['woc-fee'] }  
+            ],
+            [ 
+                { text: "Legal fee" }, 
+                { html:  '<p class="govuk-!-display-inline">£</p>' + data['legal-fee'] } 
+            ],  
+            [ 
+                { 
+                    text: "Total",
+                    classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                },
+                { 
+                    text: data['total'],
+                    classes: "govuk-!-font-weight-bold govuk-!-font-size-19"
+                }
+            ] 
+        ] 
+    }) }}
 
       <div class="govuk-button-group">{{ govukButton({ text: "Save and continue" }) }}</div>
   </form>

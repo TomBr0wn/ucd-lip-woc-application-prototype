@@ -22,6 +22,16 @@
         <!-- <p class="govuk-body">The balance outstanding on the judgment is £XXXX.</p> -->
         
     <form action="../check-your-answers" method="post" class="form">
+      
+      {% set paidAlreadyInputHtml %}
+      <div class='govuk-form-group'>
+        <label class="govuk-label" for="paid-already-amount">Enter the amount already paid</label>
+        <div class='govuk-input__wrapper'>
+          <div class='govuk-input__prefix' aria-hidden='true'>£</div>
+          <input class='govuk-input govuk-input--width-5' id='paid-already-amount' name='paid-already-amount' type='text' spellcheck='false'>
+        </div>
+      </div>
+      {% endset %}
 
       {% set amountHtml %}
       {{ govukInput({
@@ -35,22 +45,20 @@
       {% endset -%}
 
       {{ govukRadios({
-        idPrefix: "has paid",
-        name: "has paid",
+        idPrefix: "has-paid",
+        name: "has-paid",
         
         items: [
           {
             value: "Yes",
             text: "Yes",
-            checked: checked("defendant-paid-already", "Yes"),
             conditional: {
-              html: amountHtml
+              html: paidAlreadyInputHtml | safe
             }
           },
           {
             value: "No",
-            text: "No",
-            checked: checked("defendant-paid-already", "No")
+            text: "No"
           }
         ]
       }) }}
